@@ -16153,10 +16153,7 @@ background-color: #396252;
 footer {
   padding: 0.9375rem 0;
   text-align: center;
-  display: -webkit-flex;
-  /* Safari */
-  /* Safari 6.1+ */
-  display: flex;
+
 }
 
 footer ul {
