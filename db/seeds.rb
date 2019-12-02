@@ -4,6 +4,9 @@ require 'faker'
 User.destroy_all
 Event.destroy_all
 Article.destroy_all
+Tag.destroy_all
+JoinTagArticle.destroy_all
+JoinTagEvent.destroy_all
 puts "Last database destroy"
 
 10.times do
@@ -20,3 +23,18 @@ puts "10 events created"
 	Article.create!(title: Faker::Lorem.paragraph_by_chars(number: 10, supplemental: false),content: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),user_id: User.all.sample.id)
 end
 puts "10 articles created"
+
+10.times do
+	Tag.create!(name: Faker::Book.title)
+end
+puts "10 tags created"
+
+30.times do
+	JoinTagArticle.create!(article: Article.all.sample, tag: Tag.all.sample)
+end
+puts "30 links between tags and articles created"
+
+30.times do
+	JoinTagEvent.create!(event: Event.all.sample, tag: Tag.all.sample)
+end
+puts "30 links between tags and articles created"
