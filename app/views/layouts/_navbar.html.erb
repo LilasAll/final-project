@@ -27,19 +27,19 @@
 
                    <% if user_signed_in? %>
 
-                   <h1>test</h1>
-
-
+                    <li class="nav-item">
+                    <a <%= link_to "Je me deconnecte", destroy_user_session_path, method: "delete", class: "nav-link" %></a>
+                  </li>
                     <!--        Si l'user est PAS connecté affiche ça  -->
 
                     <%else%>
 
                   <li class="nav-item">
-                    <a href="#pablo" class="nav-link">
-                      <i class="far fa-user"></i> Mon compte
-                    </a>
+
+                    <a <%= link_to "Je me connecte", new_user_session_path, class: "nav-link" %></a>
+                    
                   </li>
-                  <% end -%>
+                  <% end %>
 
                 </ul>
               </div>
