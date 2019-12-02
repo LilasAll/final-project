@@ -48,7 +48,7 @@
           <div class="card-body">
             <h4 class="card-title">Des événements</h4>
             <p class="card-text">Sur [nom du site], tu peux rejoindre des évènements près de chez toi et en organiser.</p>
-            <a href="#0" class="btn btn-primary">Découvrir les événements</a>
+            <a class="btn btn-primary" <%= link_to "Découvrir les événements", events_path%></a>
           </div>
           <center>
             <img src="https://images.pexels.com/photos/3184177/pexels-photo-3184177.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="..." class="img-thumbnail" style="width: 300px">
@@ -58,7 +58,7 @@
             <p class="card-text">Sur [nom du site], tu peux poster des articles et profiter de ceux des autres. Le contenu d'un article? Laisse parler ton imagination ! <br/>
               Le but est de partager nos bons plans, nos connaissances, nos savoirs... Dans les domaines de l'écologie et de la solidarité. <br/>
             Le site est consu selon un principe inclusif et participatif : chacun est libre de participer à la communauté. On a tous quelque chose à apprendre des autres ! </p>
-            <a href="#0" class="btn btn-primary">Lire des articles</a>
+            <a href="/articles" class="btn btn-primary">Lire des articles</a>
           </div>
           <center>
             <img src="https://cdn.pixabay.com/photo/2015/04/27/15/01/vegetables-742095_960_720.jpg" alt="..." class="img-thumbnail" style="width: 300px">
@@ -164,9 +164,12 @@
       </div>
 
 
+
+
       </div>
     </div>
   </div>
+
 
 </body>
 

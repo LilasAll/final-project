@@ -1,2 +1,17 @@
-<h1>Events#indew</h1>
-<p>Find me in app/views/events/indew.html.erb</p>
+<h1>Les événements</h1>
+<% Event.all.each do |event| %>
+	<div class="card card-blog">
+	    <div class="card-header card-header-image">
+	            <img class="img" src="https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D">
+	            <div class="card-title">
+	                <%= @event.title %>
+	            </div>
+	    </div>
+	    <div class="card-body">
+	       	<h6 class="card-category text-info">[ tags ]</h6>
+	        <p class="card-description">
+	            <%= @event.description %>
+	        </p>
+	    </div>
+	</div>
+<%end%>
