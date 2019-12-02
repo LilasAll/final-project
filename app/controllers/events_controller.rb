@@ -29,6 +29,23 @@ class EventsController < ApplicationController
     	flash.now[:danger] = "Une erreur est survenue, veuillez réessayer"
     	render 'new' 
     end
-
   end
+
+  	def destroy
+
+  	@event= Event.find_by(id:params[:id])
+
+  	#après l'action de destruction, on renvoit à l'accueil
+  	if @event.destroy
+  		flash[:success] = "Evènement supprimé 👍"
+  		redirect_to "/"
+		end
+	end
+
+	def edit
+		@event = Event.find(params["id"])
+	end
+
+
+
 end
