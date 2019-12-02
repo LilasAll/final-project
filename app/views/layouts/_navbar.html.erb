@@ -19,7 +19,7 @@
               <a <%= link_to "Je me deconnecte", destroy_user_session_path, method: "delete", class: "nav-link" %></a>
             </li>
             <li class="nav-item">
-              <a <%= link_to "Mon Profil", new_article_path, class: "nav-link" %></a>
+              <a <%= link_to "Mon Profil", user_path(current_user.id), class: "nav-link" %></a>
             </li>
             <li class="nav-item">
               <a <%= link_to "Rediger un article", new_article_path, class: "nav-link" %></a>
