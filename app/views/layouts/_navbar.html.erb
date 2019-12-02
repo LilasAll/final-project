@@ -22,11 +22,25 @@
                   <li class="nav-item">
 
                   </li>
+
+                  <!--        Si l'user EST connecté affiche ça  -->
+
+                   <% if user_signed_in? %>
+
+                   <h1>test</h1>
+
+
+                    <!--        Si l'user est PAS connecté affiche ça  -->
+
+                    <%else%>
+
                   <li class="nav-item">
                     <a href="#pablo" class="nav-link">
                       <i class="far fa-user"></i> Mon compte
                     </a>
                   </li>
+                  <% end -%>
+
                 </ul>
               </div>
             </div>
