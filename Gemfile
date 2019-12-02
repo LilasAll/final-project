@@ -32,6 +32,9 @@ gem 'mailjet'
 
 gem 'rubocop'
 
+
+
+
 # GEM INSTALLED#==============================================
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
