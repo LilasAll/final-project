@@ -1,45 +1,39 @@
 <nav class="color01">
-  
   <!--        primary navbar  -->
-          <nav class="navbar navbar-expand-lg bg-primary color01">
-            <div class="container">
-              <div class="navbar-translate">
-                <a class="navbar-brand" href="/">THPLILLE</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="navbar-toggler-icon"></span>
-                  <span class="navbar-toggler-icon"></span>
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              </div>
-              <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-            
+  <nav class="navbar navbar-expand-lg bg-primary color01">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="/">THPLILLE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <!--        Si l'user EST connecté affiche ça  -->
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <a <%= link_to "Je me deconnecte", destroy_user_session_path, method: "delete", class: "nav-link" %></a>
+            </li>
+            <li class="nav-item">
+              <a <%= link_to "Rediger un article", new_article_path, class: "nav-link" %></a>
+            </li>
+            <li class="nav-item">
+              <a <%= link_to "Créer un évènement", new_article_path, class: "nav-link" %></a>
+            </li>
+          <!--        Si l'user est PAS connecté affiche ça  -->
+          <%else%>
+            <li class="nav-item">
+              <a <%= link_to "Je me connecte", new_user_session_path, class: "nav-link" %></a>           
+            </li>
+          <% end %>
 
-                  <!--        Si l'user EST connecté affiche ça  -->
-
-                   <% if user_signed_in? %>
-
-                    <li class="nav-item">
-                    <a <%= link_to "Je me deconnecte", destroy_user_session_path, method: "delete", class: "nav-link" %></a>
-                  </li>
-                    <li class="active nav-item">
-                    <a <%= link_to "Rediger un article", new_article_path %></a>
-                  </li>
-                    <!--        Si l'user est PAS connecté affiche ça  -->
-
-                    <%else%>
-
-                  <li class="nav-item">
-
-                    <a <%= link_to "Je me connecte", new_user_session_path, class: "nav-link" %></a>
-                    
-                  </li>
-                  <% end %>
-
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <!--        end primary navbar -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--        end primary navbar -->
 </nav>
