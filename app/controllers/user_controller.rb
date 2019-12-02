@@ -6,5 +6,9 @@ class UserController < ApplicationController
        @current_user = current_user
      else
       redirect_to "/"	
+
+    end
+
+  end
 	
 end

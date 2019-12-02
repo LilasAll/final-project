@@ -12,8 +12,8 @@ class ArticlesController < ApplicationController
 
 	def create
 
-		@article = Article.new(title: params[:title], content: params[:content], user_id: params['1'])
-		
+		@article = Article.new(title: params[:title], content: params[:content], author: current_user)
+		@article.author_id = @current_user.id
 
 				if @article.save
 			redirect_to '/'

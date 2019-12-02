@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2019_12_02_113233) do
     t.text "title"
     t.text "content"
     t.bigint "user_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
