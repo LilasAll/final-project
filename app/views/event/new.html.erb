@@ -45,6 +45,13 @@
       <p> (en cas d'achat de matériel, location de salle, etc</p>
       <%= text_field_tag :price %>
       <br /> <br />
+
+      <%= select_tag "tags", options_from_collection_for_select(Tag.all, "id", "name", multiple: true) %>
+      
+  
+      <%= file_field_tag :image_event %>
+
+      <br>
       
       <%= submit_tag "Create" %>
       <% end %>

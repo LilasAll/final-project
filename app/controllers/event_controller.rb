@@ -1,7 +1,9 @@
-class EventsController < ApplicationController
+class EventController < ApplicationController
 
 #pour n'autoriser que les users à aller sur la page secrète :
 	before_action :authenticate_user!, only: [:new]
+
+
 
 	def new
 	#permet de comprendre les erreurs du formaulaire new
@@ -18,7 +20,7 @@ class EventsController < ApplicationController
 
   def create
 
-	@event = Event.new(
+		@event = Event.new(
 			creator: current_user,
 			title: params[:title],
 			start_date: params[:start_date],
@@ -26,8 +28,13 @@ class EventsController < ApplicationController
 			description: params[:description],
 			price: params[:price],
 			location: params[:location],
+			image_event: params[:image_event]
 			)
+
 		@event.creator_id = @current_user.id
+		
+
+		puts @item.errors.full_messages
 
 		#si les bons paramètres sont là, on enregistre l'event
 		if @event.save
