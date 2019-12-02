@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'events/indew'
+  get 'events/show'
+  get 'events/create'
   devise_for :users
 
     root 'static#index'
