@@ -17,6 +17,6 @@ end
 puts "10 events created"
 
 10.times do
-	Article.create!(title: Faker::Book.title,content: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),user_id: User.all.sample.id)
+	Article.create!(title: Faker::Lorem.paragraph_by_chars(number: 10, supplemental: false),content: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),user_id: User.all.sample.id)
 end
 puts "10 articles created"
