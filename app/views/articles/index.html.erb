@@ -1,23 +1,24 @@
-<h1>Les articles</h1>
 <center>
+<br/>
+<h1>Tous nos articles : </h1>
 <div class="card-columns index-padding">
 <% Article.all.each do |article| %>
 <div class="card p-3 bg-info">
-    <div class="card-body">
-        <h5 class="card-category card-category-social">
-            <%= article.title %>
+    <div class="card-title title">
+        <h4 class="card-category title">
+            <%= article.title %></h4>
+        <h5 class="card-body">
+            <a href="#pablo"><%= article.content.first(100) %> [...]</a>
         </h5>
-        <h4 class="card-title">
-            <a href="#pablo"><%= article.content %></a>
-        </h4>
 
         <div class="card-stats">
             <div class="author">
+                <span><%= User.find(article.user_id).pseudo %></span>
                 <a href="#pablo">
                    <span><%= article.author.pseudo%></span>
                 </a>
             </div>
-           <div class="stats ml-auto">
+            <div class="stats ml-auto">
                 <i class="material-icons">favorite</i> 2.4K &#xB7;
             </div>
         </div>
