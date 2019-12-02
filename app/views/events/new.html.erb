@@ -1,13 +1,24 @@
-<html>
-  <body>
+<% if @event.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show m-4" role="alert">
+    <p><strong>Nous n'avons pas pu créer d'évenement pour la ou les raison(s) suivante(s) :</strong></p>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 
-  <div style="margin: 5%;" class = "d-flex justify-content-center" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-6 ml-auto mr-auto">
 
 
-
-
-    <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <%= form_tag url_for(action: 'create'), class: "form", method: "post" do %>
 
       <%= label_tag "Nom de l'évènement" %><br />
       <%= text_field_tag 'title' %>
@@ -30,7 +41,8 @@
       <%= text_field_tag :location %>
       <br /> <br /> 
 
-      <%= label_tag "Falcutatif : prix (en cas d'achat de matériel, location de salle, etc)" %><br />
+      <%= label_tag "Falcutatif : prix " %><br />
+      <p> (en cas d'achat de matériel, location de salle, etc</p>
       <%= text_field_tag :price %>
       <br /> <br />
       
@@ -39,7 +51,9 @@
       </div>
 
 
-  </body>
+</div>
+</div>
 
-</html>
+</div>
 
+</div>

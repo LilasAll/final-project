@@ -1,4 +1,14 @@
 class EventsController < ApplicationController
+
+#pour n'autoriser que les users à aller sur la page secrète :
+	before_action :authenticate_user!, only: [:new]
+
+	def new
+	#permet de comprendre les erreurs du formaulaire new
+		@event = Event.new
+	end
+
+
   def index
   	@events = Event.all
   end
@@ -23,7 +33,7 @@ class EventsController < ApplicationController
 		if @event.save
 			flash[:success] = "Evènement enregistré 👍"
 			#on renvoit à l'index
-			redirect_to event_path(@event.id)
+			redirect_to "/"
 		
 		else
     	#il manque qqchose ou il y a une erreur, on reste sur la page de création (view new)
