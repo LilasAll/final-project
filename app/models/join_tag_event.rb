@@ -1,0 +1,2 @@
+class JoinTagEvent < ApplicationRecord
+end
