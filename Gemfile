@@ -34,6 +34,8 @@ gem 'rubocop'
 
 gem 'font-awesome-sass'
 
+gem 'bootstrap-sass'
+
 
 # GEM INSTALLED#==============================================
 
