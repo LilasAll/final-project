@@ -11,12 +11,12 @@ class User < ApplicationRecord
 
   ## Validations : 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Veuillez entrer un email valide" }
-	validates :pseudo, presence: true, uniqueness:  true
+	#validates :pseudo, presence: true, uniqueness:  true
 	#validates :city, format: { with: /\A[a-zA-Z]+\z/,
   #  message: "La ville ne peut contenir que des lettres" }
-	validates :first_name, format: { with: /\A[a-zA-Z]+\z/,
-    message: "Le nom ne peut contenir que des lettres" }
-	validates :last_name, format: { with: /\A[a-zA-Z]+\z/,
-    message: "Le nom ne peut contenir que des lettres" }
-	validates :password, presence: true
+	#validates :first_name, format: { with: /\A[a-zA-Z]+\z/,
+   # message: "Le nom ne peut contenir que des lettres" }
+	#validates :last_name, format: { with: /\A[a-zA-Z]+\z/,
+   # message: "Le nom ne peut contenir que des lettres" }
+	#validates :password, presence: true
 end
