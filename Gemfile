@@ -32,9 +32,6 @@ gem 'mailjet'
 
 gem 'rubocop'
 
-gem 'font-awesome-sass'
-
-
 # GEM INSTALLED#==============================================
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
