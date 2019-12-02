@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_092346) do
+ActiveRecord::Schema.define(version: 2019_12_02_113233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,30 @@ ActiveRecord::Schema.define(version: 2019_12_02_092346) do
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_events_on_admin_id"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "join_tag_articles", force: :cascade do |t|
+    t.bigint "article_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_join_tag_articles_on_article_id"
+    t.index ["tag_id"], name: "index_join_tag_articles_on_tag_id"
+  end
+
+  create_table "join_tag_events", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_join_tag_events_on_event_id"
+    t.index ["tag_id"], name: "index_join_tag_events_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
