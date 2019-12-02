@@ -1,0 +1,28 @@
+<h1>Les articles</h1>
+<center>
+<div class="card-columns index-padding">
+<% Article.all.each do |article| %>
+<div class="card p-3 bg-info">
+    <div class="card-body">
+        <h5 class="card-category card-category-social">
+            <%= article.title %>
+        </h5>
+        <h4 class="card-title">
+            <a href="#pablo"><%= article.content %></a>
+        </h4>
+
+        <div class="card-stats">
+            <div class="author">
+                <a href="#pablo">
+                   <span>[ AUTHOR ARTICLE ]</span>
+                </a>
+            </div>
+           <div class="stats ml-auto">
+                <i class="material-icons">favorite</i> 2.4K &#xB7;
+            </div>
+        </div>
+    </div>
+</div>
+<%end%>
+</div>
+</center>
