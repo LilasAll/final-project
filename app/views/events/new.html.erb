@@ -1,2 +1,45 @@
-<h1>Events#create</h1>
-<p>Find me in app/views/events/create.html.erb</p>
+<html>
+  <body>
+
+
+  <div style="margin: 5%;" class = "d-flex justify-content-center" >
+
+
+
+
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+      <%= label_tag "Nom de l'évènement" %><br />
+      <%= text_field_tag 'title' %>
+      <br /> <br />
+
+      <%= label_tag 'Description' %><br />
+      <%= text_area_tag :description  %>
+      <br /> <br />
+
+            
+      <%= label_tag 'Date of the event' %><br />
+      <%= date_field_tag 'start_date'%>
+      <br /> <br /> 
+      
+      <%= label_tag 'Durée (en minutes)' %><br />
+      <%= text_field_tag :duration %>
+      <br /><br />
+
+      <%= label_tag 'Lieu' %><br/>
+      <%= text_field_tag :location %>
+      <br /> <br /> 
+
+      <%= label_tag "Falcutatif : prix (en cas d'achat de matériel, location de salle, etc)" %><br />
+      <%= text_field_tag :price %>
+      <br /> <br />
+      
+      <%= submit_tag "Create" %>
+      <% end %>
+      </div>
+
+
+  </body>
+
+</html>
+

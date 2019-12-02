@@ -15,7 +15,7 @@ end
 puts "10 users created"
 
 10.times do
-	Event.create!(start_date: Faker::Date.forward(days: 250),duration: rand(1..10)*5,title: Faker::Book.title,description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),location: Faker::Movies::LordOfTheRings.location, admin: User.all.sample)
+	Event.create!(start_date: Faker::Date.forward(days: 250),duration: rand(1..10)*5,title: Faker::Book.title,description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),location: Faker::Movies::LordOfTheRings.location, creator: User.all.sample)
 end
 puts "10 events created"
 

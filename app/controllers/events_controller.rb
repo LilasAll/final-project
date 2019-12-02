@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   def create
 
 	@event = Event.new(
-			admin: current_user,
+			creator: current_user,
 			title: params[:title],
 			start_date: params[:start_date],
 			duration: params[:duration],
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 			price: params[:price],
 			location: params[:location],
 			)
-		@event.admin_id = @current_user.id
+		@event.creator_id = @current_user.id
 
 		#si les bons paramètres sont là, on enregistre l'event
 		if @event.save
