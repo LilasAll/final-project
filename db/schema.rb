@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_113233) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_events_on_creator_id"
+
   end
 
   create_table "join_tag_articles", force: :cascade do |t|

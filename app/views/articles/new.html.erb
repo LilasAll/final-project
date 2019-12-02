@@ -1,0 +1,15 @@
+<h1>Rediger un article</h1>
+
+
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+ <%= label_tag 'Titre' %><br />
+      <%= text_field_tag 'title'%>
+      <br /> 
+      <%= label_tag 'Contenu' %><br />
+      <%= text_field_tag 'content'%>
+ <br />  
+
+
+<%end%>
+
