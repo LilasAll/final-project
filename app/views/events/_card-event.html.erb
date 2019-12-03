@@ -1,0 +1,119 @@
+
+<div class="container">
+  <div class= "card">
+    <div class="card-body"> 
+
+<!----------------------- Affichage de l'event ------------------------------>  
+
+
+      <h5 class="card-title"><%= @event.title %></h5>
+      <p class="card-text"> <%= @event.description %> </p>
+
+        <li class="list-group-item text-center"> <b> </b> <br/> le <%= @event.start_date.strftime("%d/%m/%Y at %H:%M") %></li>
+        <li class="list-group-item text-center"> <b> </b> <br/> <%= @event.duration %> minutes </li>
+        <li class="list-group-item text-center"> <b> </b> <br/> à <%= @event.location %></li>
+        <% if @event.price != nil %> 
+         <li class="list-group-item text-center"> <b> </b> <br/> <%= @event.price %> euros</li><%end%>
+
+        <!----------------------- Lien pour participer à l'event ---------------------------------->
+<!--------- (si on est pas déja sur la liste, pas admin et que la date n'est pas passée) -->
+        <li class="list-group-item text-center">
+          <div class="card-body">
+              <% if @event.attendances.find_by(user_id: current_user.id) == nil && (current_user != @event.creator) && (@event.start_date > Time.now) %>
+                <%= link_to "Subscribe !", new_event_attendance_path(@event), class: "btn btn-outline-success" %>
+              <% else %>
+                <p> It's your event ! </p>
+              <% end %>
+          </div>
+        </li>
+
+        <li class="card-footer list-group-item"> <small class="text-muted"> 
+        créé par : </small><%= @event.creator.first_name %> <%= @event.creator.last_name %> <small>le <%= @event.created_at%></small></li>
+
+      </div>
+
+
+<!-----------------------Voir les invités ----------------------->
+<div class = "container">
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+      Participants
+    </a>
+    <% if @attending_list != nil %>
+
+      <% @event.attendances.each do |attendance| %>          
+        <a class="list-group-item list-group-item-action"><%= attendance.user.first_name %></a>
+      <% end %>
+
+    <% else %>
+
+      <p> Pas encore de participants pour cet event ! </p>
+
+    <% end %>
+   
+</div>
+
+
+
+
+
+
+    </div>  
+  </div>
+</p>
+
+
+<!--------------------------- Actions proposées à l'admin --------------------->
+  <center>
+    <% if current_user == @event.creator %>
+
+      <a class="btn btn-outline-success my-2 my-sm-0" <%= link_to "Edit the event", edit_event_path(@event.id) %> </a> <br/>
+
+      <a class="btn btn-danger" <%= link_to 'Delete the event', event_path(@event), method: 'delete' %></a> <br/>
+      
+    <% end %>
+  </center>
+
+
+
+</p>
+
+  
+
+
+
+<h2>Les autres événements organisés par <%= @event.creator.pseudo%></h2>
+
+
+<% Event.all.each do |event| %>
+
+<div class="container">
+  <div class="container">
+    <div class="card-deck">
+      <div class="card-columns index-padding">
+
+  
+          <%= link_to event_path(event.id) do %>
+            <%= image_tag "https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D", class: "card-img-top" %>
+
+
+          <div class="card-body">
+            <h5 class="card-title"><%= event.title %></h5>
+            <p class="card-text">
+              <%= event.description %>
+            </p>
+            <p class="card-description"> <%= event.description %> </p>
+            <p class="card-text"><small class="text-muted">
+              <i class="fas fa-eye"></i><%= event.attendances.count %>
+              <i class="far fa-user"></i> <%= event.creator.email %> <br/></small>
+              < class="fas fa-calendar-alt"></i> <%= event.start_date.strftime( "\n le %d/%m/%Y à %H:%M") %> 
+            </p>
+          </div>  
+
+          <%end%>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>

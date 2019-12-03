@@ -1,0 +1,29 @@
+<h1>Les événements</h1>
+<center>
+<div class="card-columns index-padding">
+	<% Event.all.each do |event| %>
+		<div class="card p-3 card-blog">
+	    <div class="card-header card-header-image">
+	    	<%= link_to event_path(event.id) do %>
+   				<%= image_tag "https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D", class: "some css class here" %>
+				<% end %>
+
+	    	<div class="card-title">
+	        <%= event.title %>
+	   		</div>
+	    </div>
+
+	    <div class="card-body">
+
+	      <p class="card-description"> <%= event.description %> </p>
+	      <p class="card-text"><small class="text-muted">
+	      	<i class="fas fa-eye"></i>30
+	      	<i class="far fa-user"></i> <%= event.creator.email %> <br/></small>
+	      	<i class="fas fa-calendar-alt"></i> <%= event.start_date.strftime( "\n le %d/%m/%Y à %H:%M") %> 
+	      </p>
+      </div>
+	    </div>
+
+	<%end%>
+</div>
+</center>

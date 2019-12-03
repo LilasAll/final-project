@@ -12,9 +12,13 @@
  *
  *= require_tree .
  *= require_self
+
+
+ *= require main
+
+
  */
 
-/* CSS PERSONAL ADD */
-.index-padding {
-	padding: 100px;
-}
+/* AU DESSUS ON RELIE TOUS LES CSS */
+
+

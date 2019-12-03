@@ -38,3 +38,9 @@ puts "30 links between tags and articles created"
 	JoinTagEvent.create!(event: Event.all.sample, tag: Tag.all.sample)
 end
 puts "30 links between tags and articles created"
+
+20.times do
+	Attendance.create!(event: Event.all.sample, user: User.all.sample)
+end
+puts "20 attendances created"
+
