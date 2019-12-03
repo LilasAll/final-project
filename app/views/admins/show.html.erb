@@ -114,6 +114,7 @@
             <tbody>
              		<td><%= event.id %></td>
                 <td><%= event.title %></td>
+                <td><%= event.attendances.count %></td>
                 <td><span class="badge badge-success m-0">Approuvé</span></td>
                 <td>
               <a <%= link_to "X", event, method: :delete, data: { confirm: "Are you sure"} %>
