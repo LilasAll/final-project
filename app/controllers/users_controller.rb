@@ -15,8 +15,8 @@ class UsersController < ApplicationController
     @events = Event.all
 
 #on affiche les evenements où le current user est l'admin, même chose pour les articles
-  	@created_events = @events.where(creator_id: @current_user.id)
-  	@created_articles = @earticles.where(author: @current_user.id)
+  	#@created_events = @events.where(creator_id: @current_user.id)
+  	#@created_articles = @earticles.where(author: @current_user.id)
 
     @attendances = Attendance.all
 

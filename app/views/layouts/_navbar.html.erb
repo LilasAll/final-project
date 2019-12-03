@@ -28,6 +28,12 @@
             <li class="nav-item">
               <a <%= link_to "Créer un évènement", new_event_path, class: "nav-link" %></a>
             </li>
+            <% if current_user.is_admin == true %>
+
+             <li class="nav-item">
+              <a <%= link_to "Dashbord Admin",  admin_path(current_user.id), class: "nav-link" %></a>
+            </li>
+            <%end%>
           <!--        Si l'user est PAS connecté affiche ça  -->
           <%else%>
             <li class="nav-item">
