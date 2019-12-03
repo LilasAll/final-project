@@ -3,6 +3,8 @@
 <h1>Tous nos articles : </h1>
 <div class="card-columns index-padding">
 <% Article.all.each do |article| %>
+    <% if article.is_validated == true%>
+
 <%= link_to article_path(article.id) do %>
 <div class="card p-3 bg-info">
     <div class="card-title title">
@@ -21,6 +23,7 @@
         </div>
     </div>
 </div>
+<%end%>
 <%end%>
 <%end%>
 </div>

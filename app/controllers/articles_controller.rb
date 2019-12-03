@@ -37,4 +37,19 @@ class ArticlesController < ApplicationController
     Article.find(params[:id]).destroy
     redirect_to'/'
   end
+
+
+
+
+
+  def toggle_check
+    @article = Article.find(params[:article_id])
+    if @article.is_validated == false
+      @is_validated = @article.update(is_validated: true)
+    else
+      @is_validated = @article.update(is_validated: false)
+    end
+    redirect_to '/'
+  end
+
 end

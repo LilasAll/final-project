@@ -79,10 +79,11 @@
                     <td><%= article.title %></td>
                     <%if article.is_validated != false%>
                       <td><span class="badge badge-success m-0">Approuvé</span></td>
-                      <a><td>Déjà validé</td>
+                      <td>  <%= link_to "Ne pas accepter", :controller => :articles, :action => :toggle_check, article_id: article.id %>
+</td>
                     <%else%>
                       <td><span class="badge badge-danger m-0">Non approuvé</span></td>
-                      <td>Valider</td>
+                      <td><%= link_to "Accepter", :controller => :articles, :action => :toggle_check, article_id: article.id %></td>
                     <%end%>
                     <td>
                       <a <%= link_to "X", article, method: :delete, data: { confirm: "Are you sure"} %>
