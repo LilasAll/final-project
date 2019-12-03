@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   	resources :attendances 
   end
 
-  resources :users, only: %i[show index]
+
+  resources :users, only: [:show, :index]
+
 
 resources :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
