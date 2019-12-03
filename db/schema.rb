@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_151743) do
   create_table "articles", force: :cascade do |t|
     t.text "title"
     t.text "content"
+    t.boolean "is_validated", default: false
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
