@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 			location: params[:location],
 			)
 
-		@event.creator_id = current_user.id
+		# @event.creator_id = current_user.id
 		@event.image_event.attach(params[:image_event])		
 
 		#voir les détails dans la console :

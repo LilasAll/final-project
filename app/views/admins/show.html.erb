@@ -1,14 +1,61 @@
- <div class="main main-raised">
+<!--
+ =========================================================
+ * Material Kit - v2.0.6
+ =========================================================
+
+ * Product Page: https://www.creative-tim.com/product/material-kit
+ * Copyright 2019 Creative Tim (http://www.creative-tim.com)
+   Licensed under MIT (https://github.com/creativetimofficial/material-kit/blob/master/LICENSE.md)
+
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+</head>
+
+<body class="index-page sidebar-collapse">
+
+  <div >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+          <div class="brand">
+            <h1 style="margin: 100px;" class="title">Bonjour <%= current_user.pseudo%></h1>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- First card : presentation -->
+  <div class="main main-raised">
     <div class="section section-basic">
       <div class="container">
-      	   <div class="card card-nav-tabs text-center">
+<tr>
+      	    <% User.all.each do |user|%>
+        <td><%= user.pseudo %></td><br/>
+        <%end%>
+</tr>
+            </div>
+          </div>
+          <div class>
 
 
-<h1>Bonjour <%= current_user.pseudo%></h1>
+
+      </div>
+    </div>
+  </div>
 
 
+</body>
 
-</div>
-</div>
-</div>
-</div>
+</html>

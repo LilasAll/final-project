@@ -47,3 +47,4 @@ puts "30 links between tags and articles created"
 end
 puts "20 attendances created"
 
+@admin = User.create(pseudo:'admin', email:'admin@admin.com',password:'123456',first_name:'admin',is_admin:'true')

@@ -1,2 +1,47 @@
-<h1>Attendances#new</h1>
-<p>Find me in app/views/attendances/new.html.erb</p>
+<body>
+
+<!------------------ Formulaire de paiement ------------------------->
+<div class="card mb-4 shadow-sm d-flex"> <center>
+
+  <%= form_tag event_attendance_index_path do %>
+    <article> 
+
+<!-------------------- PARTIIPATION A UN EVENEMENT : PAIEMENT ------------>
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Enregistrement de votre</h4>
+      </div>
+
+
+
+      <div class="card-body">
+        <h2 class="card-title pricing-card-title"> 
+            <label class="amount">
+
+              <!-- Annonce du prix -->
+              <span><%= @event.price %> </span>
+            </label>
+            <small class="text-muted">euros</small>
+        </h2>
+            
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>For the following event : </li>
+            <li> <b> <%= @event.title %> </b> </li>
+            <li> <%= @event.description %> </li>
+            <li> created by <b><%= @event.admin.first_name %></b></li>
+          </ul>
+        </div>
+      </article> 
+
+    
+<!---------------------- Bouton "pay with card"    -->
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Event participation"
+          data-amount="@event.price"
+          data-locale="auto"></script>
+
+
+  <% end %>
+  
+</div> </center>
