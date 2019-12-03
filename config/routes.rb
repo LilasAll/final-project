@@ -7,10 +7,17 @@ Rails.application.routes.draw do
   resources :events do
   	resources :avatars, only: [:create]
   	resources :attendances 
+
+#Important pour l'admin !
+    collection do
+      get :toggle_check
+    end
   end
 
   resources :articles do
   	resources :avatars, only: [:create]
+
+    #Important pour l'admin !
     collection do
       get :toggle_check
     end

@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_151743) do
     t.string "title"
     t.text "description"
     t.string "location"
+    t.boolean "is_validated", default: false
     t.integer "price"
     t.bigint "creator_id"
     t.datetime "created_at", null: false

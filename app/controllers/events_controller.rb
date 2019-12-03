@@ -75,4 +75,15 @@ class EventsController < ApplicationController
     redirect_to root_path unless current_user.admin?
  end
 
+   def toggle_check
+    @event = Event.find(params[:event_id])
+    if @event.is_validated == false
+      @is_validated = @event.update(is_validated: true)
+    else
+      @is_validated = @event.update(is_validated: false)
+    end
+    redirect_to '/'
+  end
+
+
 end

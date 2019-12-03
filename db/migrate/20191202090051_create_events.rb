@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.string :location
-
+      t.boolean :is_validated, :default => false
       t.integer :price
 
       t.belongs_to :creator
