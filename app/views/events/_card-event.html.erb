@@ -4,7 +4,16 @@
     <div class="card-body"> 
 
 <!----------------------- Affichage de l'event ------------------------------>  
+      <div class="card-header card-header-image">
+        <%= link_to event_path(@event.id) do %>
+          <% if @event.image_event.attached? %>
+            <%= image_tag @event.image_event, :alt => "cat-pic" %>
 
+          <% else %>            
+            <%= image_tag "https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D", class: "some css class here" %>
+          <% end %>
+        <% end %>
+      </div>
 
       <h5 class="card-title"><%= @event.title %></h5>
       <p class="card-text"> <%= @event.description %> </p>
@@ -21,46 +30,47 @@
           <div class="card-body">
               <% if @event.attendances.find_by(user_id: current_user.id) == nil && (current_user != @event.creator) && (@event.start_date > Time.now) %>
                 <%= link_to "Subscribe !", new_event_attendance_path(@event), class: "btn btn-outline-success" %>
+
+              <%= button_to "subscribe", event_attendances_path(event_path(@event), :method => :post)%>
+
+
               <% else %>
                 <p> It's your event ! </p>
               <% end %>
           </div>
         </li>
 
-        <li class="card-footer list-group-item"> <small class="text-muted"> 
-        créé par : </small><%= @event.creator.first_name %> <%= @event.creator.last_name %> <small>le <%= @event.created_at%></small></li>
+        <div class="card-footer d-flex justify-content-between"> 
+          <li class= "list-group-item"><small class="text-muted"> 
+        créé par : </small><%= @event.creator.first_name %></li> 
+        <li class="list-group-item"> <%= @event.creator.last_name %> <small>
+          le <%= @event.created_at%></small></li>
+        </div>
 
       </div>
 
 
 <!-----------------------Voir les invités ----------------------->
-<div class = "container">
-  <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action active">
-      Participants
-    </a>
-    <% if @attending_list != nil %>
+      <div class = "container">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active">
+            Participants
+          </a>
+          <% if @attending_list != nil %>
 
-      <% @event.attendances.each do |attendance| %>          
-        <a class="list-group-item list-group-item-action"><%= attendance.user.first_name %></a>
-      <% end %>
+            <% @event.attendances.each do |attendance| %>          
+              <a class="list-group-item list-group-item-action"><%= attendance.user.first_name %></a>
+            <% end %>
 
-    <% else %>
+          <% else %>
 
-      <p> Pas encore de participants pour cet event ! </p>
+            <p> Pas encore de participants pour cet event ! </p>
 
-    <% end %>
-   
-</div>
-
-
-
-
-
-
+          <% end %>
+         
+      </div>
     </div>  
   </div>
-</p>
 
 
 <!--------------------------- Actions proposées à l'admin --------------------->
@@ -82,38 +92,39 @@
 
 
 
-<h2>Les autres événements organisés par <%= @event.creator.pseudo%></h2>
+<h2>Tous les événements organisés par <%= @event.creator.pseudo%> </h2>
 
+<div class="card-columns">
+  <% Event.all.each do |event| %>
+    <% if event.creator_id == @event.creator_id %>
+      <div class="card">
 
-<% Event.all.each do |event| %>
+        <%= link_to event_path(event.id) do %>
+          <% if @event.image_event.attached? %>
+            <%= image_tag @event.image_event, :alt => "cat-pic" %>
 
-<div class="container">
-  <div class="container">
-    <div class="card-deck">
-      <div class="card-columns index-padding">
-
-  
-          <%= link_to event_path(event.id) do %>
+          <% else %>            
             <%= image_tag "https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D", class: "card-img-top" %>
+          <% end %>
+        <% end %>
 
 
-          <div class="card-body">
-            <h5 class="card-title"><%= event.title %></h5>
-            <p class="card-text">
-              <%= event.description %>
-            </p>
-            <p class="card-description"> <%= event.description %> </p>
-            <p class="card-text"><small class="text-muted">
-              <i class="fas fa-eye"></i><%= event.attendances.count %>
-              <i class="far fa-user"></i> <%= event.creator.email %> <br/></small>
-              < class="fas fa-calendar-alt"></i> <%= event.start_date.strftime( "\n le %d/%m/%Y à %H:%M") %> 
-            </p>
-          </div>  
 
-          <%end%>
-          
-        </div>
+        <div class="card-body">
+
+          <h5 class="card-title"><%= event.title %></h5>
+          <p class="card-text">
+            <%= event.description %>
+          </p>
+          <p class="card-text"><small class="text-muted">
+            <i class="fas fa-eye"></i><%= event.attendances.count %>
+            <i class="far fa-user"></i> <%= event.creator.email %> <br/></small>
+            <i class="fas fa-calendar-alt"></i> <%= event.start_date.strftime( "\n le %d/%m/%Y à %H:%M") %> 
+          </p>
+
+        </div>  
       </div>
-    </div>
-  </div>
-<%end%>
+    <%end%>
+  <%end%>
+</div>
+

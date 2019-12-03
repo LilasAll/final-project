@@ -14,6 +14,9 @@ puts "Last database destroy"
 end
 puts "10 users created"
 
+User.create!(pseudo:'admin', email:'admin@yopmail.com',city: 'Lille', password:'123456',first_name:'adminfn',last_name: "adminln",is_admin:'true')
+puts "1 Admin created"
+
 10.times do
 	Event.create!(start_date: Faker::Date.forward(days: 250),duration: rand(1..10)*5,title: Faker::Book.title,description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),location: Faker::Movies::LordOfTheRings.location, creator: User.all.sample)
 end
