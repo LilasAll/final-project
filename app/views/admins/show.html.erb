@@ -12,6 +12,7 @@
 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
   </head>
@@ -30,8 +31,20 @@
           </div>
         </div>
       </div>
+
+              <div style="margin-top: 100px;" class="main main-raised">
+          <div class="section section-basic">
+            <div class=" container">
+
+             <h4 style="" ><span class="badge badge-pill badge-warning">Warning</span>
+Vous avez <%= Article.where(:is_validated => 'false').count%> article(s) à valider </h4>
+              </div>
+            </div>
+            <div class>
+            </div>
+          </div>
       <!-- First card : presentation -->
-      <div class="main main-raised">
+      <div style="margin-top: 100px" class="main main-raised">
         <div class="section section-basic">
           <div class="container">
             <table class="table table-hover">
