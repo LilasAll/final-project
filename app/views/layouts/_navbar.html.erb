@@ -1,10 +1,11 @@
+
 <nav class="color01">
   <!--        primary navbar  -->
   <nav class="navbar navbar-expand-lg bg-primary color01">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="/">THPLILLE</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation" data-target=".navbar collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
@@ -19,7 +20,7 @@
               <a <%= link_to "Je me deconnecte", destroy_user_session_path, method: "delete", class: "nav-link" %></a>
             </li>
             <li class="nav-item">
-              <a <%= link_to "Mon Profil", new_article_path, class: "nav-link" %></a>
+              <a <%= link_to "Mon Profil", user_path(current_user.id), class: "nav-link" %></a>
             </li>
             <li class="nav-item">
               <a <%= link_to "Rediger un article", new_article_path, class: "nav-link" %></a>
@@ -45,3 +46,7 @@
   </nav>
   <!--        end primary navbar -->
 </nav>
+
+
+
+

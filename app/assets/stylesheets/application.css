@@ -22,3 +22,14 @@
 /* AU DESSUS ON RELIE TOUS LES CSS */
 
 
+/* CSS PERSONAL ADD */
+.index-padding {
+	padding: 100px;
+}
+
+.content-field{
+
+	width: 50%;
+	height: 50%;
+}
+

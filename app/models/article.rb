@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
 
-	belongs_to :user
+  belongs_to :user
 
 	## Validations : 
 	validates :title, presence: true, length: { in: 10..100, message: "Le titre doit contenir entre 10 et 100 caractères."}
