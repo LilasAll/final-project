@@ -11,137 +11,123 @@
  =========================================================
 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
   </head>
   <%if current_user.is_admin != true%>
-
-      <%= render 'layouts/40'%>
-
-<%else%>
-<body class="index-page sidebar-collapse">
-    <div >
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
-            <div class="brand">
-              <h1 style="margin: 100px;" class="title">Bonjour <%= current_user.pseudo%></h1>
+    <%= render 'layouts/40'%>
+  <%else%>
+    <body class="index-page sidebar-collapse">
+      <div >
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+              <div class="brand">
+                <h1 style="margin: 100px;" class="title">Bonjour <%= current_user.pseudo%></h1>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- First card : presentation -->
-    <div class="main main-raised">
-      <div class="section section-basic">
-        <div class="container">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Pseudo</th>
-                <th>Supprimer</th>
-              </tr>
-            </thead>
-             <% User.all.each do |user|%>
-            <tbody>
-             		<td><%= user.id %></td>
-                <td><%= user.pseudo %></td>
-                <% if user.is_admin != true%>
-                <td>
-              <a <%= link_to "X", user, method: :delete, data: { confirm: "Are you sure"} %>
+      <!-- First card : presentation -->
+      <div class="main main-raised">
+        <div class="section section-basic">
+          <div class="container">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Pseudo</th>
+                  <th>Supprimer</th>
+                </tr>
+              </thead>
+              <% User.all.each do |user|%>
+                <tbody>
+                  <td><%= user.id %></td>
+                  <td><%= user.pseudo %></td>
+                  <% if user.is_admin != true%>
+                    <td>
+                      <a <%= link_to "X", user, method: :delete, data: { confirm: "Are you sure"} %>
 </a>
-            </td>
-                <%end%>
-              <%end%>
-            </tbody>
-          </table>
+                      </td>
+                    <%end%>
+                  <%end%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class>
+          </div>
         </div>
-      </div>
-      <div class>
-      </div>
-    </div>
-
         <div style="margin-top: 100px;" class="main main-raised">
-      <div class="section section-basic">
-        <div class="container">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NOM ARTICLE</th>
-                                <th>Status</th>
-
-                <th>Supprimer</th>
-              </tr>
-            </thead>
-             <% Article.all.each do |article|%>
-            <tbody>
-             		<td><%= article.id %></td>
-                <td><%= article.title %></td>
-                <%if article.is_validated != false%>
-                <td><span class="badge badge-success m-0">Approuvé</span></td>
-                		  <%else%>
-
-              <td><span class="badge badge-danger m-0">Non approuvé</span></td>
-              <%end%>
-                <td>
-                	
-              <a <%= link_to "X", article, method: :delete, data: { confirm: "Are you sure"} %>
+          <div class="section section-basic">
+            <div class="container">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>NOM ARTICLE</th>
+                    <th>Status</th>
+                    <th>Option</th>
+                    <th>Supprimer</th>
+                  </tr>
+                </thead>
+                <% Article.all.each do |article|%>
+                  <tbody>
+                    <td><%= article.id %></td>
+                    <td><%= article.title %></td>
+                    <%if article.is_validated != false%>
+                      <td><span class="badge badge-success m-0">Approuvé</span></td>
+                      <a><td>Déjà validé</td>
+                    <%else%>
+                      <td><span class="badge badge-danger m-0">Non approuvé</span></td>
+                      <td>Valider</td>
+                    <%end%>
+                    <td>
+                      <a <%= link_to "X", article, method: :delete, data: { confirm: "Are you sure"} %>
 							</a>
-							</td>	
-					
-            
-              <%end%>
-
-
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class>
-      </div>
-    </div>
-
-
-
-            <div style="margin-top: 100px;" class="main main-raised">
-      <div class="section section-basic">
-        <div class="container">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nom de l'event</th>
-                <th>Nombre de participant</th>
-                <th>Status</th>
-
-                <th>Supprimer</th>
-              </tr>
-            </thead>
-             <% Event.all.each do |event|%>
-            <tbody>
-             		<td><%= event.id %></td>
-                <td><%= event.title %></td>
-                <td><%= event.attendances.count %></td>
-                <td><span class="badge badge-success m-0">Approuvé</span></td>
-                <td>
-              <a <%= link_to "X", event, method: :delete, data: { confirm: "Are you sure"} %>
+                      </td>
+                    <%end%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class>
+            </div>
+          </div>
+          <div style="margin-top: 100px;" class="main main-raised">
+            <div class="section section-basic">
+              <div class="container">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nom de l'event</th>
+                      <th>Nombre de participant</th>
+                      <th>Status</th>
+                      <th>Supprimer</th>
+                    </tr>
+                  </thead>
+                  <% Event.all.each do |event|%>
+                    <tbody>
+                      <td><%= event.id %></td>
+                      <td><%= event.title %></td>
+                      <td><%= event.attendances.count %></td>
+                      <td><span class="badge badge-success m-0">Approuvé</span></td>
+                      <td>
+                        <a <%= link_to "X", event, method: :delete, data: { confirm: "Are you sure"} %>
 </a>
-            </td>
-              <%end%>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class>
-      </div>
-    </div>
-  </div>
-<%end%>
-  
-</body>
-</html>
+                        </td>
+                      <%end%>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      </body>
+    </html>
