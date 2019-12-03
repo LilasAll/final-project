@@ -10,7 +10,7 @@ JoinTagEvent.destroy_all
 puts "Last database destroy"
 
 10.times do
-	User.create!(email: "user#{rand(1..1000)}@yopmail.com",pseudo: Faker::Creature::Animal.name,city: Faker::Address.city,first_name: Faker::Name.first_name,last_name: Faker::Name.last_name,is_admin: false,password: "123456")
+	User.create!(email: "user#{rand(1..1000)}@yopmail.com",pseudo: "pseudo#{rand(1..100000)}",city: Faker::Address.city,first_name: Faker::Name.first_name,last_name: Faker::Name.last_name,is_admin: false,password: "123456")
 end
 puts "10 users created"
 
