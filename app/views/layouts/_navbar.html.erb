@@ -4,9 +4,9 @@
   <nav class="navbar navbar-expand-lg bg-primary color01">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="/">THPLILLE</a>
+        <a class="navbar-brand" href="/">SYNERGIE URBAINE</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation" data-target=".navbar collapse">
-          <span class="sr-only">Toggle navigation</span>
+          <span class="sr-only">SYNERGIE URBAINE</span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
@@ -28,12 +28,6 @@
             <li class="nav-item">
               <a <%= link_to "Créer un évènement", new_event_path, class: "nav-link" %></a>
             </li>
-            <% if current_user.is_admin == true %>
-
-             <li class="nav-item">
-              <a <%= link_to "Dashbord Admin",  admin_path(current_user.id), class: "nav-link" %></a>
-            </li>
-            <%end%>
           <!--        Si l'user est PAS connecté affiche ça  -->
           <%else%>
             <li class="nav-item">
