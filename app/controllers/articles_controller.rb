@@ -32,4 +32,9 @@ class ArticlesController < ApplicationController
     	render 'new' 
     end
 	end
+
+	  def destroy
+    Article.find(params[:id]).destroy
+    redirect_to'/'
+  end
 end
