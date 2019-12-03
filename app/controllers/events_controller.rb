@@ -38,7 +38,7 @@ class EventsController < ApplicationController
 			)
 
 		@event.creator_id = current_user.id
-		#@item.image_event.attach(params[:image_event])		
+		@event.image_event.attach(params[:image_event])		
 
 		#voir les détails dans la console :
 		puts @event.errors.full_messages
