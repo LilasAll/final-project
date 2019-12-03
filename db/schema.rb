@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2019_12_02_151743) do
   create_table "articles", force: :cascade do |t|
     t.text "title"
     t.text "content"
-    t.bigint "user_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_articles_on_user_id"
+    t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
   create_table "attendances", force: :cascade do |t|
