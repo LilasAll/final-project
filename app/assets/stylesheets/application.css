@@ -24,6 +24,16 @@
 
 /* CSS PERSONAL ADD */
 
+.article-show {
+	padding: 30px;
+	width: 50%;
+}
+
+.article-card {
+	display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
 
 .index-padding {
 	padding: 100px;

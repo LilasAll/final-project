@@ -1,0 +1,12 @@
+<div class="article-card">
+<div class="card card-nav-tabs article-show">
+  <div class="card-header card-header-warning">
+    <%= @article.title %>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @article.content %></p>
+    <p class="card-text">Ecrit le : <%= @article.created_at %></p>
+    <a class="btn btn-primary" <% link_to "Par : #{@article.author}",  user_path(User.where(user_id: @author_id) %></a>
+  </div>
+</div>
+</div>
