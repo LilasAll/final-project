@@ -8,31 +8,11 @@ class AttendancesController < ApplicationController
 	def new
 		@attendance = Attendance.new
 		@event = Event.find(params[:event_id])
-		puts "$" * 80
-		puts @event.price
 	end
 
 	def create
 		#on indique quel est l'evenement qui correspond
-		@event = Event.find(params[:event_id])
-
-	 # POUR INTEGRER STRIPE :
-	   # Amount in cents
-	 #  @amount = @event.price * 100
-
-		# #creation d'un client en 2 paramètres
-	 #  customer = Stripe::Customer.create({
-	 #    email: params[:stripeEmail],
-	 #    source: params[:stripeToken], #stripetoken représente la méthode de paiement
-	 #  })
-
-	 #  #création de la participations
-	 #  charge = Stripe::Charge.create({
-	 #    customer: customer.id,
-	 #    amount: @amount,
-	 #    description: 'Rails Stripe customer',
-	 #    currency: 'eur',
-	 #  })
+		@event = Event.find(id: params[:event_id])
 
 	  
 
