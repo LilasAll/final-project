@@ -12,7 +12,6 @@
 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
   </head>
@@ -31,34 +30,34 @@
           </div>
         </div>
       </div>
-
-              <div style="margin-top: 100px;" class="main main-raised">
-          <div class="section section-basic">
-            <div class=" container">
-              <%if Article.where(:is_validated => 'false').count == 0%>
+      <div style="margin-top: 100px;" class="main main-raised">
+        <div class="section section-basic">
+          <div class=" container">
+            <!-- Ici nous savons combien d'articles nous avons à valider avec un  if-->
+            <%if Article.where(:is_validated => 'false').count == 0%>
               <h4 style="" ><span class="badge badge-pill badge-success">Success</span>
-              Vous n'avez aucun article à valider </h4>
-              <%else%>
-             <h4 style="" ><span class="badge badge-pill badge-warning">Warning</span>
-              Vous avez <%= Article.where(:is_validated => 'false').count%> article(s) à valider </h4>
-              <%end%>
-              <%if Event.where(:is_validated => 'false').count == 0%>
+                Vous n'avez aucun article à valider </h4>
+            <%else%>
+              <h4 style="" ><span class="badge badge-pill badge-warning">Warning</span>
+                Vous avez <%= Article.where(:is_validated => 'false').count%> article(s) à valider </h4>
+            <%end%>
+            <%if Event.where(:is_validated => 'false').count == 0%>
               <h4 style="" ><span class="badge badge-pill badge-success">Success</span>
-              Vous n'avez aucun évenement à valider </h4>
-              <%else%>
-             <h4 style="" ><span class="badge badge-pill badge-warning">Warning</span>
-              Vous avez <%= Event.where(:is_validated => 'false').count%> évenement(s) à valider </h4>
-              <%end%>
-              </div>
-            </div>
-            <div class>
-            </div>
+                Vous n'avez aucun évenement à valider </h4>
+            <%else%>
+              <h4 style="" ><span class="badge badge-pill badge-warning">Warning</span>
+                Vous avez <%= Event.where(:is_validated => 'false').count%> évenement(s) à valider </h4>
+            <%end%>
           </div>
+        </div>
+        <div class>
+        </div>
+      </div>
       <!-- First card : presentation -->
       <div style="margin-top: 100px" class="main main-raised">
         <div class="section section-basic">
           <div class="container">
-          <h2 style="text-align: center; margin: 50px;" >Utilisateurs</h2>
+            <h2 style="text-align: center; margin: 50px;" >Utilisateurs</h2>
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -106,7 +105,7 @@
                     <%if article.is_validated != false%>
                       <td><span class="badge badge-success m-0">Approuvé</span></td>
                       <td>  <%= link_to "Ne pas accepter", :controller => :articles, :action => :toggle_check, article_id: article.id %>
-</td>
+                      </td>
                     <%else%>
                       <td><span class="badge badge-danger m-0">Non approuvé</span></td>
                       <td><%= link_to "Accepter", :controller => :articles, :action => :toggle_check, article_id: article.id %></td>
@@ -126,7 +125,7 @@
           <div style="margin-top: 100px;" class="main main-raised">
             <div class="section section-basic">
               <div class="container">
-              <h2 style="text-align: center; margin: 50px;" >Evenements</h2>
+                <h2 style="text-align: center; margin: 50px;" >Evenements</h2>
                 <table class="table table-hover">
                   <thead>
                     <tr>
@@ -141,17 +140,14 @@
                   <% Event.all.each do |event|%>
                     <tbody>
                       <td><%= event.id %></td>
-                      
                       <td> <%= link_to  event.title , event_path(event.id) %></td>
-                      
                       <td><%= event.attendances.count %></td>
                       <%if event.is_validated != false%>
-                      <td><span class="badge badge-success m-0">Approuvé</span></td>
-                      <td><%= link_to "Ne pas accepter", :controller => :events, :action => :toggle_check, event_id: event.id %></td>
-
+                        <td><span class="badge badge-success m-0">Approuvé</span></td>
+                        <td><%= link_to "Ne pas accepter", :controller => :events, :action => :toggle_check, event_id: event.id %></td>
                       <%else%>
-                      <td><span class="badge badge-danger m-0">Non approuvé</span></td>
-                      <td><%= link_to "Accepter", :controller => :events, :action => :toggle_check, event_id: event.id %></td>
+                        <td><span class="badge badge-danger m-0">Non approuvé</span></td>
+                        <td><%= link_to "Accepter", :controller => :events, :action => :toggle_check, event_id: event.id %></td>
                       <%end%>
                       <td>
                         <a <%= link_to "X", event, method: :delete, data: { confirm: "Are you sure"} %>
