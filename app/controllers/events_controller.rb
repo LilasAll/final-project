@@ -21,6 +21,12 @@ class EventsController < ApplicationController
 			puts "*"*100
 			puts params
 			@attending_list = @event.attendances #liste des participants
+<<<<<<< HEAD
+=======
+
+    # on ne montre les events qu'à ceux qui sont connectés :
+
+>>>>>>> master
 
     # ceux qui ne sont pas connectés sont renvoyés à la page login
     else
@@ -30,6 +36,7 @@ class EventsController < ApplicationController
   end
 
   def create
+
     @event = Event.new(
       creator: current_user,
       title: params[:title],
@@ -89,6 +96,7 @@ class EventsController < ApplicationController
     redirect_to root_path unless current_user.admin?
  end
 
+#Pour l'admin pour valider les events
   def toggle_check
     @event = Event.find(params[:event_id])
     @is_validated = if @event.is_validated == false
@@ -97,8 +105,26 @@ class EventsController < ApplicationController
                       @event.update(is_validated: false)
                     end
     redirect_to '/'
+<<<<<<< HEAD
+=======
+
+  end
+>>>>>>> master
 
   end
 
 
+<<<<<<< HEAD
+=======
+
+
+ private
+
+ def post_params
+
+ 	params.require(:post).permit(:author, :content, :all_tags)
+ 	
+ end
+
+>>>>>>> master
 end
