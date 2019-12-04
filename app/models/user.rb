@@ -21,4 +21,13 @@ class User < ApplicationRecord
 	#validates :last_name, format: { with: /\A[a-zA-Z]+\z/,
    # message: "Le nom ne peut contenir que des lettres" }
 	#validates :password, presence: true
+
+
+#------------------------------- Mailer --------------------------
+  #after_create :welcome_send
+
+  #def welcome_send
+  #  UserMailer.welcome_email(self).deliver_now
+  #end
+  
 end
