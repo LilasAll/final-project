@@ -20,18 +20,21 @@ RSpec.describe User, type: :model do
       it { expect(@user).to validate_presence_of(:email) }
     end
 
+
     describe '#pseudo' do
       it { expect(@user).to validate_presence_of(:pseudo) }
     end
 
     describe '#first_name' do
       it { expect(@user).to validate_presence_of(:first_name) }
+
     end
   end
 
   context 'associations' do
     describe 'some association' do
       it { expect(@user).to have_many(:events) }
+      it { expect(@user).to have_many(:articles) }
     end
   end
 
