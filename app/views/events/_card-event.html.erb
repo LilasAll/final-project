@@ -73,7 +73,7 @@
   </div>
 
 
-<!--------------------------- Actions proposées à l'admin --------------------->
+<!--------------------------- Actions proposées au créateur --------------------->
   <center>
     <% if current_user == @event.creator %>
 
@@ -96,6 +96,8 @@
 
 <div class="card-columns">
   <% Event.all.each do |event| %>
+      <% if event.is_validated == true%>
+
     <% if event.creator_id == @event.creator_id %>
       <div class="card">
 
@@ -125,6 +127,7 @@
         </div>  
       </div>
     <%end%>
+  <%end%>
   <%end%>
 </div>
 

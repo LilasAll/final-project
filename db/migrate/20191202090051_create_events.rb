@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateEvents < ActiveRecord::Migration[5.2]
   def change
     create_table :events do |t|
@@ -6,7 +8,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.string :location
-      t.boolean :is_validated, :default => false
+      t.boolean :is_validated, default: false
       t.integer :price
 
       t.belongs_to :creator
