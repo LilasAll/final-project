@@ -5,9 +5,59 @@ Merci de votre intêret et de votre participation à notre communauté !
   Vous allez participer à <%= @event.title %> ! Vous pouvez directement contacter <%= @event.creator.pseudo %>
 
 
-                <%= link_to "Participer", new_event_attendance_path(@event), class: "btn btn-outline-success" %>
 
-              <%= button_to "subscribe", event_attendances_path(event_path(@event), :method => :post)%>
+<body>
+  <!----------------- Message d'erreur si erreur il y a    --------> 
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+
+  
+<!------------------ Formulaire de paiement ------------------------->
+<div class="card mb-4 shadow-sm d-flex"> <center>
+
+  <%= form_tag event_attendances_path do %>
+    <article> 
+
+<!-------------------- PARTIIPATION A UN EVENEMENT : PAIEMENT ------------>
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">You are about to pay</h4>
+      </div>
 
 
+
+      <div class="card-body">
+        <h2 class="card-title pricing-card-title"> 
+            <label class="amount">
+
+              <!-- Annonce du prix -->
+              <span><%= @event.price %> </span>
+            </label>
+            <small class="text-muted">euros</small>
+        </h2>
+            
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>For the following event : </li>
+            <li> <b> <%= @event.title %> </b> </li>
+            <li> <%= @event.description %> </li>
+            <li> created by <b><%= @event.creator.first_name %></b></li>
+          </ul>
+        </div>
+      </article> 
+
+    
+<!---------------------- Bouton "pay with card"    -->
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Event participation"
+          data-amount="@event.price"
+          data-locale="auto"></script>
+
+
+  <% end %>
+  
+</div> </center>
 </div>

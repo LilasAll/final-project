@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :articles do
   	resources :avatars, only: [:create]
 
-    #Important pour l'admin !
+  #Important pour l'admin !
     collection do
       get :toggle_check
     end

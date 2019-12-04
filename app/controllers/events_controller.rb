@@ -16,6 +16,8 @@ class EventsController < ApplicationController
   		#on ne montre les events qu'à ceux qui sont connectés :
   	if user_signed_in?
 			@event = Event.find(params[:id])
+			puts "*"*100
+			puts params
 			@attending_list = @event.attendances #liste des participants
 
 		#ceux qui ne sont pas connectés sont renvoyés à la page login
@@ -84,6 +86,11 @@ class EventsController < ApplicationController
     end
     redirect_to '/'
   end
+
+def attend
+  @event.attendees << current_user
+  @event.save
+end
 
 
 end
