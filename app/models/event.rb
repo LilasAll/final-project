@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   has_one_attached :image_event
 
   has_many :join_tag_events
-  has_many :tags, through: :join_gossip_events
+  has_many :tags, through: :join_tag_events
 
   # -----------------Validations----------------------------------------
 

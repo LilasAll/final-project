@@ -26,7 +26,7 @@
               <i class="material-icons">day</i><%= event.start_date.strftime( "le %d/%m/%Y à %H:%M") %>
 
             </p>
-          <p>Tags: <%= raw event.join_tag_event.map { |t| link_to t }.join(', ') %></p>
+          <p>Tags: <%= raw event.join_tag_events.map { |t| link_to t }.join(', ') %></p>
 
           </div>
         </div>

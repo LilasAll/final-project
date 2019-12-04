@@ -2,10 +2,12 @@
 
 class Tag < ApplicationRecord
 
-	has_many :join_tag_article	
-	has_many :join_tag_event		
-	has_many :articles, through: :join_tag_article
-	has_many :events , through: :join_tag_event
+	has_many :join_tag_articles	
+	has_many :articles, through: :join_tag_articles
+
+	has_many :join_tag_events		
+	has_many :events , through: :join_tag_events
+
 
 	def all_tags=(names)
 

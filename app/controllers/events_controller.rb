@@ -21,12 +21,7 @@ class EventsController < ApplicationController
 			puts "*"*100
 			puts params
 			@attending_list = @event.attendances #liste des participants
-<<<<<<< HEAD
-=======
 
-    # on ne montre les events qu'à ceux qui sont connectés :
-
->>>>>>> master
 
     # ceux qui ne sont pas connectés sont renvoyés à la page login
     else
@@ -105,17 +100,7 @@ class EventsController < ApplicationController
                       @event.update(is_validated: false)
                     end
     redirect_to '/'
-<<<<<<< HEAD
-=======
-
   end
->>>>>>> master
-
-  end
-
-
-<<<<<<< HEAD
-=======
 
 
  private
@@ -126,5 +111,5 @@ class EventsController < ApplicationController
  	
  end
 
->>>>>>> master
+
 end
