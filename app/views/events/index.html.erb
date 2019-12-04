@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="card-body">
-            <p class="card-description"> <%= event.description %> </p>
+            <p class="card-description"> <%= "#{event.description.first(100)} [...]" %> </p>
             <p class="card-text"><small class="text-muted">
                 <i class="material-icons">people</i> <%= event.attendances.count %>
                 <i class="material-icons">face</i> <%= event.creator.pseudo %><br/>
