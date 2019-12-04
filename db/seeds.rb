@@ -20,7 +20,7 @@ User.create!(pseudo: 'admin', email: 'admin@yopmail.com', city: 'Lille', passwor
 puts '1 Admin created'
 
 10.times do
-	Event.create!(start_date: Faker::Date.forward(days: 250),duration: rand(1..10)*5,title: Faker::Book.title,description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),location: Faker::Movies::LordOfTheRings.location, creator: User.all.sample,price: rand(0..30))
+	Event.create!(start_date: Faker::Date.forward(days: 250),duration: rand(1..10)*5,title: Faker::Book.title,description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),location: Faker::Movies::LordOfTheRings.location, creator: User.all.sample,price: rand(0...30))
 end
 puts '10 events created'
 

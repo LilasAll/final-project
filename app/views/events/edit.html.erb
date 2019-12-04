@@ -1,0 +1,49 @@
+   <div class="section section-signup page-header" style=" margin:200px; background-image: url('./assets/img/city.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 ml-auto mr-auto">
+            <div class="card ">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Modification de l'évènement</h4>
+                </div>
+<div><center>
+  <br>
+
+  <%= form_tag url_for(action: 'update'), method: "patch" do %>
+
+    <%= label_tag "Nom de l'évènement" %><br/>
+    <%= text_field_tag 'title', @event.title %>
+    <br /> <br />
+
+    <%= label_tag 'Description' %><br/>
+    <%= text_area_tag 'description', @event.description %>
+    <br /> <br />
+
+
+    <%= label_tag "Date de l'évènement" %><br />
+    <p> A RENSEIGNER DE NOUVEAU</p>
+    <%= date_field_tag 'start_date', @event.start_date%>
+    <br />
+     <br />
+    <%= label_tag 'Durée (en minutes)' %><br />
+    <%= text_field_tag :duration , @event.duration%>
+    <br />
+    <br />
+    <%= label_tag 'Lieu' %><br/>
+    <%= text_field_tag :location, @event.location %>
+    <br />
+     <br />
+    <%= label_tag "Falcutatif : prix " %><br />
+    <p> (en cas d'achat de matériel, location de salle, etc)</p>
+    <%= text_field_tag :price, @event.price %>
+    <br />
+     <br />
+
+    <br>  
+
+
+    <%= submit_tag 'Update Post' %>
+
+  <% end %>
+
+</div></div></div></div></div></center></div></div></div></div></div></div>

@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # pour n'autoriser que les users à aller sur la page secrète :
   # before_action :authenticate_user!, only: [:new]
 
+
   def index
     @events = Event.all
   end
@@ -14,19 +15,12 @@ class EventsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
   		#on ne montre les events qu'à ceux qui sont connectés :
   	if user_signed_in?
 			@event = Event.find(params[:id])
 			puts "*"*100
 			puts params
 			@attending_list = @event.attendances #liste des participants
-=======
-    # on ne montre les events qu'à ceux qui sont connectés :
-    if user_signed_in?
-      @event = Event.find(params[:id])
-      @attending_list = @event.attendances # liste des participants
->>>>>>> master
 
     # ceux qui ne sont pas connectés sont renvoyés à la page login
     else
@@ -79,6 +73,18 @@ class EventsController < ApplicationController
     @event = Event.find(params['id'])
   end
 
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(title:params[:title], description:params[:description],start_date: params[:start_date], location: params[:location], price: params[:price],image_event: params[:image_event])
+      redirect_to @event
+    else
+      render :edit
+    end
+  end
+
+
+
+
   def check_if_admin
     redirect_to root_path unless current_user.admin?
  end
@@ -91,16 +97,8 @@ class EventsController < ApplicationController
                       @event.update(is_validated: false)
                     end
     redirect_to '/'
-<<<<<<< HEAD
+
   end
 
-def attend
-  @event.attendees << current_user
-  @event.save
-end
 
-
-=======
- end
->>>>>>> master
 end
