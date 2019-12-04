@@ -29,14 +29,16 @@
                   <img src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" class="img-raised rounded-circle img-fluid">
                 </div>
                 <div class="name">
-                  <h3 class="title"><%= @current_user.pseudo %></h3>
-                  <h6><%= @current_user.first_name %> <%= @current_user.last_name %></h6>
+                  <h3 class="title"><%= @user.pseudo %></h3>
+                  <h6><%= @user.first_name %> <%= @user.last_name %></h6>
                 </div>
               </div>
             </div>
           </div>
-          <h3 class="title">Articles ecrits:</h3>
+          <h3 class="title">Articles écrits</h3>
           <% Article.where(author_id:params[:id]).each do |article| %>
+                <% if article.is_validated == true%>
+
             <%= link_to article_path(article.id) do %>
               <div class="card p-3 bg-info">
                 <div class="card-title title">
@@ -53,6 +55,7 @@
                         <i class="material-icons">favorite</i> 2.4K &#xB7;
                       </div>
                     </div>
+                    <%end%>
                   </div>
                 </div>
               <%end%>

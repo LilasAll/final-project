@@ -33,6 +33,7 @@
       <div style="margin-top: 100px;" class="main main-raised">
         <div class="section section-basic">
           <div class=" container">
+            <!-- Ici nous savons combien d'articles nous avons à valider avec un  if-->
             <%if Article.where(:is_validated => 'false').count == 0%>
               <h4 style="" ><span class="badge badge-pill badge-success">Success</span>
                 Vous n'avez aucun article à valider </h4>
