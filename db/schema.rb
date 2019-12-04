@@ -47,13 +47,17 @@ ActiveRecord::Schema.define(version: 20_191_202_151_743) do
     t.index ['author_id'], name: 'index_articles_on_author_id'
   end
 
-  create_table 'attendances', force: :cascade do |t|
-    t.bigint 'user_id'
-    t.bigint 'event_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['event_id'], name: 'index_attendances_on_event_id'
-    t.index ['user_id'], name: 'index_attendances_on_user_id'
+  create_table "attendances", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.string "stripe_customer_id"
+    t.integer "amount"
+    t.string "currency"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attendances_on_event_id"
+    t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
   create_table 'events', force: :cascade do |t|

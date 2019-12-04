@@ -1,14 +1,29 @@
-<body>
+<div class="container">
+  
+Merci de votre intêret et de votre participation à notre communauté !
 
+  Vous allez participer à <%= @event.title %> ! Vous pouvez directement contacter <%= @event.creator.pseudo %>
+
+
+
+<body>
+  <!----------------- Message d'erreur si erreur il y a    --------> 
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+
+  
 <!------------------ Formulaire de paiement ------------------------->
 <div class="card mb-4 shadow-sm d-flex"> <center>
 
-  <%= form_tag event_attendance_index_path do %>
+  <%= form_tag event_attendances_path do %>
     <article> 
 
 <!-------------------- PARTIIPATION A UN EVENEMENT : PAIEMENT ------------>
       <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Enregistrement de votre</h4>
+        <h4 class="my-0 font-weight-normal">You are about to pay</h4>
       </div>
 
 
@@ -27,7 +42,7 @@
             <li>For the following event : </li>
             <li> <b> <%= @event.title %> </b> </li>
             <li> <%= @event.description %> </li>
-            <li> created by <b><%= @event.admin.first_name %></b></li>
+            <li> created by <b><%= @event.creator.first_name %></b></li>
           </ul>
         </div>
       </article> 
@@ -45,3 +60,4 @@
   <% end %>
   
 </div> </center>
+</div>

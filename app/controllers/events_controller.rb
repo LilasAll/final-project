@@ -14,10 +14,15 @@ class EventsController < ApplicationController
   end
 
   def show
+  		#on ne montre les events qu'à ceux qui sont connectés :
+  	if user_signed_in?
+			@event = Event.find(params[:id])
+			puts "*"*100
+			puts params
+			@attending_list = @event.attendances #liste des participants
+
     # on ne montre les events qu'à ceux qui sont connectés :
-    if user_signed_in?
-      @event = Event.find(params[:id])
-      @attending_list = @event.attendances # liste des participants
+
 
     # ceux qui ne sont pas connectés sont renvoyés à la page login
     else
@@ -84,13 +89,23 @@ class EventsController < ApplicationController
                       @event.update(is_validated: false)
                     end
     redirect_to '/'
- end
+
+  end
+
+def attend
+  @event.attendees << current_user
+  @event.save
+end
+
+
+
 
  private
 
  def post_params
 
- 	prams.require(:post).permit(:author, :content, :all_tags)
+ 	params.require(:post).permit(:author, :content, :all_tags)
  	
  end
+
 end
