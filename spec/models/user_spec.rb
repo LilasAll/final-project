@@ -22,11 +22,13 @@ RSpec.describe User, type: :model do
     end
 
     describe "#pseudo" do
-     it { expect(@user).to validate_presence_of(:pseudo) } 
+     it { expect(@user).to validate_presence_of(:pseudo) }
+     it { expect(@user.pseudo).to be_a(String) }  
     end
 
     describe "#first_name" do
      it { expect(@user).to validate_presence_of(:first_name) } 
+     it { expect(@user.first_name).to be_a(String) } 
     end
 
   end
@@ -36,6 +38,7 @@ RSpec.describe User, type: :model do
 
     describe "some association" do
       it { expect(@user).to have_many(:events) }
+      it { expect(@user).to have_many(:articles) }
     end
 
   end
