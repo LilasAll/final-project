@@ -9,6 +9,9 @@ class Event < ApplicationRecord
 
   has_one_attached :image_event
 
+  has_many :join_tag_events
+  has_many :tags, through: :join_gossip_events
+
   # -----------------Validations----------------------------------------
 
   def start_date_cannot_be_in_the_past

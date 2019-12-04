@@ -18,11 +18,18 @@
       <h5 class="card-title"><%= @event.title %></h5>
       <p class="card-text"> <%= @event.description %> </p>
 
-        <li class="list-group-item text-center"> <b> </b> <br/> le <%= @event.start_date.strftime("%d/%m/%Y at %H:%M") %></li>
+        <%if @event.start_date != nil %>
+        <li class="list-group-item text-center"> <b> </b> <br/> le <%= @event.start_date %></li>
+        <%end%>
         <li class="list-group-item text-center"> <b> </b> <br/> <%= @event.duration %> minutes </li>
         <li class="list-group-item text-center"> <b> </b> <br/> à <%= @event.location %></li>
         <% if @event.price != nil %> 
          <li class="list-group-item text-center"> <b> </b> <br/> <%= @event.price %> euros</li><%end%>
+
+         <% @event.join_tag_events.each do |join| %>
+          <% join.tag.name %>
+
+              <% end %>
 
         <!----------------------- Lien pour participer à l'event ---------------------------------->
 <!--------- (si on est pas déja sur la liste, pas admin et que la date n'est pas passée) -->
