@@ -40,7 +40,8 @@
         <%= text_field_tag :price %>
         <br />
          <br />
-        <%= select_tag "tags", options_from_collection_for_select(Tag.all, "id", "name", multiple: true) %>
+         <P>TAGS</P>
+        <%= text_field :all_tags, placeholder: "Séparés par une virgule"%>
         <%= file_field_tag :image_event %>
         <br>
         <%= submit_tag "Create" %>

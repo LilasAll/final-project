@@ -27,6 +27,7 @@ class EventsController < ApplicationController
   end
 
   def create
+
     @event = Event.new(
       creator: current_user,
       title: params[:title],
@@ -74,6 +75,7 @@ class EventsController < ApplicationController
     redirect_to root_path unless current_user.admin?
  end
 
+#Pour l'admin pour valider les events
   def toggle_check
     @event = Event.find(params[:event_id])
     @is_validated = if @event.is_validated == false
@@ -82,5 +84,13 @@ class EventsController < ApplicationController
                       @event.update(is_validated: false)
                     end
     redirect_to '/'
+ end
+
+ private
+
+ def post_params
+
+ 	prams.require(:post).permit(:author, :content, :all_tags)
+ 	
  end
 end
