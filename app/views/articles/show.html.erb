@@ -8,5 +8,15 @@
     <p class="card-text">Ecrit le : <%= @article.created_at %></p>
     <%= link_to "Par : #{@article.author.pseudo}", user_path(@article.author) %>
   </div>
+
 </div>
+
+
+
 </div>
+
+       <% @article.join_tag_articles.each do |join| %>
+          <span class="badge badge-primary"> <%= join.tag.name %></span>
+
+              <% end %>
+

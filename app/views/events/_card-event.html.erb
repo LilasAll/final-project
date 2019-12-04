@@ -27,7 +27,7 @@
          <li class="list-group-item text-center"> <b> </b> <br/> <%= @event.price %> euros</li><%end%>
 
          <% @event.join_tag_events.each do |join| %>
-          <li> <%= join.tag.name %></li>
+          <span class="badge badge-primary"> <%= join.tag.name %></span>
 
               <% end %>
 

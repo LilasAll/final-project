@@ -17,11 +17,18 @@
             <div class="author">
                 <span><%= article.author.pseudo %></span>
             </div>
+
             <div class="stats ml-auto">
                 <i class="material-icons">favorite</i> 2.4K &#xB7;
             </div>
+
         </div>
+
     </div>
+                 <% article.join_tag_articles.each do |join| %>
+          <span class="badge badge-primary"> <%= join.tag.name %></span>
+
+              <% end %>
 </div>
 <%end%>
 <%end%>
