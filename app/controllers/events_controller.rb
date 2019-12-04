@@ -32,6 +32,8 @@ class EventsController < ApplicationController
 
   def create
 
+
+
     @event = Event.new(
       creator: current_user,
       title: params[:title],
@@ -41,6 +43,8 @@ class EventsController < ApplicationController
       price: params[:price],
       location: params[:location]
     )
+          @event.tags = Tag.where(id: params[:tag_id])
+
 
     # @event.creator_id = current_user.id
     @event.image_event.attach(params[:image_event])
@@ -58,6 +62,8 @@ class EventsController < ApplicationController
       # il manque qqchose ou il y a une erreur, on reste sur la page de création (view new)
       flash.now[:danger] = 'Une erreur est survenue, veuillez réessayer'
       render 'new'
+      @tags = Tag.all
+    
     end
   end
 
