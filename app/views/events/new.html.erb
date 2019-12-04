@@ -11,56 +11,42 @@
     </ul>
   </div>
 <% end %>
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-6 ml-auto mr-auto">
-
-
-    <%= form_tag url_for(action: 'create'), class: "form", method: "post",multipart: true do %>
-
-      <%= label_tag "Nom de l'évènement" %><br />
-      <%= text_field_tag 'title' %>
-      <br /> <br />
-
-      <%= label_tag 'Description' %><br />
-      <%= text_area_tag :description  %>
-      <br /> <br />
-
-            
-      <%= label_tag 'Date of the event' %><br />
-      <%= date_field_tag 'start_date'%>
-      <br /> <br /> 
-      
-      <%= label_tag 'Durée (en minutes)' %><br />
-      <%= text_field_tag :duration %>
-      <br /><br />
-
-      <%= label_tag 'Lieu' %><br/>
-      <%= text_field_tag :location %>
-      <br /> <br /> 
-
-      <%= label_tag "Falcutatif : prix " %><br />
-      <p> (en cas d'achat de matériel, location de salle, etc</p>
-      <%= text_field_tag :price %>
-      <br /> <br />
-
-      <%= select_tag "tags", options_from_collection_for_select(Tag.all, "id", "name", multiple: true) %>
-      
-  
-      <%= file_field_tag :image_event %>
-
-      <br>
-      
-      <%= submit_tag "Create" %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-6 ml-auto mr-auto">
+      <%= form_tag url_for(action: 'create'), class: "form", method: "post",multipart: true do %>
+        <%= label_tag "Nom de l'évènement" %><br />
+        <%= text_field_tag 'title' %>
+        <br />
+         <br />
+        <%= label_tag 'Description' %><br />
+        <%= text_area_tag :description  %>
+        <br />
+         <br />
+        <%= label_tag 'Date of the event' %><br />
+        <%= date_field_tag 'start_date'%>
+        <br />
+         <br />
+        <%= label_tag 'Durée (en minutes)' %><br />
+        <%= text_field_tag :duration %>
+        <br />
+        <br />
+        <%= label_tag 'Lieu' %><br/>
+        <%= text_field_tag :location %>
+        <br />
+         <br />
+        <%= label_tag "Falcutatif : prix " %><br />
+        <p> (en cas d'achat de matériel, location de salle, etc</p>
+        <%= text_field_tag :price %>
+        <br />
+         <br />
+        <%= select_tag "tags", options_from_collection_for_select(Tag.all, "id", "name", multiple: true) %>
+        <%= file_field_tag :image_event %>
+        <br>
+        <%= submit_tag "Create" %>
       <% end %>
-      </div>
-
-
+    </div>
+  </div>
 </div>
 </div>
-
-</div>
-
 </div>

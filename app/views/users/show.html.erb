@@ -1,70 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Material Kit by Creative Tim
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="../assets/css/material-kit.css?v=2.0.6" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-</head>
-
-<body class="profile-page sidebar-collapse">
- 
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://images.pexels.com/photos/5808/food-healthy-vegetables-village.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');"></div>
-  <div class="main main-raised">
-    <div class="profile-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 ml-auto mr-auto">
-            <div class="profile">
-              <div class="avatar">
-                <img src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h3 class="title"><%= @current_user.pseudo %></h3>
-                <h6><%= @current_user.first_name %> <%= @current_user.last_name %></h6>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+      Material Kit by Creative Tim
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="../assets/css/material-kit.css?v=2.0.6" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/demo/demo.css" rel="stylesheet" />
+  </head>
+  <body class="profile-page sidebar-collapse">
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://images.pexels.com/photos/5808/food-healthy-vegetables-village.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');"></div>
+    <div class="main main-raised">
+      <div class="profile-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+              <div class="profile">
+                <div class="avatar">
+                  <img src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" class="img-raised rounded-circle img-fluid">
+                </div>
+                <div class="name">
+                  <h3 class="title"><%= @current_user.pseudo %></h3>
+                  <h6><%= @current_user.first_name %> <%= @current_user.last_name %></h6>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <h3 class="title">Articles ecrits:</h3>
-        <% Article.where(author_id:params[:id]).each do |article| %>
-          <%= link_to article_path(article.id) do %>
-          <div class="card p-3 bg-info">
-              <div class="card-title title">
+          <h3 class="title">Articles ecrits:</h3>
+          <% Article.where(author_id:params[:id]).each do |article| %>
+            <%= link_to article_path(article.id) do %>
+              <div class="card p-3 bg-info">
+                <div class="card-title title">
                   <h4 class="card-category title">
-                      <%= article.title %></h4>
+                    <%= article.title %></h4>
                   <h5 class="card-body">
-                      <a <%= link_to "#{article.content.first(100)} [...]", article_path(article.id) %></a>
-                  </h5>
-                  <div class="card-stats">
+                    <a <%= link_to "#{article.content.first(100)} [...]", article_path(article.id) %></a>
+                    </h5>
+                    <div class="card-stats">
                       <div class="author">
-                          <span><%= article.author.pseudo %></span>
+                        <span><%= article.author.pseudo %></span>
                       </div>
                       <div class="stats ml-auto">
-                          <i class="material-icons">favorite</i> 2.4K &#xB7;
+                        <i class="material-icons">favorite</i> 2.4K &#xB7;
                       </div>
+                    </div>
                   </div>
-              </div>
-          </div>
-          <%end%>
-        <%end%>
-
-
-        <div class="description text-center">
-          <p><%= @current_user %></p>
-          
+                </div>
+              <%end%>
+            <%end%>
+            <div class="description text-center">
+              <p><%= @current_user %></p>
             </div>
           </div>
         </div>
@@ -72,5 +66,4 @@
     </div>
   </div>
 </body>
-
 </html>
