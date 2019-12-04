@@ -73,11 +73,17 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params['id'])
+
   end
 
   def update
     @event = Event.find(params[:id])
-    if @event.update(title:params[:title], description:params[:description],start_date: params[:start_date], location: params[:location], price: params[:price],image_event: params[:image_event])
+    
+    #ATTENTION, AVEC CETTE METHODE IL FAUT RECHARGER L'IMAGE ET LA DATE A CHAQUE FOIS
+
+    if @event.update(title:params[:title], description:params[:description],start_date: params[:start_date], location: params[:location], price: params[:price])
+      @event.image_event.purge
+      @event.image_event.attach(params[:image_event])
       redirect_to @event
     else
       render :edit

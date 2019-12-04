@@ -1,5 +1,7 @@
 <div class="container">
   
+
+
 Merci de votre intêret et de votre participation à notre communauté !
 
   Vous allez participer à <%= @event.title %> ! Vous pouvez directement contacter <%= @event.creator.pseudo %>
@@ -50,12 +52,17 @@ Merci de votre intêret et de votre participation à notre communauté !
 
     
 <!---------------------- Bouton "pay with card"    -->
+  <% if @event.price > 0 %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Event participation"
+              data-amount="@event.price"
+              data-locale="auto">
+      </script>
+    <%else%>
+      <%=link_to "participer",  event_attendances_path(@event.id), method:"post"%>
+   <%end%>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Event participation"
-          data-amount="@event.price"
-          data-locale="auto"></script>
 
 
   <% end %>

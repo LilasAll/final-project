@@ -9,7 +9,7 @@
 <div><center>
   <br>
 
-  <%= form_tag url_for(action: 'update'), method: "patch" do %>
+  <%= form_tag url_for(action: 'update'), method: "patch",multipart: true do %>
 
     <%= label_tag "Nom de l'évènement" %><br/>
     <%= text_field_tag 'title', @event.title %>
@@ -38,7 +38,8 @@
     <%= text_field_tag :price, @event.price %>
     <br />
      <br />
-
+    
+    <%= file_field_tag :image_event %>
     <br>  
 
 
