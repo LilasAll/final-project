@@ -11,7 +11,22 @@
               <h3>Changer mes informations</h3>
               <div class="field">
                 <%= f.label 'Email' %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
+
+              <div class="field">
+                <%= f.label 'Nom' %><br />
+                <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+              </div>
+
+              <div class="field">
+                <%= f.label 'Prénom' %><br />
+                <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+              </div>
+
+              <div class="field">
+                <%= f.label 'Ville' %><br />
+                <%= f.text_field :city, autofocus: true, autocomplete: "city", class: "form-control" %>
               </div>
 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,7 +35,7 @@
 
               <div class="field">
                 <%= f.label'Mot de passe'%> <i>(Ne remplis pas cette case si tu ne veux pas le changer)</i><br />
-                <%= f.password_field :password, autocomplete: "new-password" %>
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
                 <% if @minimum_password_length %>
                   <br />
                   <em><%= @minimum_password_length %> characters minimum</em>
@@ -29,12 +44,12 @@
 
               <div class="field">
                 <%= f.label 'Confirmation du mot de passe' %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
               </div>
 
               <div class="field">
                 <%= f.label 'Mot de passe actuel' %> <i>(Merci de rentrer votre mot de passe pour sauvegarder les changements)</i><br />
-                <%= f.password_field :current_password, autocomplete: "current-password" %>
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
               </div>
 
               <div class="actions">
