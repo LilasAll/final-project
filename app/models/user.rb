@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :articles
 
   has_one_attached :avatar
+    has_many :comments
 
   #--------------------------- Validations ---------------------
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Veuillez entrer un email valide' }
