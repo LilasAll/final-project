@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   # -----------------Appartenances----------------------------------------
   has_many :attendances
   has_many :users, through: :attendances
+  has_many :comments
 
   belongs_to :creator, class_name: 'User'
 

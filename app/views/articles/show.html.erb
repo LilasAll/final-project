@@ -20,13 +20,14 @@
 
     <p><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
-    <% if @like.empty? %>
-      <%= form_for :like, url: article_likes_path(@article) do |f| %>
-        <button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Like</i> </button>
-      <%end%>
-    <%else%>
-      <a class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc" href="<%= article_like_path(@article.id) %>" role="button" data-method="DELETE">Supprimer le like</a>
-    <%end%>
+    <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+        <%= button_to 'Unlike', article_like_path(@article, pre_like), method: :delete %>
+      <% else %> 
+        <%= form_for :like, url: article_likes_path(@article) do |f| %>
+          <button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Like</i> </button>
+        <%end%>
+      <% end %>
 
   </div>
 

@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 2019_12_05_150652) do
     t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.datetime "start_date"
     t.integer "duration"
@@ -114,6 +124,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_150652) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin"
+    t.string "description"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -1,11 +1,14 @@
 class LikesController < ApplicationController
 
   before_action :find_article
+    before_action :find_like
+
 
   def create
     if already_liked?
-      flash[:danger] = "You can't like more than once"
+      flash[:error] = "You can't like more than once"
     else
+      flash[:success] = "Vous avez bien liké l'article"
       @article.likes.create(user_id: current_user.id)
     end
     redirect_to articles_path
@@ -13,8 +16,12 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    find_like
-    @like.destroy
+	  if !(already_liked?)
+	    flash[:notice] = "Cannot unlike"
+	  else
+	    @like.destroy
+	  end
+
      redirect_to article_path(@article.id)
     
   end
