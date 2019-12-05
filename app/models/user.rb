@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :events, through: :attendances
   has_many :articles
 
+  has_one_attached :avatar
+
   #--------------------------- Validations ---------------------
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Veuillez entrer un email valide' }
   validates :pseudo, presence: true, uniqueness: true

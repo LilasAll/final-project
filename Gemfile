@@ -6,6 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 # GEM INSTALLED#==============================================
+gem 'bootstrap-slider-rails'
+
 gem 'font-awesome-rails'
 
 gem 'htmlbeautifier'
