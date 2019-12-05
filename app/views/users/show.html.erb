@@ -27,7 +27,7 @@
               <div class="profile">
                 <div class="avatar">
                   <%if @user.avatar.attached?%>
-                    <%= image_tag @user.avatar, alt: 'avatar' %>
+                    <%= image_tag @user.avatar, alt: 'avatar', class:"img-raised rounded-circle img-fluid" %>
                   <%else%>
                     <img src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" class="img-raised rounded-circle img-fluid">
                   <%end%>

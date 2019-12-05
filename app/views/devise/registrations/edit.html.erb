@@ -57,9 +57,10 @@
               </div>
             <% end %>
             
+            <h3>Ma photo de profil</h3>
             <%= form_tag user_avatars_path(@user), multipart: true do %>
               <%= file_field_tag :avatar %>
-              <%= submit_tag "mettre à jour" %>
+              <%= submit_tag "Mettre à jour", class: "btn btn-info" %>
             <% end %>
 
             <h3>Supprimer mon compte</h3>
