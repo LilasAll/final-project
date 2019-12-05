@@ -19,12 +19,15 @@
       <p class="card-text"> <%= @event.description %> </p>
 
         <%if @event.start_date != nil %>
-        <li class="list-group-item text-center"> <b> </b> <br/> le <%= @event.start_date %></li>
+        <li class="list-group-item text-center"> <b> </b> <br/> le <%= @event.start_date.strftime("%d/%m/%Y à %H:%M") %></li>
         <%end%>
         <li class="list-group-item text-center"> <b> </b> <br/> <%= @event.duration %> minutes </li>
         <li class="list-group-item text-center"> <b> </b> <br/> à <%= @event.location %></li>
-        <% if @event.price != nil %> 
-         <li class="list-group-item text-center"> <b> </b> <br/> <%= @event.price %> euros</li><%end%>
+        <% if @event.price != 0 %>
+         <li class="list-group-item text-center"> <b> </b> <br/> <%= @event.price %> euros</li>
+         <% else %>
+         <li class="list-group-item text-center"> <b> </b> <br/> Cet évènement est gratuit !</li>
+         <%end%>
 
          <% @event.join_tag_events.each do |join| %>
           <span class="badge badge-primary"> <%= join.tag.name %></span>
