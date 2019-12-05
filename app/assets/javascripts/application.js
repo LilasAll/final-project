@@ -15,3 +15,9 @@
 //= require activestorage
 //= require bootstrap
 //= require material-kit
+//= require bootstrap-slider
+
+
+document.addEventListener("turbolinks:load", function() { 
+  $('.slider').slider()
+});

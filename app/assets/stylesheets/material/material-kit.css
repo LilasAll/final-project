@@ -17266,6 +17266,14 @@ footer .pull-center {
 
 .slider {
   background: #c8c8c8;
+  -webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url('contrasticon.png');
+  cursor: pointer;
 }
 
 .slider .noUi-connect {
