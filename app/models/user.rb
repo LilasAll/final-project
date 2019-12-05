@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :likes, dependent: :destroy
+
   #--------------------------- Validations ---------------------
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Veuillez entrer un email valide' }
   validates :pseudo, presence: true, uniqueness: true

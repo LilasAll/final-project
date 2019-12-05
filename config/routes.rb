@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :avatars, only: [:create]
+    resources :likes, only: [:create, :destroy]
   #Important pour l'admin !
     collection do
       get :toggle_check

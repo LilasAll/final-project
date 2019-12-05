@@ -5,18 +5,35 @@
   </div>
   <div class="card-body">
     <p class="card-text"><%= @article.content %></p>
-    <p class="card-text">Ecrit le : <%= @article.created_at %></p>
-    <%= link_to "Par : #{@article.author.pseudo}", user_path(@article.author) %>
+
+    <% @article.join_tag_articles.each do |join| %>
+      <span class="badge badge-primary"> <%= join.tag.name %></span>
+    <% end %>
+
   </div>
 
+  <div class = "">
+    <div class="card-text d-flex justify-content-end">Ecrit le : <%= @article.created_at.strftime("%d/%m/%Y") %></div>
+    <div class="card-text d-flex justify-content-end"><%= link_to "Par : #{@article.author.pseudo}", user_path(@article.author) %></div>
+
+  </div>
+
+    <p><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+    <% if @like.empty? %>
+      <%= form_for :like, url: article_likes_path(@article) do |f| %>
+        <button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Like</i> </button>
+      <%end%>
+    <%else%>
+      <a class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc" href="<%= article_like_path(@article.id) %>" role="button" data-method="DELETE">Supprimer le like</a>
+    <%end%>
+
+  </div>
+
+
+
+
 </div>
 
-
-
 </div>
-
-       <% @article.join_tag_articles.each do |join| %>
-          <span class="badge badge-primary"> <%= join.tag.name %></span>
-
-              <% end %>
 

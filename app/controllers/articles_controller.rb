@@ -8,12 +8,14 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @users = User.all
+    @articles_likes = Like.articles(current_user.id)
   end
 
   def show
     # Articles are availables only for connected users:
     if user_signed_in?
       @article = Article.find(params[:id])
+      @like = Like.where(article_id: params[:article_id])
     # If user isn't register, he's redirected to login page:
     else
       flash[:alert] = "Connecte toi pour avoir accès à l'intégralité de l'article"

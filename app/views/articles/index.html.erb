@@ -19,7 +19,7 @@
             </div>
 
             <div class="stats ml-auto">
-                <i class="material-icons">favorite</i> 2.4K &#xB7;
+                <i class="material-icons">favorite</i> <p><%= article.likes.count %> <%= (article.likes.count) == 1 ? 'Like' : 'Likes'%></p> &#xB7;
             </div>
 
         </div>
