@@ -15,3 +15,7 @@
 //= require activestorage
 //= require bootstrap
 //= require material-kit
+//= require chosen-jquery
+//= require events
+
+
