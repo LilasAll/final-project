@@ -66,6 +66,12 @@
                   <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">    <%= f.submit "Sign up" %></a>
                 </div>
                 </div>
+
+                <%= form_tag do %>
+                  <%= file_field_tag :avatar %>
+                  <%= submit_tag "uploader l'avatar" %>
+                <% end %>
+                
               </form>
             </div>
           </div>

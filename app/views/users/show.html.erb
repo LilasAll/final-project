@@ -26,7 +26,11 @@
             <div class="col-md-6 ml-auto mr-auto">
               <div class="profile">
                 <div class="avatar">
-                  <img src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" class="img-raised rounded-circle img-fluid">
+                  <%if @user.avatar.attached?%>
+                    <%= image_tag @user.avatar, alt: 'avatar' %>
+                  <%else%>
+                    <img src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" class="img-raised rounded-circle img-fluid">
+                  <%end%>
                 </div>
                 <div class="name">
                   <h3 class="title"><%= @user.pseudo %></h3>
