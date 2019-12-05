@@ -54,7 +54,7 @@
         <p> (en cas d'achat de matériel, location de salle, etc</p>
         
         <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
-        <%= text_field_tag :price %>
+        <%= range_field_tag :price, id: "sliderRegular", :in => 0...100, class: "range-field w-25"  %>
         <span class="font-weight-bold indigo-text mr-2 mt-1">100</span>
 
 
@@ -63,7 +63,6 @@
 
       <div class=" input-group m-3 ">
    
-      <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
 
       <br>
 
