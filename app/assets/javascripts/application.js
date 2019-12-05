@@ -14,10 +14,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require bootstrap
-//= require material-kit
 //= require bootstrap-slider
+//= require material-kit
+//= require chosen-jquery
+//= require events
 
 
 document.addEventListener("turbolinks:load", function() { 
   $('.slider').slider()
 });
+

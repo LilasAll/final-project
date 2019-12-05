@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
+
+
   # -----------------Appartenances----------------------------------------
   has_many :attendances
   has_many :users, through: :attendances

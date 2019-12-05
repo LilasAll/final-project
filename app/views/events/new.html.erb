@@ -61,19 +61,22 @@
         <br />
         <br />
 
-        <h4 class="card-title">Tags </h4>
+      <div class=" input-group m-3 ">
+   
+              <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
 
-       Selectionnez un ou plusieurs tags : <br>
-              <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'ml-5' %>
+
+
+     
 
 
 
 
         <h4 class="card-title"> Image </h4>
         <%= file_field_tag :image_event %>
-        <br><br>
+        <br>
+          <button type="submit" class= "btn btn-primary"> Ajouter mon event </button>
 
-          <button type="submit" class= "btn btn-primary"> Créer mon évènement </button>
       <% end %>
     </div>
   </div>
