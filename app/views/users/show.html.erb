@@ -35,6 +35,7 @@
               </div>
             </div>
           </div>
+
           <h3 class="title">Articles écrits</h3>
           <% Article.where(author_id:params[:id]).each do |article| %>
                 <% if article.is_validated == true%>
