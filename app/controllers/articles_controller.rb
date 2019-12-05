@@ -27,6 +27,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(title: params[:title], content: params[:content], author: current_user)
     @article.author_id = @current_user.id
 
+              @article.tags = Tag.where(id: params[:tag_id])
+
+
     if @article.save
       redirect_to '/'
     else

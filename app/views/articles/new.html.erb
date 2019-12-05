@@ -11,6 +11,12 @@
       <%= text_area_tag 'content' %>
  <br />  
 
+      <h4 class="card-title"> Tags  </h4>
+      <p> (plusieurs au choix)</p>
+      <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
+
+      <br/><br/>
+
       <%= submit_tag "Creer" %>
 
 <%end%>
