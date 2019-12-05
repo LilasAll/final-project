@@ -104,10 +104,53 @@
 
 </p>
 
+<%= form_for :comment, url: comments_path do |f| %>
+
+        <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+            <%= f.label :content, "Comment" , class: 'col-md-4 control-label'%>
+                        <%= f.text_field :content, class:'form-control' %>
+
+            <p class="help-block text-danger"></p>
+            <%= hidden_field_tag(:event, @event.id) %>
+
+                 </div>
+        </div>
+      
+        <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Add a comment</button>
+          </div>
+        <%end%>
+<!-- Cards Gossips -->
+      <table class="table">
+      <thead> 
+        <tr>
+          <th class= "" >  Commentaires</th>
+          <th class= "" >  </th>
+          <th class= "" >  </th>
+
+        </tr>
+      </thead>
+        <tbody>
+          
+           <% @comments.each do |comment| %>
+          <tr>
+          <td>
+            <p class="lead"><%= comment.content %></p>
+          </td>
+          <td>
+            <p> Ecrit par <%= comment.user.first_name %></p> 
+          </td>
+          <td> 
+          <% if current_user.id == comment.user.id %>
+          
+          <%end%>
+          </tr>
+          <%end %>
+        </tbody>
+    </table>
   
-
-
-
 <h2>Tous les événements organisés par <%= @event.creator.pseudo%> </h2>
 
 
