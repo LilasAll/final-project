@@ -29,6 +29,11 @@
                 <%= f.text_field :city, autofocus: true, autocomplete: "city", class: "form-control" %>
               </div>
 
+              <div class="field">
+                <%= f.label 'Ma description' %><br />
+                <%= f.text_field :description, autofocus: true, autocomplete: "description", class: "form-control" %>
+              </div>
+
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <% end %>
