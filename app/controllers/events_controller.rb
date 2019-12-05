@@ -23,6 +23,7 @@ class EventsController < ApplicationController
       puts @attending_list.count
       puts "*"*100
 
+    @comments=@event.comments
 
     # ceux qui ne sont pas connectés sont renvoyés à la page login
     else

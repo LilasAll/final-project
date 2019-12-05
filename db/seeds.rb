@@ -16,7 +16,7 @@ puts 'Last database destroy'
 end
 puts '10 users created'
 
-User.create!(pseudo: 'admin', email: 'admin@yopmail.com', city: 'Lille', password: '123456', first_name: 'adminfn', last_name: 'adminln', is_admin: 'true')
+User.create!(pseudo: 'Admin', email: 'admin@yopmail.com', description: "Le compte administrateur est géré par les créateurs du site. C'est via ce profil que nous pouvons participer à la modération du site web. Pour tout renseignement vous pouvez nous contacter directement via l'adresse mail: synergie.urbaine@laposte.net", city: 'Lille', password: '123456', first_name: 'SYNERGIE', last_name: 'URBAINE', is_admin: 'true')
 puts '1 Admin created'
 
 10.times do
@@ -29,12 +29,18 @@ puts '10 events created'
 end
 puts '10 articles created'
 
-  Tag.create!(name:'Bon Plan')
-  Tag.create!(name:'DIY')
-  Tag.create!(name:'Ecolo')
-  Tag.create!(name:'Solidaire')
-
-
+Tag.create!(name:'Bon Plan')
+Tag.create!(name:'DIY')
+Tag.create!(name:'Ecolo')
+Tag.create!(name:'Agriculture urbaine')
+Tag.create!(name:'Alimentation')
+Tag.create!(name:'Sortie')
+Tag.create!(name:'Rencontre')
+Tag.create!(name:'Local')
+Tag.create!(name:'Energie')
+Tag.create!(name:'Climat')
+Tag.create!(name:'Transport')
+Tag.create!(name:'Solidaire')
 
 
 30.times do
