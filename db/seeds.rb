@@ -29,10 +29,13 @@ puts '10 events created'
 end
 puts '10 articles created'
 
-10.times do
-  Tag.create!(name: Faker::Book.title)
-end
-puts '10 tags created'
+  Tag.create!(name:'Bon Plan')
+  Tag.create!(name:'DIY')
+  Tag.create!(name:'Ecolo')
+  Tag.create!(name:'Solidaire')
+
+
+
 
 30.times do
   JoinTagArticle.create!(article: Article.all.sample, tag: Tag.all.sample)
