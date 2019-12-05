@@ -64,7 +64,7 @@
         <h4 class="card-title">Tags </h4>
 
        Selectionnez un ou plusieurs tags : <br>
-              <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'ml-5' %>
+        <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'ml-5' %>
 
 
 
