@@ -51,32 +51,25 @@
          <br />
         
         <h4 class="card-title">Falcutatif : prix</h4>
-        <p> (en cas d'achat de matériel, location de salle, etc</p>
+        <p> (en cas d'achat de matériel, location de salle, etc)</p>
         
         <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
         <%= range_field_tag :price, id: "sliderRegular", :in => 0...100, class: "range-field w-25"  %>
         <span class="font-weight-bold indigo-text mr-2 mt-1">100</span>
 
-
         <br />
-        <br />
-
-      <div class=" input-group m-3 ">
-   
+      <h4 class="card-title"> Tags  </h4>
+      <p> (plusieurs au choix)</p>
       <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
 
-      <br>
-
-
-
-     
-
+      <br/><br/>
 
 
 
         <h4 class="card-title"> Image </h4>
         <%= file_field_tag :image_event %>
-        <br>
+        <br><br />
+        
           <button type="submit" class= "btn btn-primary"> Ajouter mon event </button>
 
       <% end %>
