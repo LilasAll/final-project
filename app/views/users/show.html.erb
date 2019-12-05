@@ -27,7 +27,7 @@
             </div>
           </div>
 
-          <h3 class="title">Articles écrits</h3>
+          <h3 class="title">Articles écrits :</h3>
           <% Article.where(author_id:params[:id]).each do |article| %>
                 <% if article.is_validated == true%>
 
@@ -48,13 +48,15 @@
                       </div>
                     </div>
                     <%end%>
+                    <% if Article.where(author_id:params[:id]) === 0 %>
+                      <p> Cette utilisateurs n'a pas encore écrit d'article</p>
+                    <%else%>
+                      <p> Cette utilisateurs n'a pas encore écrit d'article</p>
+                    <%end%>
                   </div>
                 </div>
               <%end%>
             <%end%>
-            <div class="description text-center">
-              <p><%= @current_user %></p>
-            </div>
           </div>
         </div>
       </div>
