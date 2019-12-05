@@ -39,8 +39,17 @@
 }
 
 .content-field{
-
 	width: 50%;
 	height: 50%;
 }
 
+.btn-profil {
+  margin:0 auto;
+  display: block;
+  width: 20%;
+}
+
+.edit-profil {
+	padding: 10px 50px 20px;
+	width: 70%;
+}

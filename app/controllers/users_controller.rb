@@ -24,6 +24,20 @@ class UsersController < ApplicationController
     @attendances = Attendance.all
   end
 
+  def edit
+    @user = cuurrent_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+    redirect_to cohorts_path
+
+    else
+        render 'edit'
+    end
+  end
+
   def destroy
     User.find(params[:id]).destroy
     redirect_to '/'
