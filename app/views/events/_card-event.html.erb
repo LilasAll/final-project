@@ -93,9 +93,9 @@
   <center>
     <% if current_user == @event.creator %>
 
-      <a class="btn btn-outline-success my-2 my-sm-0" <%= link_to "Edit the event", edit_event_path(@event.id) %> </a> <br/>
+      <a class="btn btn-success my-2 my-sm-0" <%= link_to "Mettre à jour l'évènement", edit_event_path(@event.id) %> </a> <br/>
 
-      <a class="btn btn-danger" <%= link_to 'Delete the event', event_path(@event), method: 'delete' %></a> <br/>
+      <a class="btn btn-danger" <%= link_to "Supprimer l'évènement", event_path(@event), method: 'delete' %></a> <br/>
       
     <% end %>
   </center>
@@ -105,23 +105,22 @@
 </p>
 
 <%= form_for :comment, url: comments_path do |f| %>
-
-        <div class="control-group">
-                    <div class="form-group floating-label-form-group controls">
-            <%= f.label :content, "Comment" , class: 'col-md-4 control-label'%>
-                        <%= f.text_field :content, class:'form-control' %>
-
-            <p class="help-block text-danger"></p>
-            <%= hidden_field_tag(:event, @event.id) %>
-
-                 </div>
-        </div>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <%= f.label :content, "Ajouter un commentaire : " , class: 'title col-md-4 control-label'%>
+      <%= f.text_field :content, class:'form-control' %>
+      <p class="help-block text-danger"></p>
+      <%= hidden_field_tag(:event, @event.id) %>
+    </div>
+  </div>
       
-        <div id="success"></div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="sendMessageButton">Add a comment</button>
-          </div>
-        <%end%>
+  <div id="success"></div>
+    <div class="form-group">
+      <center>
+      <button type="submit" class="btn btn-outline-primary" id="sendMessageButton">Valider le commentaire</button>
+    </center>
+    </div>
+  <%end%>
 <!-- Cards Gossips -->
       <table class="table">
       <thead> 
