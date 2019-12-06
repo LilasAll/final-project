@@ -8,7 +8,7 @@
 </form>
 
   <div class="card-columns index-padding">
-    <% @events.each do |event| %>
+    <% Event.each do |event| %>
       <% if event.is_validated == true%>
         <div class="card p-3 card-blog">
           <div class="card-header card-header-image">

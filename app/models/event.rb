@@ -19,16 +19,6 @@ class Event < ApplicationRecord
   # -----------------Validations----------------------------------------
 
 
- def self.search(params)
-
-    if params["tag"] != "Tag" && params["start_date"] != ""
-      where(["tag_id = ? and start_date >= ? and start_date >= ?", "#{params["tag"]}" ,"#{params["start_date"].to_datetime}", "#{DateTime.now}"])
-         else
-      where(["start_date >= ?", "#{DateTime.now}"])
-    
-    end
-
-  end
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < Date.today
       errors.add(:start_date, "L'évènement doit être à venir")

@@ -1,7 +1,7 @@
 <h1>Les événements</h1>
 <center>
   <div class="card-columns index-padding">
-    <%= Event.all.each do |event| %>
+    <%= @events.all.each do |event| %>
       <% if event.is_validated == true%>
         <div class="card p-3 card-blog">
           <div class="card-header card-header-image">
