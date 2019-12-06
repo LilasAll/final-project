@@ -33,11 +33,11 @@
         <br />
          <br />
         <h4 class="card-title">Date de l'évènement </h4>
-        <%= date_field_tag 'start_date',Time.zone.today.strftime("%Y-%m-%d")%>
+        <%= date_field_tag 'start_date'%>
         <br />
          <br />
 
-        <%= time_field_tag :hour_start, Time.zone.now.strftime("%H:%M") %>
+        <%= time_field_tag :hour_start %>
         <br/><br/>
 
         <h4 class="card-title">Durée (en minutes)</h4>
