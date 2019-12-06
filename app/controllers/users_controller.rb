@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    
       @user = User.find(params[:id])
 
       @current_user = current_user
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = cuurrent_user
+    @user = current_user
   end
 
   def update
@@ -42,4 +43,15 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     redirect_to '/'
   end
+
+    def toggle_check
+    @user = User.find(params[:user_id])
+    @is_admin = if @user.is_admin == false
+                      @user.update(is_admin: true)
+                    else
+                      @user.update(is_admin: false)
+                    end
+    redirect_to '/'
+  end
+
 end

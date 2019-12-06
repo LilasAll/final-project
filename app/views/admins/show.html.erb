@@ -1,16 +1,4 @@
-<!--
- =========================================================
- * Material Kit - v2.0.6
- =========================================================
 
- * Product Page: https://www.creative-tim.com/product/material-kit
- * Copyright 2019 Creative Tim (http://www.creative-tim.com)
-   Licensed under MIT (https://github.com/creativetimofficial/material-kit/blob/master/LICENSE.md)
-
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,6 +41,7 @@
         <div class>
         </div>
       </div>
+     
       <!-- First card : presentation -->
       <div style="margin-top: 100px" class="main main-raised">
         <div class="section section-basic">
@@ -63,6 +52,8 @@
                 <tr>
                   <th>ID</th>
                   <th>Pseudo</th>
+                  <th>Grade</th>
+                  <th>Option</th>
                   <th>Supprimer</th>
                 </tr>
               </thead>
@@ -70,12 +61,24 @@
                 <tbody>
                   <td><%= user.id %></td>
                   <td> <%= link_to  user.pseudo , user_path(user.id) %> </td>
-                  <% if user.is_admin != true%>
-                    <td>
-                      <a <%= link_to "X", user, method: :delete, data: { confirm: "Are you sure"} %>
-</a>
+                    
+                        <%if user.is_admin != false%>
+                      <td><span class="badge badge-warning m-0">Admin</span></td>
+
+                     <td>  <%= link_to "Retrograder (not working)", :controller => :users, :action => :toggle_check, user_id: user.id %>
                       </td>
-                    <%end%>
+                        <%else%>
+                        <td><span class="badge badge-info m-0">User</span>
+
+                             <td><%= link_to "Upgrader (not working)", :controller => :users, :action => :toggle_check, user_id: user.id %></td>
+                                <td>
+                      <%= link_to "X", user, method: :delete, data: { confirm: "Are you sure"} %>
+                      </td>
+                       
+
+                        <%end%>
+                 
+                      </td>
                   <%end%>
                 </tbody>
               </table>
@@ -163,5 +166,27 @@
             </div>
           </div>
         <%end%>
+
+          <div style="margin-top: 100px;" class="main main-raised">
+        <div class="section section-basic">
+          <div class=" container">
+            <!-- Ici nous savons combien d'articles nous avons à valider avec un  if-->
+            <h2 class="text-center" >Stats</h2>
+         
+              <h4 class="text-center"  style="" >
+                Vous avez <%= User.count%> utilisateurs </h4>
+           
+              <h4 class="text-center" style="" >
+                Vous avez <%= Event.count%> events </h4>
+
+                <h4 class="text-center" style="" >
+                Vous avez <%= Article.count%> articles</h4>
+        
+               
+          </div>
+        </div>
+        <div class>
+        </div>
+      </div>
       </body>
     </html>

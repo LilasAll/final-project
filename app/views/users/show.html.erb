@@ -44,14 +44,12 @@
                         <span><%= article.author.pseudo %></span>
                       </div>
                       <div class="stats ml-auto">
-                        <i class="material-icons">favorite</i> 2.4K &#xB7;
                       </div>
                     </div>
                     <%end%>
                     <% if Article.where(author_id:params[:id]) === 0 %>
                       <p> Cette utilisateurs n'a pas encore écrit d'article</p>
                     <%else%>
-                      <p> Cette utilisateurs n'a pas encore écrit d'article</p>
                     <%end%>
                   </div>
                 </div>
