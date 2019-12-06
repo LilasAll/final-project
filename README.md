@@ -1,24 +1,34 @@
-# README
+# SYNERGIE URBAINE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bienvenue sur le sit de Synergie Urbaine. Une plateforme interactive de partage et d'échange sur les thèms du développement durable, de l'écologie, de la solidarité...
+Vous avez ici accès à la première version minimaliste (MVP).
 
-Things you may want to cover:
+Avec cette version vous pouvez : vous connecter, visualiser et écrire des events et articles, avoir une page profil, participer à des événement, récupérer votre mot de passe... 
+En tant qu'administrateur vous pouvez : valider les articles et événements, bannir des utilisateurs.
 
-* Ruby version
+Lien heroku :
 
-* System dependencies
+[https://synergieurbaine.herokuapp.com](https://synergieurbaine.herokuapp.com)
 
-* Configuration
 
-* Database creation
+Identifients administrateurs : 
 
-* Database initialization
+```
+Email : admin@yopmail.com
+Mot de passe : 123456
+```
 
-* How to run the test suite
+## Visualisation en local
 
-* Services (job queues, cache servers, search engines, etc.)
+Pour visualiser le projet en local : 
+- Télécharger le dossier
+- $ bundle install
+- $ rails db:drop db:create db:migrate 
+- $ rails db:seed
 
-* Deployment instructions
+## Auteurs
 
-* ...
+* **Mahaut** 
+* **Théo** 
+* **Lilas** 
+
