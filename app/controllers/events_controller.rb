@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   # pour les recerches / ici on recherche par titre /
   def search
 
-    @events = Event.where("title LIKE ?"&& "description LIKE ?", "%" + params[:q] + "%" )
+    @events = Event.where("location LIKE ?"&&"title LIKE ?"&& "description LIKE ?", "%" + params[:q] + "%" )
     
   end
 
