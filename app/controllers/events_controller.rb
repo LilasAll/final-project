@@ -2,7 +2,7 @@
 
 class EventsController < ApplicationController
   # pour n'autoriser que les users à aller sur la page secrète :
-  # before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new]
 
 
   def index
