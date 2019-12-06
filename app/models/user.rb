@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :attendances
   has_many :events, through: :attendances
   has_many :articles
+  has_many :bugs
 
   has_one_attached :avatar
   has_many :comments

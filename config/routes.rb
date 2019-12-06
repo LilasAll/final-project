@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bugs
+
   resources :articles do
     resources :avatars, only: [:create]
     resources :likes, only: %i[create destroy]
