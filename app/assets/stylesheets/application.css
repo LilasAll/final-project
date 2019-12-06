@@ -45,6 +45,10 @@ footer {
   display : table-row;
   height: 100px; /* à titre d'exemple */
 }
+.psw-reset {
+  padding: 50px 100px 100px;
+  width: 60%;
+}
 
 .article-show {
 	padding: 30px;
