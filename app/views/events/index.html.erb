@@ -1,7 +1,8 @@
 <h1>Les événements</h1>
 <center>
+  
   <div class="card-columns index-padding">
-    <%= @events.all.each do |event| %>
+    <% @events.each do |event| %>
       <% if event.is_validated == true%>
         <div class="card p-3 card-blog">
           <div class="card-header card-header-image">
@@ -17,22 +18,26 @@
               <%= event.title %>
             </div>
           </div>
-          <%= link_to event_path(event.id) do %>
-            <div class="card-body">
-              <p class="card-description"> <%= "#{event.description.first(100)} [...]" %> </p><% end %>
-              <p class="card-text">
-                <small class="text-muted">
-                  <i class="material-icons">people</i> <%= event.attendances.count %>
-                  <i class="material-icons">face</i> <%= event.creator.pseudo %><br/>
-                </small>
-                  <i class="material-icons">day</i><%= event.start_date.strftime( "le %d/%m/%Y à %H:%M") %>
-              </p>
-            <% event.join_tag_events.each do |join| %>
-              <span class="badge badge-primary"><%= join.tag.name %></span>
-            <% end %>
+          <div class="card-body">
+            <p class="card-description"> <%= "#{event.description.first(100)} [...]" %> </p>
+            <p class="card-text"><small class="text-muted">
+                <i class="material-icons">people</i> <%= event.attendances.count %>
+                <i class="material-icons">face</i> <%= event.creator.pseudo %><br/>
+              </small>
+              <i class="material-icons">day</i><%= event.start_date.strftime( "le %d/%m/%Y à %H:%M") %>
+
+            </p>
+           <% event.join_tag_events.each do |join| %>
+          <span class="badge badge-primary"><%= join.tag.name %></span>
+
+
+              <% end %>
+
           </div>
         </div>
       <%end%>
     <%end%>
   </div>
+
+
 </center>
