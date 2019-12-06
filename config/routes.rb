@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+
+get'search' ,to: 'events#search'
+
   resources :events do
     resources :avatars, only: [:create]
     resources :attendances
@@ -25,6 +28,8 @@ Rails.application.routes.draw do
       get :toggle_check
     end
   end
+
+
 
   resources :users
 

@@ -6,8 +6,17 @@ class EventsController < ApplicationController
 
 
   def index
-    @events = Event.all
+
+    @events = Event.all 
+
   end
+
+  def search
+
+    @events = Event.where("title LIKE ?", "%" + params[:q] + "%")
+    
+  end
+
 
   def new
     # permet de comprendre les erreurs du formaulaire new
