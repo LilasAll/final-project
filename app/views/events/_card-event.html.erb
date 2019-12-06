@@ -28,12 +28,10 @@
          <% else %>
          <li class="list-group-item text-center"> <b> </b> <br/> Cet évènement est gratuit !</li>
          <%end%>
-
+         <center>
          <% @event.join_tag_events.each do |join| %>
           <span class="badge badge-primary"> <%= join.tag.name %></span>
-
-              <% end %>
-
+         <% end %></center>
         <!----------------------- Lien pour participer à l'event ---------------------------------->
 <!--------- (si on est pas déja sur la liste, pas admin et que la date n'est pas passée) -->
         <li class="list-group-item text-center">
@@ -129,11 +127,9 @@
           <th class= "" >  Commentaires</th>
           <th class= "" >  </th>
           <th class= "" >  </th>
-
         </tr>
       </thead>
         <tbody>
-          
            <% @comments.each do |comment| %>
           <tr>
           <td>
@@ -144,7 +140,6 @@
           </td>
           <td> 
           <% if current_user.id == comment.user.id %>
-          
           <%end%>
           </tr>
           <%end %>
@@ -154,7 +149,7 @@
 <h2>Tous les événements organisés par <%= @event.creator.pseudo%> </h2>
 
 
-<div class="card-deck col-6">
+<div class="card-deck col-10">
   <% Event.all.each do |event| %>
       <% if event.is_validated == true%>
 
@@ -172,10 +167,9 @@
         <% end %>
 
 
-
+        <%= link_to event_path(event.id) do %>
         <div class="card-body">
-
-          <h5 class="card-title"><%= event.title %></h5>
+          <h5 class="card-title"><%= event.title %></h5><%end%>
           <p class="card-text">
             <%= "#{event.description.first(100)} [...]" %>
           </p>
@@ -190,5 +184,10 @@
     <%end%>
   <%end%>
   <%end%>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
