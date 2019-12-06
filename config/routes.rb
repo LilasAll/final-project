@@ -35,6 +35,11 @@ get'search' ,to: 'events#search'
 
   resources :users, only: [:show] do
     resources :avatars, only: [:create]
+
+        # Important pour l'admin !
+    collection do
+      get :toggle_check
+    end
   end
 
   resources :admins

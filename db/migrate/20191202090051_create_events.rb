@@ -9,7 +9,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :location
       t.boolean :is_validated, default: false
-      t.integer :price
+      t.integer :price, default: '0'
 
       t.belongs_to :creator
 
