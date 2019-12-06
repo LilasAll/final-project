@@ -35,15 +35,9 @@
                     <li class="nav-item">
                       <a <%= link_to "Déconnexion", destroy_user_session_path, method: "delete", class: "nav-link" %></a>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Participer à la communauté
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a <%= link_to "Créer un évènement", new_event_path, class: "dropdown-item" %></a>
-                            <a <%= link_to "Rediger un article", new_article_path, class: "dropdown-item" %></a>
-                            </div>
-                          </li>
+
+                    
+                     
                           <!--        Si l'user est PAS connecté affiche ça  -->
                         <%else%>
                           <li class="nav-item">

@@ -36,6 +36,7 @@ class EventsController < ApplicationController
     end
   end
 
+  def create
 
 
     date = (params[:start_date] + " " + params[:hour_start]).in_time_zone
