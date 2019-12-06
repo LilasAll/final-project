@@ -28,12 +28,10 @@
          <% else %>
          <li class="list-group-item text-center"> <b> </b> <br/> Cet évènement est gratuit !</li>
          <%end%>
-
+         <center>
          <% @event.join_tag_events.each do |join| %>
           <span class="badge badge-primary"> <%= join.tag.name %></span>
-
-              <% end %>
-
+         <% end %></center>
         <!----------------------- Lien pour participer à l'event ---------------------------------->
 <!--------- (si on est pas déja sur la liste, pas admin et que la date n'est pas passée) -->
         <li class="list-group-item text-center">
