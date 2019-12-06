@@ -1,13 +1,16 @@
 <div class="container">
+  <div style="margin-bottom: 100px;" class= "card">
+    <div class="card-body"> 
   
 
 
 Merci de votre intêret et de votre participation à notre communauté !
 
-  Vous allez participer à <%= @event.title %> ! Vous pouvez directement contacter <%= @event.creator.pseudo %>
+  Vous allez participer à <strong><%= @event.title %> !</strong> Vous pouvez directement contacter<strong> <%= link_to @event.creator.pseudo, user_path(@event.creator.id) %></strong>
 
 
-
+</div>
+</div>
 
 <body>
   <!----------------- Message d'erreur si erreur il y a    --------> 
@@ -25,24 +28,18 @@ Merci de votre intêret et de votre participation à notre communauté !
     <article> 
 
 <!-------------------- PARTIIPATION A UN EVENEMENT : PAIEMENT ------------>
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">You are about to pay</h4>
+      <div class="card-header card-header-warning">
+        <h4 class="my-0 font-weight-normal">Paiement</h4>
       </div>
 
 
 
       <div class="card-body">
-        <h2 class="card-title pricing-card-title"> 
-            <label class="amount">
-
-              <!-- Annonce du prix -->
-              <span><%= @event.price %> </span>
-            </label>
-            <small class="text-muted">euros</small>
-        </h2>
+   <h3>Vous allez payer <%= @event.price %> euros</h3>
             
           <ul class="list-unstyled mt-3 mb-4">
-            <li>For the following event : </li>
+            <h4>Pour cet événement:</h4>
+            <br/>
             <li> <b> <%= @event.title %> </b> </li>
             <li> <%= @event.description %> </li>
             <li> created by <b><%= @event.creator.first_name %></b></li>

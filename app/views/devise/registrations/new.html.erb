@@ -1,83 +1,66 @@
 
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-    <div class="section section-signup page-header" style=" background-image: url('https://cdn.pixabay.com/photo/2019/11/30/16/34/comic-4663596_960_720.png');">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-            <div class="card card-login">
-              <form class="form" method="" action="">
-                <div class="card-header card-header-primary text-center">
-                  <h4 class="card-title">Inscription</h4>
-                  <!-- <div class="social-line">
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                      <i class="fa fa-facebook-square"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                      <i class="fa fa-google-plus"></i>
-                    </a>
-                  </div>-->
-                </div>
-                <p class="description text-center">On a hâte de te compter parmis nos membres !</p>
-                <div class="card-body" ">
-                  <div class="input-group" style="padding: 0;">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
-                  
-                  <div class="">
-                    <div class="field">
-                      <%= f.label :email %>
-                      <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control"%><br/>
-                    </div>
-
-                    <div class="field">
-                      <%= f.label :pseudo %>
-                      <%= f.text_field :pseudo, class: "form-control"%><br/>
-                    </div>
-
-                    <div class="field">
-                      <%= f.label :last_name, "Nom "%>
-                      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %><br/>
-                    </div>
-                
-                    <div class="field">
-                      <%= f.label :first_name, "Prénom" %>
-                      <%= f.text_field :first_name, class: "form-control" %><br/>
-                    </div>
-
-                    <div class="field">
-                      <%= f.label :'Mot de passe'%>
-                      <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em>
-                      <% end %>
-                      <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %><br />
-                    </div>
-
-                    <div class="field">
-                      <%= f.label :'Confirmation mot de passe' %><br />
-                      <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
-                    </div>
-                  <div class="footer text-center">
-                    <div class="actions">
-                      <%= f.submit "s'inscrire", class: "btn btn-primary" %>
-                    </div>
+  <div class="section section-signup page-header" style=" margin:100px; background-image: url('./assets/img/city.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+          <div class="card card-login">
+            <form class="form" method="" action="">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Inscription</h4>
+          
+              </div>
+              <p class="description text-center">Hâte de vous voir parmis nous</p>
+              <div class="card-body" ">
+                <div class="input-group" style="padding: 0;">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                    </span>
                   </div>
-                </div>                
-              </form>
-              <% end %>
+                  <div style="padding-left: 30px;" class="">
+                    <div class="field">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", style:'width :15em;' , class: "form-control" %>
+                    </div>
+            
+           
+                  <div class="field">
+                      <%= f.label :pseudo %><br />
+                      <%= f.text_field :pseudo, style:'width :15em;' , class: "form-control" %>
+                    </div><br/>
+                     <div class="field">
+                      <%= f.label 'Prénom' %><br />
+                      <%= f.text_field :first_name, style:'width :15em;' , class: "form-control" %>
+                    </div>
+                     <div class="field">
+                      <%= f.label 'Nom de famille' %><br />
+                      <%= f.text_field :last_name, style:'width :15em;' , class: "form-control" %>
+                    </div>
+                            <div class="field">
+                      <%= f.label :password %>
+                      <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %>
+                      <%= f.password_field :password, autocomplete: "new-password",class: "form-control",style:'width :15em;' %>
+                    </div>
+                    <div class="field">
+                    <%= f.label :'Confirmation mot de passe' %>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password",style:'width :15em;',class: "form-control" %>
+                  </div>
+                    <div class="footer text-center">
+                      <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">    <%= f.submit "M'inscrire", class:'btn btn-primary' %>
+                      </a>
+                    </div>
+                    <center>
+                        <%= render "devise/shared/links" %>
+</center>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-
-
-<%= render "devise/shared/links" %>
-
+    <% end %>

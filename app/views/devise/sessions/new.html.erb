@@ -1,78 +1,68 @@
-
-
-
-
-
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-
-    <div class="section section-signup page-header" style=" margin:50px; background-image: url('./assets/img/city.jpg');">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-            <div class="card card-login">
-              <form class="form" method="" action="">
-                <div class="card-header card-header-primary text-center">
-                  <h4 class="card-title">Connexion</h4>
-                  <div class="social-line">
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                      <i class="fa fa-facebook-square"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                      <i class="fa fa-google-plus"></i>
-                    </a>
+  <div class="section section-signup page-header" style=" margin:px; background-image: url('./assets/img/city.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+          <div class="card card-login">
+            <form class="form" method="" action="">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Connexion</h4>
+                <div class="social-line">
+                  <a href="#pablo" class="btn btn-just-icon btn-link">
+                    <i class="fa fa-facebook-square"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-just-icon btn-link">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-just-icon btn-link">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </div>
+              </div>
+              <p class="description text-center">Bon retour parmis nous</p>
+              <div class="card-body" ">
+                <div class="input-group" style="padding: 0;">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                    </span>
                   </div>
-                </div>
-                <p class="description text-center">Ou sur la plateforme</p>
-                <div class="card-body" ">
-                  <div class="input-group" style="padding: 0;">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                      </span>
+                  <div  class="">
+                    <div class="field">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", style:'width :15em;' , class: "form-control" %>
                     </div>
-<div class="">
-    <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", style:'width :15em;' , class: "form-control" %>
-  </div>
+                    <div class="field">
+                      <%= f.label :password %>
+                      <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "new-password",class: "form-control",style:'width :15em;' %>
+                    </div>
+                    <% if devise_mapping.rememberable? %>
+                      <div class="field">
+                        <%= f.check_box :remember_me %>
+                        <%= f.label :remember_me %>
+                      </div>
+                    <% end %>
+                    <div class="footer text-center">
+                      <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">     <%= f.submit "Me connecter", class:'btn btn-primary' %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password",class: "form-control",style:'width :15em;' %>
-  </div>
+                      </a>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
 
-             
-                <div class="footer text-center">
-                  <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">    <%= f.submit "Log in" %>
-</a>
-</div>
-                </div>
-              </form>
+                    </div>
+                    <center>
+                      
+                       <%= render "devise/shared/links" %>
+
+                    </center>
+                       
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-
-
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-
+    <% end %>

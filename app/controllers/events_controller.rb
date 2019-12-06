@@ -10,7 +10,8 @@ class EventsController < ApplicationController
     @events = Event.all 
 
   end
-
+  
+  # pour les recerches / ici on recherche par titre /
   def search
 
     @events = Event.where("title LIKE ?", "%" + params[:q] + "%")
