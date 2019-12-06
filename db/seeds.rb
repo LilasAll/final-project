@@ -20,7 +20,7 @@ User.create!(pseudo: 'Admin', email: 'admin@yopmail.com', description: "Le compt
 puts '1 Admin created'
 
 10.times do
-	Event.create!(is_validated: true,start_date: Faker::Date.forward(days: 250),duration: rand(1..10)*5,title: Faker::Book.title,description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false),location: Faker::Movies::LordOfTheRings.location, creator: User.all.sample,price: rand(0...30))
+  Event.create!(is_validated: true, start_date: Faker::Date.forward(days: 250), duration: rand(1..10) * 5, title: Faker::Book.title, description: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false), location: Faker::Movies::LordOfTheRings.location, creator: User.all.sample, price: rand(0...30))
 end
 puts '10 events created'
 
@@ -29,19 +29,18 @@ puts '10 events created'
 end
 puts '10 articles created'
 
-Tag.create!(name:'Bon Plan')
-Tag.create!(name:'DIY')
-Tag.create!(name:'Ecolo')
-Tag.create!(name:'Agriculture urbaine')
-Tag.create!(name:'Alimentation')
-Tag.create!(name:'Sortie')
-Tag.create!(name:'Rencontre')
-Tag.create!(name:'Local')
-Tag.create!(name:'Energie')
-Tag.create!(name:'Climat')
-Tag.create!(name:'Transport')
-Tag.create!(name:'Solidaire')
-
+Tag.create!(name: 'Bon Plan')
+Tag.create!(name: 'DIY')
+Tag.create!(name: 'Ecolo')
+Tag.create!(name: 'Agriculture urbaine')
+Tag.create!(name: 'Alimentation')
+Tag.create!(name: 'Sortie')
+Tag.create!(name: 'Rencontre')
+Tag.create!(name: 'Local')
+Tag.create!(name: 'Energie')
+Tag.create!(name: 'Climat')
+Tag.create!(name: 'Transport')
+Tag.create!(name: 'Solidaire')
 
 30.times do
   JoinTagArticle.create!(article: Article.all.sample, tag: Tag.all.sample)
@@ -54,7 +53,6 @@ end
 puts '30 links between tags and articles created'
 
 20.times do
-	Attendance.create!(event: Event.all.sample, user: User.all.sample, stripe_customer_id: Faker::Alphanumeric.alpha(number: 6))
+  Attendance.create!(event: Event.all.sample, user: User.all.sample, stripe_customer_id: Faker::Alphanumeric.alpha(number: 6))
 end
 puts '20 attendances created'
-

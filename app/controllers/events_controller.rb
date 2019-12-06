@@ -2,22 +2,16 @@
 
 class EventsController < ApplicationController
   # pour n'autoriser que les users à aller sur la page secrète :
-  before_action :authenticate_user!, only: [:new, :show, :edit]
-
+  before_action :authenticate_user!, only: %i[new show edit]
 
   def index
-
-    @events = Event.all 
-
+    @events = Event.all
   end
-  
+
   # pour les recerches / ici on recherche par titre /
   def search
-
-    @events = Event.where("description LIKE ?", "%" + params[:q] + "%" )
-    
+    @events = Event.where('description LIKE ?', '%' + params[:q] + '%')
   end
-
 
   def new
     # permet de comprendre les erreurs du formaulaire new
@@ -25,15 +19,15 @@ class EventsController < ApplicationController
   end
 
   def show
-  		#on ne montre les events qu'à ceux qui sont connectés :
-  	if user_signed_in?
-			@event = Event.find(params[:id])
-			@attending_list = @event.attendances #liste des participants
-      puts "*"*100
+    # on ne montre les events qu'à ceux qui sont connectés :
+    if user_signed_in?
+      @event = Event.find(params[:id])
+      @attending_list = @event.attendances # liste des participants
+      puts '*' * 100
       puts @attending_list.count
-      puts "*"*100
+      puts '*' * 100
 
-    @comments=@event.comments
+      @comments = @event.comments
 
     # ceux qui ne sont pas connectés sont renvoyés à la page login
     else
@@ -43,9 +37,6 @@ class EventsController < ApplicationController
   end
 
   def create
-
-
-
     @event = Event.new(
       creator: current_user,
       title: params[:title],
@@ -55,8 +46,7 @@ class EventsController < ApplicationController
       price: params[:price],
       location: params[:location]
     )
-          @event.tags = Tag.where(id: params[:tag_id])
-
+    @event.tags = Tag.where(id: params[:tag_id])
 
     # @event.creator_id = current_user.id
     @event.image_event.attach(params[:image_event])
@@ -75,7 +65,7 @@ class EventsController < ApplicationController
       flash.now[:danger] = 'Une erreur est survenue, veuillez réessayer'
       render 'new'
       @tags = Tag.all
-    
+
     end
   end
 
@@ -91,15 +81,14 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params['id'])
-
   end
 
   def update
     @event = Event.find(params[:id])
-    
-    #ATTENTION, AVEC CETTE METHODE IL FAUT RECHARGER L'IMAGE ET LA DATE A CHAQUE FOIS
 
-    if @event.update(title:params[:title], description:params[:description],start_date: params[:start_date], location: params[:location], price: params[:price])
+    # ATTENTION, AVEC CETTE METHODE IL FAUT RECHARGER L'IMAGE ET LA DATE A CHAQUE FOIS
+
+    if @event.update(title: params[:title], description: params[:description], start_date: params[:start_date], location: params[:location], price: params[:price])
       @event.image_event.purge
       @event.image_event.attach(params[:image_event])
       redirect_to @event
@@ -108,14 +97,11 @@ class EventsController < ApplicationController
     end
   end
 
-
-
-
   def check_if_admin
     redirect_to root_path unless current_user.admin?
  end
 
-#Pour l'admin pour valider les events
+  # Pour l'admin pour valider les events
   def toggle_check
     @event = Event.find(params[:event_id])
     @is_validated = if @event.is_validated == false
@@ -126,16 +112,9 @@ class EventsController < ApplicationController
     redirect_to '/'
   end
 
+  private
 
-
-
- private
-
- def post_params
-
- 	params.require(:post).permit(:author, :content, :all_tags)
- 	
- end
-
-
+  def post_params
+    params.require(:post).permit(:author, :content, :all_tags)
+  end
 end

@@ -1,35 +1,34 @@
 <center>
-<br/>
-<h1>Tous nos articles : </h1>
-<div class="card-columns index-padding">
-<% Article.all.each do |article| %>
-<% if article.is_validated == true%>
-<%= link_to article_path(article.id) do %>
-    <div class="card p-3 bg-info">
-        <div class="card-title title">
-            <h4 class="card-category title">
+  <br/>
+  <h1>Tous nos articles : </h1>
+  <div class="card-columns index-padding">
+    <% Article.all.each do |article| %>
+      <% if article.is_validated == true%>
+        <%= link_to article_path(article.id) do %>
+          <div class="card p-3 bg-info">
+            <div class="card-title title">
+              <h4 class="card-category title">
                 <%= article.title %></h4>
-            <h5 class="card-body">
-              <a <%= link_to "#{article.content.first(100)} [...]", article_path(article.id) %></a>
-            </h5>
-            <div class="card-stats">
-                <div class="author">
+              <h5 class="card-body">
+                <a <%= link_to "#{article.content.first(100)} [...]", article_path(article.id) %></a>
+                </h5>
+                <div class="card-stats">
+                  <div class="author">
                     <span><%= article.author.pseudo %></span>
+                  </div>
+                  <div class="stats ml-auto">
+                    <i class="material-icons">favorite</i> 
+                    <p><%= article.likes.count %> <%= (article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                     &#xB7;
+                  </div>
                 </div>
-
-                <div class="stats ml-auto">
-                    <i class="material-icons">favorite</i> <p><%= article.likes.count %> <%= (article.likes.count) == 1 ? 'Like' : 'Likes'%></p> &#xB7;
-                </div>
-
+              </div>
+              <% article.join_tag_articles.each do |join| %>
+                <span class="badge badge-primary"> <%= join.tag.name %></span>
+              <% end %>
             </div>
-
-        </div>
-        <% article.join_tag_articles.each do |join| %>
-            <span class="badge badge-primary"> <%= join.tag.name %></span>
-        <% end %>
-      </div>
-    <%end%>
-  <%end%>
-<%end%>
-</div>
-</center>
+          <%end%>
+        <%end%>
+      <%end%>
+    </div>
+  </center>

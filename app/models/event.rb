@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
-
-
   # -----------------Appartenances----------------------------------------
   has_many :attendances
   has_many :users, through: :attendances
@@ -15,9 +13,7 @@ class Event < ApplicationRecord
   has_many :join_tag_events
   has_many :tags, through: :join_tag_events
 
-
   # -----------------Validations----------------------------------------
-
 
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < Date.today
@@ -30,8 +26,6 @@ class Event < ApplicationRecord
       errors.add(:duration, 'La durée doit être un multiple de 5 minutes')
     end
   end
-
- 
 
   validate :start_date_cannot_be_in_the_past
   validate :duration_is_positif_and_5_multiple

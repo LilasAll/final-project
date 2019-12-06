@@ -9,11 +9,11 @@ Dotenv.load('.env')
 Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => ENV['MAILJET_LOGIN'],
-  :password => ENV['MAILJET_SECRETKEY'],
-  :domain => 'synergie.urbaine.herokuapp.fr',
-  :address => 'in-v3.mailjet.com',
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true
+  user_name: ENV['MAILJET_LOGIN'],
+  password: ENV['MAILJET_SECRETKEY'],
+  domain: 'synergie.urbaine.herokuapp.fr',
+  address: 'in-v3.mailjet.com',
+  port: 587,
+  authentication: :plain,
+  enable_starttls_auto: true
 }

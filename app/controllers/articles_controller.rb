@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-
-    before_action :authenticate_user!, only: [:new , :show, :index]
+  before_action :authenticate_user!, only: %i[new show index]
 
   def new
     @article = Article.new
@@ -30,8 +29,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(title: params[:title], content: params[:content], author: current_user)
     @article.author_id = @current_user.id
 
-              @article.tags = Tag.where(id: params[:tag_id])
-
+    @article.tags = Tag.where(id: params[:tag_id])
 
     if @article.save
       redirect_to '/'
@@ -54,7 +52,4 @@ end
                     end
     redirect_to '/'
   end
-
-
-
 end

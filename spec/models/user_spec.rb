@@ -20,14 +20,12 @@ RSpec.describe User, type: :model do
       it { expect(@user).to validate_presence_of(:email) }
     end
 
-
     describe '#pseudo' do
       it { expect(@user).to validate_presence_of(:pseudo) }
     end
 
     describe '#first_name' do
       it { expect(@user).to validate_presence_of(:first_name) }
-
     end
   end
 

@@ -1,68 +1,47 @@
 <div class="container">
   <div style="margin-bottom: 100px;" class= "card">
-    <div class="card-body"> 
-  
-
-
-Merci de votre intêret et de votre participation à notre communauté !
-
-  Vous allez participer à <strong><%= @event.title %> !</strong> Vous pouvez directement contacter<strong> <%= link_to @event.creator.pseudo, user_path(@event.creator.id) %></strong>
-
-
-</div>
-</div>
-
-<body>
-  <!----------------- Message d'erreur si erreur il y a    --------> 
+    <div class="card-body">
+      Merci de votre intêret et de votre participation à notre communauté !
+      Vous allez participer à <strong><%= @event.title %> !</strong> Vous pouvez directement contacter<strong> <%= link_to @event.creator.pseudo, user_path(@event.creator.id) %></strong>
+    </div>
+  </div>
+  <body>
+    <!----------------- Message d'erreur si erreur il y a    -------->
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-
-  
-<!------------------ Formulaire de paiement ------------------------->
-<div class="card mb-4 shadow-sm d-flex"> <center>
-
-  <%= form_tag event_attendances_path do %>
-    <article> 
-
-<!-------------------- PARTIIPATION A UN EVENEMENT : PAIEMENT ------------>
-      <div class="card-header card-header-warning">
-        <h4 class="my-0 font-weight-normal">Paiement</h4>
-      </div>
-
-
-
-      <div class="card-body">
-   <h3>Vous allez payer <%= @event.price %> euros</h3>
-            
-          <ul class="list-unstyled mt-3 mb-4">
-            <h4>Pour cet événement:</h4>
-            <br/>
-            <li> <b> <%= @event.title %> </b> </li>
-            <li> <%= @event.description %> </li>
-            <li> created by <b><%= @event.creator.first_name %></b></li>
-          </ul>
-        </div>
-      </article> 
-
-    
-<!---------------------- Bouton "pay with card"    -->
-  <% if @event.price > 0 %>
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    <!------------------ Formulaire de paiement ------------------------->
+    <div class="card mb-4 shadow-sm d-flex"> <center>
+        <%= form_tag event_attendances_path do %>
+          <article>
+            <!-------------------- PARTIIPATION A UN EVENEMENT : PAIEMENT ------------>
+            <div class="card-header card-header-warning">
+              <h4 class="my-0 font-weight-normal">Paiement</h4>
+            </div>
+            <div class="card-body">
+              <h3>Vous allez payer <%= @event.price %> euros</h3>
+              <ul class="list-unstyled mt-3 mb-4">
+                <h4>Pour cet événement:</h4>
+                <br/>
+                <li> <b> <%= @event.title %> </b> </li>
+                <li> <%= @event.description %> </li>
+                <li> created by <b><%= @event.creator.first_name %></b></li>
+              </ul>
+            </div>
+          </article>
+          <!---------------------- Bouton "pay with card"    -->
+          <% if @event.price > 0 %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="Event participation"
               data-amount="@event.price"
-              data-locale="auto">
-      </script>
-    <%else%>
-      <%=link_to "participer",  event_attendances_path(@event.id), method:"post"%>
-   <%end%>
-
-
-
-  <% end %>
-  
-</div> </center>
-</div>
+              data-locale="auto"></script>
+          <%else%>
+            <%=link_to "participer",  event_attendances_path(@event.id), method:"post"%>
+          <%end%>
+        <% end %>
+      </div>
+       </center>
+  </div>

@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :articles
 
   has_one_attached :avatar
-    has_many :comments
+  has_many :comments
 
   has_many :likes, dependent: :destroy
 
@@ -28,14 +28,10 @@ class User < ApplicationRecord
   # message: "Le nom ne peut contenir que des lettres" }
   # validates :password, presence: true
 
-
-
-#------------------------------- Mailer --------------------------
+  #------------------------------- Mailer --------------------------
   after_create :welcome_send
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
-  
-
 end

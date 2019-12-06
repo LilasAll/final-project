@@ -1,23 +1,17 @@
 <center>
-<h1>Rediger un article</h1>
-
-
-    <%= form_tag url_for(action: 'create'), method: "post" do %>
-
- <%= label_tag 'Titre' %><br />
-      <%= text_field_tag :title%>
-      <br /> 
-      <%= label_tag 'Contenu' %><br />
-      <%= text_area_tag 'content' %>
- <br />  
-
-      <h4 class="card-title"> Tags  </h4>
-      <p> (plusieurs au choix)</p>
-      <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
-
-      <br/><br/>
-
-      <%= submit_tag "Creer" %>
-
-<%end%>
+  <h1>Rediger un article</h1>
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <%= label_tag 'Titre' %><br />
+    <%= text_field_tag :title%>
+    <br />
+    <%= label_tag 'Contenu' %><br />
+    <%= text_area_tag 'content' %>
+    <br />
+    <h4 class="card-title"> Tags  </h4>
+    <p> (plusieurs au choix)</p>
+    <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
+    <br/>
+    <br/>
+    <%= submit_tag "Creer" %>
+  <%end%>
 </center>

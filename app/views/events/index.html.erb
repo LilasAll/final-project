@@ -1,6 +1,5 @@
 <h1>Les événements</h1>
 <center>
-  
   <div class="card-columns index-padding">
     <% @events.each do |event| %>
       <% if event.is_validated == true%>
@@ -13,7 +12,6 @@
                 <%= image_tag "https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D", class: "some css class here" %>
               <% end %>
             <% end %>
-
             <div class="card-title">
               <%= event.title %>
             </div>
@@ -25,19 +23,13 @@
                 <i class="material-icons">face</i> <%= event.creator.pseudo %><br/>
               </small>
               <i class="material-icons">day</i><%= event.start_date.strftime( "le %d/%m/%Y à %H:%M") %>
-
             </p>
-           <% event.join_tag_events.each do |join| %>
-          <span class="badge badge-primary"><%= join.tag.name %></span>
-
-
-              <% end %>
-
+            <% event.join_tag_events.each do |join| %>
+              <span class="badge badge-primary"><%= join.tag.name %></span>
+            <% end %>
           </div>
         </div>
       <%end%>
     <%end%>
   </div>
-
-
 </center>

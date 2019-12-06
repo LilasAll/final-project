@@ -44,7 +44,6 @@ gem 'bootstrap-sass'
 
 gem 'chosen-rails'
 
-
 # GEM INSTALLED#==============================================
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

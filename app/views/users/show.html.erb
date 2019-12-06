@@ -1,36 +1,34 @@
   <body class="profile-page sidebar-collapse">
-    <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://images.pexels.com/photos/2233992/pexels-photo-2233992.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');"></div>
-    <div class="main main-raised">
-      <div class="profile-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 ml-auto mr-auto">
-              <div class="profile">
-                <div class="avatar">
-                  <%if @user.avatar.attached?%>
-                    <%= image_tag @user.avatar, alt: 'avatar', class:"img-raised rounded-circle img-fluid" %>
-                  <%else%>
-                    <img src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" class="img-raised rounded-circle img-fluid">
-                  <%end%>
-                </div>
-                <div class="name">
-                  <h3 class="title"><%= @user.pseudo %></h3>
-                  <h6><%= @user.first_name %> <%= @user.last_name %></h6>
-                  <h6><%= @user.city %></h6>
-                  <div class="card">
-                    <div class="card-body">
-                      <strong>Description :</strong> <%= @user.description %>
-                    </div>
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://images.pexels.com/photos/2233992/pexels-photo-2233992.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');"></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar">
+                <%if @user.avatar.attached?%>
+                  <%= image_tag @user.avatar, alt: 'avatar', class:"img-raised rounded-circle img-fluid" %>
+                <%else%>
+                  <img src="https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg" class="img-raised rounded-circle img-fluid">
+                <%end%>
+              </div>
+              <div class="name">
+                <h3 class="title"><%= @user.pseudo %></h3>
+                <h6><%= @user.first_name %> <%= @user.last_name %></h6>
+                <h6><%= @user.city %></h6>
+                <div class="card">
+                  <div class="card-body">
+                    <strong>Description :</strong> <%= @user.description %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <h3 class="title">Articles écrits :</h3>
-          <% Article.where(author_id:params[:id]).each do |article| %>
-                <% if article.is_validated == true%>
-
+        </div>
+        <h3 class="title">Articles écrits :</h3>
+        <% Article.where(author_id:params[:id]).each do |article| %>
+          <% if article.is_validated == true%>
             <%= link_to article_path(article.id) do %>
               <div class="card p-3 bg-info">
                 <div class="card-title title">
@@ -46,20 +44,20 @@
                       <div class="stats ml-auto">
                       </div>
                     </div>
-                    <%end%>
-                    <% if Article.where(author_id:params[:id]) === 0 %>
-                      <p> Cette utilisateurs n'a pas encore écrit d'article</p>
-                    <%else%>
-                    <%end%>
-                  </div>
+                  <%end%>
+                  <% if Article.where(author_id:params[:id]) === 0 %>
+                    <p> Cette utilisateurs n'a pas encore écrit d'article</p>
+                  <%else%>
+                  <%end%>
                 </div>
-              <%end%>
+              </div>
             <%end%>
-          </div>
-          <br/>
+          <%end%>
         </div>
+        <br/>
       </div>
     </div>
   </div>
+</div>
 </body>
 </html>

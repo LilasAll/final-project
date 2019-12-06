@@ -16,22 +16,20 @@ RSpec.describe Event, type: :model do
       expect(@event).to be_a(Event)
     end
 
-
-    describe "#title" do
-     it { expect(@event).to validate_presence_of(:title) } 
-     it { expect(@event.title).to be_a(String) }
+    describe '#title' do
+      it { expect(@event).to validate_presence_of(:title) }
+      it { expect(@event.title).to be_a(String) }
     end
 
-    describe "#description" do
-     it { expect(@event).to validate_presence_of(:description) }
-     it { expect(@event.description).to be_a(String) } 
-     #it { expect(@event.description).to validate_length_of(:description).is_at_least(10).is_at_most(1000).with_message("La description doit contenir entre 10 et 1000 caractères.") }
+    describe '#description' do
+      it { expect(@event).to validate_presence_of(:description) }
+      it { expect(@event.description).to be_a(String) }
+      # it { expect(@event.description).to validate_length_of(:description).is_at_least(10).is_at_most(1000).with_message("La description doit contenir entre 10 et 1000 caractères.") }
     end
 
-    describe "#location" do
-     it { expect(@event).to validate_presence_of(:location) } 
-     it { expect(@event.location).to be_a(String) } 
-
+    describe '#location' do
+      it { expect(@event).to validate_presence_of(:location) }
+      it { expect(@event.location).to be_a(String) }
     end
   end
 

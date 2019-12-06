@@ -6,11 +6,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
 
-      @current_user = current_user
-  
+    @current_user = current_user
+
     # on définit les évenements créés
     @events = Event.all
 
@@ -32,10 +31,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-    redirect_to cohorts_path
+      redirect_to cohorts_path
 
     else
-        render 'edit'
+      render 'edit'
     end
   end
 
@@ -44,14 +43,13 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
-    def toggle_check
+  def toggle_check
     @user = User.find(params[:user_id])
     @is_admin = if @user.is_admin == false
-                      @user.update(is_admin: true)
-                    else
-                      @user.update(is_admin: false)
+                  @user.update(is_admin: true)
+                else
+                  @user.update(is_admin: false)
                     end
     redirect_to '/'
-  end
-
+end
 end
