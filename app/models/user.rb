@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :events, through: :attendances
   has_many :articles
   has_many :bugs
+  has_many :conversations, :foreign_key => :sender_id
+
+
 
   has_one_attached :avatar
   has_many :comments
