@@ -4968,11 +4968,12 @@ tbody.collapse.show {
 }
 
 .alert {
-  position: relative;
+  position: absolute;
+   opacity: 0.9; 
   padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border-radius: 1rem;
+  width: 100%;
 }
 
 .alert-heading {
@@ -13991,7 +13992,6 @@ textarea {
   border: 0;
   border-radius: 3px;
   padding: 0.625rem 0;
-  margin-bottom: 20px;
   color: #555;
   background-color: #fff !important;
   box-shadow: 0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15);
