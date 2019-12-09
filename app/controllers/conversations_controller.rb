@@ -1,13 +1,16 @@
+# frozen_string_literal: true
 
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
     @users = User.all
     @conversations = Conversation.all
-    
 end
+
+  def new
+    @recipient = params[:recipient_id]
+  end
 
   def create
     if Conversation.between(params[:sender_id], params[:recipient_id]).present?
@@ -19,6 +22,7 @@ end
   end
 
   private
+
   def conversation_params
     params.permit(:sender_id, :recipient_id)
   end

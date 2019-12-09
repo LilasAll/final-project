@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'search', to: 'events#search'
-    get 'search_user', to: 'users#search_user'
-
+  get 'search_user', to: 'users#search_user'
 
   resources :events do
     resources :avatars, only: [:create]
@@ -43,8 +42,6 @@ Rails.application.routes.draw do
 
   resources :admins
   resources :comments, except: %i[new index show]
-  
-
 
   resources :conversations do
     resources :messages

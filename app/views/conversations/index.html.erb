@@ -1,57 +1,34 @@
-
-
 <center>
-   <form style="width: 50em; margin: 100px; " class=' ' action="/search_user">
-            <input placeholder='Chercher un utilisateur...' name="q" class="form-control mr-sm-2" type="text" aria-label="search_user">
-            <button class="btn btn-primary", style='color:white'  type="submit" >Chercher</button> 
-     <div style="margin-top: 100px;" class="main main-raised">
-        <div class="section section-basic">
-          <div class=" container">
-
-
-  
-<div id="mail" class="">
-    <h1 class="panel-heading">Conversations</h1>
-    <div class="panel-body">
-     <div class="item">
-      
-
-      <% @conversations.each do |conversation| %>
-
-      <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-       <% if conversation.sender_id == current_user.id %>
-         <% recipient = User.find(conversation.recipient_id) %>
-          <h3><%= link_to recipient.pseudo, conversation_messages_path(conversation)%></h3>
-       <% else %>
-            <% recipient = User.find_by_id(conversation.sender_id) %>
-       <% end %>
-
-      <%end%>
-      <%end%>
- 
-   
-     </div>
-    </div>
-   </div>
-
-
-
-
+  <form style="width: 50em; margin: 100px; " class=' ' action="/search_user">
+    <input placeholder='Chercher un utilisateur...' name="q" class="form-control mr-sm-2" type="text" aria-label="search_user">
+    <button class="btn btn-primary", style='color:white'  type="submit" >Chercher</button>
+    <div style="margin-top: 100px;" class="main main-raised">
+      <div class="section section-basic">
+        <div class=" container">
+          <div id="mail" class="">
+            <h1 class="panel-heading">Conversations</h1>
+            <div class="panel-body">
+              <div class="item">
+                <% @conversations.each do |conversation| %>
+                  <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+                    <% if conversation.sender_id == current_user.id %>
+                      <% recipient = User.find(conversation.recipient_id) %>
+                      <h3><%= link_to recipient.pseudo, conversation_messages_path(conversation)%></h3>
+                    <% else %>
+                      <% recipient = User.find_by_id(conversation.sender_id) %>
+                    <% end %>
+                  <%end%>
+                <%end%>
+              </div>
+            </div>
           </div>
         </div>
-        <div class>
-        </div>
       </div>
-
-      
-
-
-
-  
-<div class="panel panel-default">
-<div class="col-lg-6">
-  
-
-</div>
-</div>
-</center>
+      <div class>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="col-lg-6">
+      </div>
+    </div>
+  </center>
