@@ -8,10 +8,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :encrypted_password, null: false, default: ''
 
       t.string :pseudo
-      t.string :city
       t.string :first_name
       t.string :last_name
       t.boolean :is_admin, default: false
+      t.boolean :is_asso, default: false
       t.string :description
 
       ## Recoverable
