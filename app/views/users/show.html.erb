@@ -25,10 +25,21 @@
               </div>
             </div>
           </div>
-        </div>
 
-         <button><%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                    "data-sid" => current_user.id, "data-rip" => @user.id %> </button>
+
+        </div>
+<% User.all.each do |user| %>
+        <% if user.id != current_user.id %>
+        <% if user.id === @user.id%>
+         <div class="item text-center"><h3>
+      <%= link_to 'Contacter' ,
+       conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post"%>
+     </h3></div>
+      <% end %>
+     <% end %>
+     <%end%>
+
+
         <h3 class="title">Articles écrits :</h3>
         <% Article.where(author_id:params[:id]).each do |article| %>
           <% if article.is_validated == true%>

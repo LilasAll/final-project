@@ -5,7 +5,17 @@ class UsersController < ApplicationController
     devise_parameter_sanitizer.for(:sign_up) { |user| user.permit(:first_name, :last_name, :email, :password, :password_confirmation) }
   end
 
+  def index
+    @conversations = Conversation.all
+  end
+
+  def search_user
+    @users = User.where('pseudo LIKE ?', '%' + params[:q] + '%')
+end
+
   def show
+    @conversations = Conversation.all
+
     @user = User.find(params[:id])
 
     @current_user = current_user
@@ -42,7 +52,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     redirect_to '/'
   end
-  
 
   def toggle_check
     @user = User.find(params[:user_id])

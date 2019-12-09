@@ -48,10 +48,13 @@ gem 'private_pub'
 
 gem 'thin'
 
+<<<<<<< HEAD
 gem 'leaflet-rails' # pour les maps
 
 gem 'gon' # pour transférer des infos d'un langage à un autre
 
+=======
+>>>>>>> master
 # GEM INSTALLED#==============================================
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

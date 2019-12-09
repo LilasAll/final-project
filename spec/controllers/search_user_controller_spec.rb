@@ -2,5 +2,5 @@
 
 require 'rails_helper'
 
-RSpec.describe BugsController, type: :controller do
+RSpec.describe SearchUserController, type: :controller do
 end

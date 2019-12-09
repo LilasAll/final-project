@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
@@ -5,6 +6,10 @@ class ConversationsController < ApplicationController
   def index
     @users = User.all
     @conversations = Conversation.all
+end
+
+  def new
+    @recipient = params[:recipient_id]
   end
 
   def create
@@ -17,6 +22,7 @@ class ConversationsController < ApplicationController
   end
 
   private
+
   def conversation_params
     params.permit(:sender_id, :recipient_id)
   end
