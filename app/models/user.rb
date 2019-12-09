@@ -7,9 +7,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # ----------------------------Appartenances----------------------------------------
-  has_many :attendances
+  has_many :attendances, dependent: :destroy
   has_many :events, through: :attendances
-  has_many :articles
+  has_many :events, foreign_key: 'creator_id', class_name: "Event", dependent: :destroy
+  has_many :articles, foreign_key: 'author_id', class_name: "Article", dependent: :destroy
   has_many :bugs
   has_many :conversations, :foreign_key => :sender_id
 
