@@ -14,9 +14,10 @@
     <h1 class="panel-heading">Conversations</h1>
     <div class="panel-body">
      <div class="item">
-      <%if User.exists?(params[:id])%>
 
       <% @conversations.each do |conversation| %>
+            <%if User.exists?(params[:id])%>
+
       <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
        <% if conversation.sender_id == current_user.id %>
          <% recipient = User.find(conversation.recipient_id) %>

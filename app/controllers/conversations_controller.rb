@@ -6,7 +6,7 @@ class ConversationsController < ApplicationController
 
     @users = User.all
     @conversations = Conversation.all
-    
+
 end
 
   def create
