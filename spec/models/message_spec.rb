@@ -13,19 +13,19 @@ RSpec.describe Message, type: :model do
 
   context 'validations' do
     it 'is valid with valid attributes' do
-      expect(@comment).to be_a(Comment)
+      expect(@message).to be_a(Message)
     end
 
-    describe '#content' do
-      it { expect(@comment).to validate_presence_of(:content) }
+    describe '#body' do
+      it { expect(@message).to validate_presence_of(:body) }
     end
 
   end
 
   context 'associations' do
     describe 'some association' do
-      it { expect(@comment).to belong_to(:event) }
-      it { expect(@comment).to belong_to(:user) }
+      it { expect(@message).to belong_to(:conversation) }
+      it { expect(@message).to belong_to(:user) }
     end
   end
 
@@ -36,9 +36,9 @@ RSpec.describe Message, type: :model do
   end
 
   context 'public instance methods' do
-    describe '#content' do
+    describe '#body' do
       it 'should return a string' do
-        expect(@comment.content).to be_a(String)
+        expect(@message.body).to be_a(String)
       end
     end
   end
