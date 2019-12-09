@@ -10,4 +10,16 @@ let mymap = L.map('main_map').setView(coordLille, initialZoom);
 
 L.tileLayer(overlayTileLayer,{maxZoom :100}).addTo(mymap);
 
-console.log(gon.cities);
+// on définit les pins : 
+console.log(gon.cities_secondhand);
+
+let cities = gon.cities;
+
+let cities_secondhand_array = gon.cities_secondhand
+
+cities_secondhand_array.addTo(mymap)
+
+cities_secondhand_array.forEach(function(secondhand){
+   let marker = L.marker([place.latitude ,place.longitude]);
+   marker.addTo(mymap);
+});

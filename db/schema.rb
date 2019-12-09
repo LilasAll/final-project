@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_131347) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -64,15 +65,9 @@ ActiveRecord::Schema.define(version: 2019_12_09_131347) do
     t.string "content"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_bugs_on_user_id"
+
   end
 
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.decimal "latitude", precision: 15, scale: 13
-    t.decimal "longitude", precision: 15, scale: 13
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -141,6 +136,25 @@ ActiveRecord::Schema.define(version: 2019_12_09_131347) do
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.decimal "latitude", precision: 15, scale: 13
+    t.decimal "longitude", precision: 15, scale: 13
+    t.boolean "associations", default: false
+    t.boolean "meeting", default: false
+    t.boolean "recycling", default: false
+    t.boolean "garden", default: false
+    t.boolean "shared_garden", default: false
+    t.boolean "zero_waste", default: false
+    t.boolean "secondhand", default: false
+    t.boolean "cultural", default: false
+    t.boolean "feminist", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
