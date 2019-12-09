@@ -1,4 +1,4 @@
-let overlayTileLayer = "https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png"
+//let overlayTileLayer = "https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png"
 
 let initialZoom = 12;
 
