@@ -22,11 +22,11 @@ class User < ApplicationRecord
 
   has_many :likes
 
+
   #--------------------------- Validations ---------------------
+ 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Veuillez entrer un email valide' }
   validates :pseudo, presence: true, uniqueness: true
-  # validates :city, format: { with: /\A[a-zA-Z]+\z/,
-  #  message: "La ville ne peut contenir que des lettres" }
 
   validates :first_name, presence: true # format: { with: /\A[a-zA-Z]+\z/,
   # message: "Le nom ne peut contenir que des lettres" }

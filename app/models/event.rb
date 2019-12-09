@@ -13,6 +13,8 @@ class Event < ApplicationRecord
   has_many :join_tag_events
   has_many :tags, through: :join_tag_events
 
+
+
   # -----------------Validations----------------------------------------
 
   def start_date_cannot_be_in_the_past
