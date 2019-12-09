@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_131347) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -64,7 +65,9 @@ ActiveRecord::Schema.define(version: 2019_12_09_131347) do
     t.string "content"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_bugs_on_user_id"
+
   end
+
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -151,6 +154,8 @@ ActiveRecord::Schema.define(version: 2019_12_09_131347) do
     t.datetime "updated_at", null: false
   end
 
+
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -161,10 +166,10 @@ ActiveRecord::Schema.define(version: 2019_12_09_131347) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "pseudo"
+    t.string "city"
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin", default: false
-    t.boolean "is_asso", default: false
     t.string "description"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
