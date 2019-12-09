@@ -7,19 +7,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # ----------------------------Appartenances----------------------------------------
-  has_many :attendances, dependent: :destroy
-  has_many :events, through: :attendances, dependent: :destroy
-  has_many :articles, dependent: :destroy
-  has_many :bugs, dependent: :destroy
-  has_many :conversations, :foreign_key => :sender_id, dependent: :destroy
+  has_many :attendances
+  has_many :events, through: :attendances
+  has_many :articles
+  has_many :bugs
+  has_many :conversations, :foreign_key => :sender_id
 
 
 
   has_one_attached :avatar
-  has_many :comments, dependent: :destroy
+  has_many :comments
   
 
-  has_many :likes, dependent: :destroy
+  has_many :likes
 
   #--------------------------- Validations ---------------------
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Veuillez entrer un email valide' }
