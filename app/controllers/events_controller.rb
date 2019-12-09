@@ -37,9 +37,7 @@ class EventsController < ApplicationController
   end
 
   def create
-
-
-    date = (params[:start_date] + " " + params[:hour_start]).in_time_zone
+    date = (params[:start_date] + ' ' + params[:hour_start]).in_time_zone
 
     @event = Event.new(
       creator: current_user,

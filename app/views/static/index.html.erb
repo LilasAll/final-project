@@ -23,7 +23,7 @@
           <h2 class="text-center" >ou créez en !</h2>
           <br/>
           <br/>
-          <form style="margin-left:35%; " class='  form-inline ' action="/search">
+          <form style="margin-left:35%;" class='form-inline' action="/search">
             <input placeholder='ex: Solidaire' name="q" class="form-control mr-sm-2" type="text" aria-label="search">
             <button class="btn btn-primary", style='color:white'  type="submit" >Chercher</button> 
             <p style="margin: 30px" >Ou</p>
@@ -31,9 +31,9 @@
           </form>
     
       </div>
-            <center  >
-            <button  class=" text-center btn btn-primary"> <%= link_to 'Tout les événements', events_path, style:'color:white'  %>  </button>
-             <button class=" text-center btn btn-primary"> <%= link_to 'Tout les articles', articles_path, style:'color:white' %>  </button>
+          <center  >
+          <a class="btn btn-primary" <%= link_to "Voir tous les événements", events_path%></a>
+          <a class="btn btn-primary" <%= link_to "Voir tous les articles", articles_path%></a>
           </center>
     </div>
 
