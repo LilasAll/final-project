@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
+
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end
@@ -8,15 +9,26 @@ class MessagesController < ApplicationController
   def index
     @messages = @conversation.messages
     @message = @conversation.messages.new
+@messages.mark_as_read! :all, for: current_user
+
+
   end
 
   def new
     @message = @conversation.messages.new
+
+
   end
 
   def create
     @message = @conversation.messages.new(message_params)
-    redirect_to conversation_messages_path(@conversation) if @message.save
+     if @message.save
+      @message.mark_as_read! for: current_user
+
+          redirect_to conversation_messages_path(@conversation)
+
+
+end
   end
 
   private

@@ -52,6 +52,8 @@ gem 'leaflet-rails' # pour les maps
 
 gem 'gon' # pour transférer des infos d'un langage à un autre
 
+gem 'unread'
+
 # GEM INSTALLED#==============================================
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
