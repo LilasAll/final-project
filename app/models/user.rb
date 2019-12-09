@@ -12,15 +12,16 @@ class User < ApplicationRecord
   has_many :events, foreign_key: 'creator_id', class_name: "Event", dependent: :destroy
   has_many :articles, foreign_key: 'author_id', class_name: "Article", dependent: :destroy
   has_many :bugs
-  has_many :conversations, :foreign_key => :sender_id
+  has_many :conversations, foreign_key: 'sender_id', class_name: "Conversation", dependent: :destroy
+  has_many :conversations, foreign_key: 'recipient_id', class_name: "Conversation", dependent: :destroy
 
 
-
-  has_one_attached :avatar
-  has_many :comments
+  has_one_attached :avatar, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
+  has_many :messages, dependent: :destroy
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   #--------------------------- Validations ---------------------
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Veuillez entrer un email valide' }
