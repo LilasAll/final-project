@@ -1,5 +1,5 @@
 class MapController < ApplicationController
-def index
-
-end
+	def index
+	gon.cities = City.all
+	end
 end
