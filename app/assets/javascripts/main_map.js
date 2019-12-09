@@ -10,14 +10,16 @@ let mymap = L.map('main_map').setView(coordLille, initialZoom);
 
 L.tileLayer(overlayTileLayer,{maxZoom :100}).addTo(mymap);
 
-console.log(gon.cities);
+// on définit les pins : 
+console.log(gon.cities_secondhand);
 
 let cities = gon.cities;
 
-let lieux_solidaires = L.marker([50.632807, 3.063476], [50.6242888, 3.072359]);
+let cities_secondhand_array = gon.cities_secondhand
 
+cities_secondhand_array.addTo(mymap)
 
-console.log(lieux_solidaires)
-
-// toujours ajouter addTo(tacarte) sinon ça ne s'affiche pas
-lieux_solidaires.addTo(mymap);
+cities_secondhand_array.forEach(function(secondhand){
+   let marker = L.marker([place.latitude ,place.longitude]);
+   marker.addTo(mymap);
+});
