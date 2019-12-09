@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :message do
-    body { 'MyText' }
-    conversation { nil }
-    user { nil }
+    body { 'Texte du message' }
+    conversation { FactoryBot.create(:conversation) }
+    user { FactoryBot.create(:user) }
   end
 end
