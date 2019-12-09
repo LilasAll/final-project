@@ -22,5 +22,5 @@ Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'ja
 
 # Precompile the maps
 
-Rails.application.config.assets.precompile += %w( home.scss )
+Rails.application.config.assets.precompile += %w( maps.scss )
 Rails.application.config.assets.precompile += %w( main_map.js )
