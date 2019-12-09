@@ -27,8 +27,10 @@
           </div>
         </div>
 
-         <button><%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
-                    "data-sid" => current_user.id, "data-rip" => @user.id %> </button>
+         <a class="btn btn-primary" <%= link_to "Envoyer un message", message_path%></a>
+
+
+
         <h3 class="title">Articles écrits :</h3>
         <% Article.where(author_id:params[:id]).each do |article| %>
           <% if article.is_validated == true%>
