@@ -10,3 +10,4 @@ let mymap = L.map('main_map').setView(coordLille, initialZoom);
 
 L.tileLayer(overlayTileLayer,{maxZoom :100}).addTo(mymap);
 
+console.log(gon.cities);

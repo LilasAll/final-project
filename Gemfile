@@ -48,11 +48,9 @@ gem 'private_pub'
 
 gem 'thin'
 
-
 gem 'leaflet-rails' # pour les maps
 
 gem 'gon' # pour transférer des infos d'un langage à un autre
-
 
 # GEM INSTALLED#==============================================
 

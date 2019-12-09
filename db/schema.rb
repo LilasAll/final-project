@@ -152,10 +152,10 @@ ActiveRecord::Schema.define(version: 2019_12_09_131347) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "pseudo"
+    t.string "city"
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin", default: false
-    t.boolean "is_asso", default: false
     t.string "description"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
