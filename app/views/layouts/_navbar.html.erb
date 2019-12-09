@@ -34,8 +34,11 @@
                 <div class="collapse navbar-collapse">
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                      <a href="#pablo" class="nav-link"><i class="material-icons">email</i></a>
+                       <%= link_to conversations_path, class: "nav-link" do %>
+                      <i class="material-icons">email</i>
                     </li>
+                                <% end %>
+
                  <%= link_to user_path(current_user.id), class: "nav-link" do %>
                 <span class="material-icon">
                     <i style="color: white;" class="material-icons">face</i>              </span>
