@@ -12,10 +12,7 @@ class User < ApplicationRecord
   has_many :events, foreign_key: 'creator_id', class_name: "Event", dependent: :destroy
   has_many :articles, foreign_key: 'author_id', class_name: "Article", dependent: :destroy
   has_many :bugs
-  has_many :conversations, :foreign_key => :sender_id
-
-
-
+  has_many :conversations, foreign_key: 'sender_id', class_name: "Conversation", dependent: :destroy
   has_one_attached :avatar
   has_many :comments
   

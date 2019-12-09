@@ -1,14 +1,21 @@
 
 
+<center>
+   <form style="width: 50em; margin: 100px; " class=' ' action="/search_user">
+            <input placeholder='Chercher un utilisateur...' name="q" class="form-control mr-sm-2" type="text" aria-label="search_user">
+            <button class="btn btn-primary", style='color:white'  type="submit" >Chercher</button> 
      <div style="margin-top: 100px;" class="main main-raised">
         <div class="section section-basic">
           <div class=" container">
-       
 
+
+  
 <div id="mail" class="">
     <h1 class="panel-heading">Conversations</h1>
     <div class="panel-body">
      <div class="item">
+      <%if User.exists?(params[:id])%>
+
       <% @conversations.each do |conversation| %>
       <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
        <% if conversation.sender_id == current_user.id %>
@@ -19,6 +26,7 @@
        <h3><%= link_to recipient.pseudo, conversation_messages_path(conversation)%></h3>
       <% end %>
      <% end %>
+     <%end%>
      </div>
     </div>
    </div>
@@ -34,33 +42,6 @@
 
       
 
-     <div style="margin-top: 100px;" class="main main-raised">
-        <div class="section section-basic">
-          <div class=" container">
-       
-
-  <div id="new" class="">
-    <div class="panel-body">
-     <h1 class="panel-heading">All Users:</h1>
-       <% @users.each do |user| %>
-        <% if user.id != current_user.id %>
-         <div class="item"><h3>
-      <%= link_to user.pseudo,
-       conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post"%>
-     </h3></div>
-      <% end %>
-     <% end %>
-    </div>
-  </div>
-
-
-
-
-          </div>
-        </div>
-        <div class>
-        </div>
-      </div>
 
 
   
@@ -70,3 +51,4 @@
 
 </div>
 </div>
+</center>

@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     devise_parameter_sanitizer.for(:sign_up) { |user| user.permit(:first_name, :last_name, :email, :password, :password_confirmation) }
   end
 
+    def search_user
+    @users = User.where('pseudo LIKE ?', '%' + params[:q] + '%')
+  end
+
   def show
     @user = User.find(params[:id])
 

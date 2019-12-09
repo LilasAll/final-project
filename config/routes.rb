@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'search', to: 'events#search'
+    get 'search_user', to: 'users#search_user'
+
 
   resources :events do
     resources :avatars, only: [:create]
