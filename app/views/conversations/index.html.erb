@@ -15,21 +15,17 @@
     <div class="panel-body">
      <div class="item">
 
-
       <% @conversations.each do |conversation| %>
 
       <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
        <% if conversation.sender_id == current_user.id %>
          <% recipient = User.find(conversation.recipient_id) %>
-          <h3><%= link_to recipient.pseudo, conversation_messages_path(conversation)%></h3>
        <% else %>
-            <% recipient = User.find_by_id(conversation.sender_id) %>
+         <% recipient = User.find(conversation.sender_id) %>
        <% end %>
-
-      <%end%>
-      <%end%>
- 
-   
+       <h3><%= link_to recipient.pseudo, conversation_messages_path(conversation)%></h3>
+      <% end %>
+     <%end%>
      </div>
     </div>
    </div>
