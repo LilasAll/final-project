@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_081400) do
     t.text "description"
     t.string "location"
     t.boolean "is_validated", default: false
-    t.integer "price", default: 0
+    t.integer "price"
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_081400) do
     t.string "city"
     t.string "first_name"
     t.string "last_name"
-    t.boolean "is_admin", default: false
+    t.boolean "is_admin"
     t.string "description"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
