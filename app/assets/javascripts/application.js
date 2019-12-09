@@ -14,8 +14,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require bootstrap
-//= require chat
-//= require private_pub
+
 
 //= require bootstrap-slider
 //= require material-kit

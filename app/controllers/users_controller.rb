@@ -40,13 +40,9 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    #@user = User.find(params[:id])
-    #@user.pseudo = "Compte supprimé"
-    #@user.first_name = "NA"
-    #@user.last_name = "NA"
-    #@user.description = "Ce compte a été suprimé par l'utilisateur. Vous pouvez néanmoins avoir accès à ces anciens articles"
     redirect_to '/'
   end
+  
 
   def toggle_check
     @user = User.find(params[:user_id])

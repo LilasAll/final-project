@@ -25,6 +25,13 @@
 
 /* CSS PERSONAL ADD */
 
+.container-chat{
+
+  border: 1px grey solid;
+  margin-top: 10px; 
+  border-radius: 15px;
+}
+
 .stripe-button{
 
 margin: 100px;

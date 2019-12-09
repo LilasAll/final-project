@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :comments
   
 
-  has_many :likes, dependent: :destroy
+  has_many :likes
 
   #--------------------------- Validations ---------------------
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'Veuillez entrer un email valide' }
