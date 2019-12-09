@@ -35,7 +35,17 @@
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                        <%= link_to conversations_path, class: "nav-link" do %>
-                      <i class="material-icons">email</i>
+                      <i class="material-icons">email</i><span>
+                        
+                        <% if Message.unread_by(current_user).count > 0 %>
+
+  <span class="badge badge-warning m-0">New</span>
+
+                        <%else%>
+
+                      
+                        <%end%>
+                      </span>
                     </li>
                                 <% end %>
 
