@@ -20,7 +20,7 @@
 //= require material-kit
 //= require chosen-jquery
 //= require events
-
+//= require leaflet
 
 
 document.addEventListener("turbolinks:load", function() { 

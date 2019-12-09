@@ -13,12 +13,25 @@
  *= require_tree .
  *= require_self
  *= require main
-*= require_chosen
+ *= require_chosen
 
  *= require bootstrap-slider
 
 
  */
+
+ @import "leaflet";
+
+ #main_map{
+/*Taille de la map - INDISPENSABLE*/
+  height: 500px;
+  width: 700px;
+/*UTILE POUR DIAGNOSTIQUER UN BUG DE MAP*/
+  border: 1px solid black;
+/*Le reste*/
+  text-align: center;
+  margin: 0 auto;
+}
 
 /* AU DESSUS ON RELIE TOUS LES CSS */
 

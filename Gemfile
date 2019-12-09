@@ -20,13 +20,13 @@ gem 'letter_opener'
 
 gem 'better_errors'
 
-gem 'stripe'
+gem 'stripe' # pour le paiement en ligne
 
-gem 'devise'
+gem 'devise' # pour les users, sessions, etc
 
 gem 'faker'
 
-gem 'dotenv'
+gem 'dotenv' # pour cacher les clefs
 
 gem 'dotenv-rails'
 
@@ -48,6 +48,9 @@ gem 'private_pub'
 
 gem 'thin'
 
+gem 'leaflet-rails' # pour les maps
+
+gem 'gon' # pour transférer des infos d'un langage à un autre
 
 # GEM INSTALLED#==============================================
 
