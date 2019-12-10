@@ -21,7 +21,11 @@
               <h4 class="my-0 font-weight-normal">Paiement</h4>
             </div>
             <div class="card-body">
+              <% if @event.price == 0%>
+              <h3>Cet événement est gratuit !</h3>
+              <%else%>
               <h3>Vous allez payer <%= @event.price %> euros</h3>
+              <%end%>
               <ul class="list-unstyled mt-3 mb-4">
                 <h4>Pour cet événement:</h4>
                 <br/>
@@ -39,7 +43,7 @@
               data-amount="@event.price"
               data-locale="auto"></script>
           <%else%>
-            <%=link_to "participer",  event_attendances_path(@event.id), method:"post"%>
+            <button class="btn btn-primary"><%=link_to "participer",  event_attendances_path(@event.id),style:'color:white', method:"post"%></button>
           <%end%>
         <% end %>
       </div>

@@ -26,6 +26,13 @@ end
     redirect_to conversation_messages_path(@conversation)
   end
 
+  def destroy
+        @conversation = Conversation.find(params[:id])
+
+    @conversation.destroy
+    redirect_to conversations_path, flash: { success: ' La conversation a ete detruite' }
+  end
+
   private
 
   def conversation_params
