@@ -8,6 +8,8 @@ ruby '2.5.1'
 # GEM INSTALLED#==============================================
 gem 'bootstrap-slider-rails'
 
+gem 'trix'
+
 gem 'font-awesome-rails'
 
 gem 'htmlbeautifier'

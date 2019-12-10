@@ -21,6 +21,7 @@
 //= require chosen-jquery
 //= require events
 //= require leaflet
+//= require trix
 
 
 document.addEventListener("turbolinks:load", function() { 
