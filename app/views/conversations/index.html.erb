@@ -23,7 +23,12 @@
        <% else %>
          <% recipient = User.find(conversation.sender_id) %>
        <% end %>
-       <h3><%= link_to recipient.pseudo, conversation_messages_path(conversation)%></h3>
+       <h3><%= link_to recipient.pseudo, conversation_messages_path(conversation)%>
+                          <% if conversation.messages.unread_by(current_user).count > 0 %>
+
+  <span class="badge badge-warning m-0">New</span>
+<%end%>
+</h3>
       <% end %>
      <%end%>
      </div>
