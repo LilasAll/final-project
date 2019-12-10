@@ -1,6 +1,7 @@
 <center>
   <br/>
-  <h1>Tous nos articles : </h1>
+  <h1 class="card-title index-title">Les articles</h1>
+  <hr style="width: 300px;">
   <div class="card-columns index-padding">
     <% Article.all.each do |article| %>
       <% if article.is_validated == true%>

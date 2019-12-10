@@ -16,34 +16,34 @@
                     <span class="input-group-text">
                     </span>
                   </div>
-                  <div style="padding-left: 30px;" class="">
+                  <div style="padding-left: 0px;" class="">
                     <div class="field">
                       <%= f.label :email %><br />
-                      <%= f.email_field :email, autofocus: true, autocomplete: "email", style:'width :15em;' , class: "form-control" %>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", style:'width :100%;' , class: "form-control" %>
                     </div>
                     <div class="field">
                       <%= f.label :pseudo %><br />
-                      <%= f.text_field :pseudo, style:'width :15em;' , class: "form-control" %>
+                      <%= f.text_field :pseudo, style:'width :100%;' , class: "form-control" %>
                     </div>
                     <br/>
                     <div class="field">
                       <%= f.label 'Prénom' %><br />
-                      <%= f.text_field :first_name, style:'width :15em;' , class: "form-control" %>
+                      <%= f.text_field :first_name, style:'width :100%;' , class: "form-control" %>
                     </div>
                     <div class="field">
                       <%= f.label 'Nom de famille' %><br />
-                      <%= f.text_field :last_name, style:'width :15em;' , class: "form-control" %>
+                      <%= f.text_field :last_name, style:'width :100%;' , class: "form-control" %>
                     </div>
                     <div class="field">
                       <%= f.label 'Mot de Passe' %>
                       <% if @minimum_password_length %>
                         <em>(<%= @minimum_password_length %> characters minimum)</em>
                       <% end %>
-                      <%= f.password_field :password, autocomplete: "new-password",class: "form-control",style:'width :15em;' %>
+                      <%= f.password_field :password, autocomplete: "new-password",class: "form-control",style:'width :100%;' %>
                     </div>
                     <div class="field">
                       <%= f.label :'Confirmation mot de passe' %>
-                      <%= f.password_field :password_confirmation, autocomplete: "new-password",style:'width :15em;',class: "form-control" %>
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password",style:'width :100%;',class: "form-control" %>
                     </div>
                     <div class="footer text-center">
                       <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">    <%= f.submit "M'inscrire", class:'btn btn-primary' %>
@@ -53,10 +53,17 @@
                       <%= render "devise/shared/links" %>
                     </center>
                   </div>
-                </form>
-              </div>
+                </div>
+              </form>  
             </div>
           </div>
         </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+
+</div>
+</div>
+</div>
+</div>
+</form>

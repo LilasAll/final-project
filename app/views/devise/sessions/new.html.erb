@@ -23,7 +23,7 @@
               </div>
               <p class="description text-center">Bon retour parmis nous</p>
               <div class="card-body" ">
-                <div class="input-group" style="padding: 0;">
+                <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                     </span>
@@ -31,15 +31,17 @@
                   <div  class="">
                     <div class="field">
                       <%= f.label 'Email' %><br />
-                      <%= f.email_field :email, autofocus: true, autocomplete: "email", style:'width :15em;' , class: "form-control" %>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", style:'width :100%;' , class: "form-control" %>
                     </div>
+                    <div>
                     <div class="field">
                       <%= f.label 'Mot de Passe' %>
                       <% if @minimum_password_length %>
                         <em>(<%= @minimum_password_length %> characters minimum)</em>
                       <% end %><br />
-                      <%= f.password_field :password, autocomplete: "new-password",class: "form-control",style:'width :15em;' %>
+                      <%= f.password_field :password, autocomplete: "new-password",class: "form-control",style:'width :100%;' %>
                     </div>
+                  </div>
                     <% if devise_mapping.rememberable? %>
                       <div class="field">
                         <%= f.check_box :remember_me %>
@@ -47,7 +49,7 @@
                       </div>
                     <% end %>
                     <div class="footer text-center">
-                      <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg"><%= f.submit "Me connecter", class:'btn btn-primary' %>
+                      <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg"><%= f.submit "Me connecter", class: 'btn btn-primary' %>
                       </a>
                     </div>
                     <center>
@@ -56,11 +58,12 @@
                   </div>
                 </form>
               </div>
-            </form> </div>
+            </form> 
           </div>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
 </div>
 
