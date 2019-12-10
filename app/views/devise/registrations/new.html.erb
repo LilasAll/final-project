@@ -9,7 +9,7 @@
               <div class="card-header card-header-primary text-center">
                 <h4 class="card-title">Inscription</h4>
               </div>
-              <p class="description text-center">Hâte de vous voir parmis nous</p>
+              <p class="description text-center">On a hâte de vous compter parmis nos membres</p>
               <div class="card-body" ">
                 <div class="input-group" style="padding: 0;">
                   <div class="input-group-prepend">
@@ -35,14 +35,14 @@
                       <%= f.text_field :last_name, style:'width :15em;' , class: "form-control" %>
                     </div>
                     <div class="field">
-                      <%= f.label :password %>
+                      <%= f.label 'Mot de Passe' %>
                       <% if @minimum_password_length %>
                         <em>(<%= @minimum_password_length %> characters minimum)</em>
                       <% end %>
                       <%= f.password_field :password, autocomplete: "new-password",class: "form-control",style:'width :15em;' %>
                     </div>
                     <div class="field">
-                      <%= f.label :'Confirmation mot de passe' %>
+                      <%= f.label 'Confirmation mot de passe' %>
                       <%= f.password_field :password_confirmation, autocomplete: "new-password",style:'width :15em;',class: "form-control" %>
                     </div>
                     <div class="footer text-center">
