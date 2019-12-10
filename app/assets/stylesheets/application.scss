@@ -15,13 +15,12 @@
  *= require main
  *= require_chosen
  *= require simple_calendar
-
-
  *= require bootstrap-slider
 
 
  */
 
+/* AU DESSUS ON RELIE TOUS LES CSS */
  @import "leaflet";
 
  #main_map{
@@ -35,10 +34,29 @@
   margin: 0 auto;
 }
 
-/* AU DESSUS ON RELIE TOUS LES CSS */
-
-
 /* CSS PERSONAL ADD */
+
+.index-title {
+  padding: 20px 100px 0px 100px;
+  font-size: 60px;
+}
+
+.line-calendar{
+
+  background-color: #278ba8;
+}
+
+.simple-calendar{
+  
+  margin: 50px;
+}
+
+.calendar-heading{
+    margin: 50px;
+        text-align: center;
+
+
+}
 
 
 .container-chat{
@@ -71,7 +89,7 @@ footer {
 }
 .psw-reset {
   padding: 50px 100px 100px;
-  margin: auto;
+  width: 60%;
 }
 
 .article-show {
@@ -81,6 +99,7 @@ footer {
 
 .article-card {
 	display: flex;
+  width: 70%;
   justify-content: center;
   flex-direction: row;
 }
