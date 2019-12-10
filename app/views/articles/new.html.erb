@@ -1,4 +1,5 @@
 <center>
+<br/>
 <div class="container">
   <div class="row">
     <div class="card card-nav-tabs text-center">
@@ -8,20 +9,15 @@
       <div class="card-body">
   <%= form_tag url_for(action: 'create'), method: "post" do %>
     
-    <h4 class="card-title">Titre</h4>
+    <h4 class="card-title">Titre</h4> 
     <%= text_field_tag 'title', @title, placeholder: "Titre", class: "form-control"  %>
     <br />
     <br />
 
-    <%= f.trix_editor :content %>
-
     <h4 class="card-title">Contenu de l'article</h4>
-    <%= text_field_tag 'content', @content, placeholder: "Ecrivez votre article ici...", class: "form-control"  %>
     <br />
-
-
-    <input id="x" type="hidden" name="content">
-  <trix-editor input="x"></trix-editor>
+    <input id="@article.content" type="hidden" name="content">
+    <trix-editor input="@article.content"></trix-editor>
     <br />
 
     <h4 class="card-title"> Tags  </h4>
@@ -29,7 +25,8 @@
     <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
     <br/>
     <br/>
+    
+    <button type="submit" class= "btn btn-primary" style="width: 20%;"> Créer </button>
     </div>
-    <%= submit_tag "Créer" %>
   <%end%>
 </center>
