@@ -13,32 +13,34 @@
  *= require_tree .
  *= require_self
  *= require main
- *= require_chosen
- *= require simple_calendar
-
+*= require_chosen
 
  *= require bootstrap-slider
 
 
  */
 
- @import "leaflet";
-
- #main_map{
-/*Taille de la map - INDISPENSABLE*/
-  height: 500px;
-  width: 700px;
-/*UTILE POUR DIAGNOSTIQUER UN BUG DE MAP*/
-  border: 1px solid black;
-/*Le reste*/
-  text-align: center;
-  margin: 0 auto;
-}
-
 /* AU DESSUS ON RELIE TOUS LES CSS */
 
 
 /* CSS PERSONAL ADD */
+
+.line-calendar{
+
+  background-color: #278ba8;
+}
+
+.simple-calendar{
+  
+  margin: 50px;
+}
+
+.calendar-heading{
+    margin: 50px;
+        text-align: center;
+
+
+}
 
 
 .container-chat{
