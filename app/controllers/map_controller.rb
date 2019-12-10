@@ -2,6 +2,7 @@ class MapController < ApplicationController
 	def index
 	gon.cities = Place.all
 	gon.cities_secondhand = Place.all.where(secondhand: true)
+	gon.cities_cultural = Place.all.where(cultural: true)
 	
 	end
 end
