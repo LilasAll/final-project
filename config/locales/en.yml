@@ -31,3 +31,16 @@
 
 en:
   hello: "Hello world"
+
+  fr:
+  date:
+   
+   day_names:
+    - Dimanche
+    - Lundi
+    - Mardi
+    - Mercredi  
+    - Jeudi
+    - Vendredi
+    - Samedi
+    
