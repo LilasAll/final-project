@@ -116,6 +116,7 @@
           <th class= "" >  Commentaires</th>
           <th class= "" >  </th>
           <th class= "" >  </th>
+         
         </tr>
       </thead>
         <tbody>
@@ -127,6 +128,7 @@
           <td>
             <p> Ecrit par <%= link_to comment.user.first_name, user_path(comment.user.id) %></p> 
           </td>
+          <td><a <%= link_to "X", comment, method: :delete, data: { confirm: "Are you sure"} %></td>
           <td> 
           <% if current_user.id == comment.user.id %>
           <%end%>
