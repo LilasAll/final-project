@@ -11,22 +11,25 @@
     </ul>
   </div>
 <% end %>
+<br/>
 <div class="container">
   <div class="row">
     <div class="card card-nav-tabs text-center">
       <div class="card-header card-header-primary">
-        <h3 class="title">Mon évènement </h3>
+        <h3 class="title">Créer un événement</h3>
       </div>
       <div class="card-body">
 
+
       <%= form_tag url_for(action: 'create'), class: "form", method: "post",multipart: true do %>
+       
         
         <h4 class="card-title">Nom de l'évènement</h4>
-        <%= text_field_tag 'title' %>
+        <%= text_field_tag 'title', @title, placeholder: "Titre", class: "form-control"  %>
         <br />
-         <br />
+        <br />
         <h4 class="card-title">Description</h4>
-        <%= text_area_tag :description  %>
+        <%= text_area_tag :description, @description, placeholder: "Concept, activitée proposée... ", class: "form-control"  %>
         <br />
          <br />
         <h4 class="card-title">Date de l'évènement </h4>
@@ -38,21 +41,23 @@
         <br/><br/>
 
         <h4 class="card-title">Durée (en minutes)</h4>
-        <%= text_field_tag :duration %>
+        <%= text_field_tag :duration, @duration, placeholder: "Ex: 120 min", class: "form-control" %>
         <br />
         <br />
 
         <h4 class="card-title">Lieu</h4>
-        <%= text_field_tag :location %>
+        <%= text_field_tag :location, @location, placeholder: "Ex: Place du général de Gaulle à Lille", class: "form-control" %>
         <br />
-         <br />
+        <br />
         
         <h4 class="card-title">Falcutatif : prix</h4>
         <p> (en cas d'achat de matériel, location de salle, etc)</p>
         
         <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
-        <%= range_field_tag :price, id: "sliderRegular", :in => 0...100, class: "range-field w-25"  %>
+        <%= range_field_tag :price, @price , :in => 0...100, class: "range-field w-25"  %>
         <span class="font-weight-bold indigo-text mr-2 mt-1">100</span>
+
+
 
         <br />
       <h4 class="card-title"> Tags  </h4>
