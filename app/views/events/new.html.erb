@@ -1,5 +1,6 @@
+
 <% if @event.errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show m-4" role="alert">
+  <div class="alert alert-danger alert-dismissible fade show m-4" role="alert" style="z-index: 5;">
     <p><strong>Nous n'avons pas pu créer d'évenement pour la ou les raison(s) suivante(s) :</strong></p>
     <ul>
       <% @event.errors.full_messages.each do |message| %>
@@ -11,7 +12,9 @@
     </ul>
   </div>
 <% end %>
+
 <br/>
+<body>
 <div class="container">
   <div class="row">
     <div class="card card-nav-tabs text-center">
@@ -41,7 +44,7 @@
         <br/><br/>
 
         <h4 class="card-title">Durée (en minutes)</h4>
-        <%= text_field_tag :duration, @duration, placeholder: "Ex: 120 min", class: "form-control" %>
+        <%= number_field_tag :duration, @duration, placeholder: "Ex: 120", min:1, class: "form-control" %>
         <br />
         <br />
 

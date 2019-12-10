@@ -69,7 +69,8 @@ body {
 }
 footer {
   display : table-row;
-  height: 100px; /* à titre d'exemple */
+  height: 100px;
+  width: 100%; /* à titre d'exemple */
 }
 .psw-reset {
   padding: 50px 100px 100px;
