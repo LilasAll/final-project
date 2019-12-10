@@ -1,13 +1,11 @@
 <center>
-
 <%= form_tag url_for(action: 'create'), class: "form", method: "post",multipart: true do %>
-        
-        
-        <h4 class="card-title">Décris ton bug </h4><p>  (Précis en 150 caractères)</p>
-        <%= text_area_tag :content %>
-        <br />
-         <button type="submit" class= "btn btn-primary"> Signaler ! </button>
+    
+  <h4 class="card-title">Décris ton bug </h4><p>  (Précis en 150 caractères)</p>
+  <%= text_area_tag :content %>
+  <br />
+   <button type="submit" class= "btn btn-primary"> Signaler ! </button>
 
-        <%end%>
+  <%end%>
 
-      </center>
+</center>
