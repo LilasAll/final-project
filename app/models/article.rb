@@ -3,6 +3,8 @@
 class Article < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
+  has_rich_text :content
+
   has_many :join_tag_articles
   has_many :tags, through: :join_tag_articles
 

@@ -41,7 +41,11 @@ class ArticlesController < ApplicationController
   def destroy
     Article.find(params[:id]).destroy
     redirect_to '/'
-end
+  end
+
+  def article_params
+    params.require(:article).permit(:name, :content)
+  end
 
   def toggle_check
     @article = Article.find(params[:article_id])

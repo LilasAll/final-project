@@ -12,6 +12,10 @@
     <%= text_field_tag 'title', @title, placeholder: "Titre", class: "form-control"  %>
     <br />
     <br />
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content %>
+    </div>
 
     <h4 class="card-title">Contenu de l'article</h4>
     <%= text_field_tag 'content', @content, placeholder: "Ecrivez votre article ici...", class: "form-control"  %>

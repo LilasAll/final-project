@@ -7,6 +7,8 @@ ruby '2.5.1'
 
 # GEM INSTALLED#==============================================
 gem 'bootstrap-slider-rails'
+gem 'actiontext', github: 'kobaltz/actiontext', branch: 'archive', require: 'action_text'
+gem 'image_processing'
 
 gem 'font-awesome-rails'
 
