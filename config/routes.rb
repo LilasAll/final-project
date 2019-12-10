@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   resources :admins
   resources :comments, except: %i[new index show]
   
-  resources :map
+  resources :maps
 
   resources :conversations do
     resources :messages
