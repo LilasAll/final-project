@@ -48,7 +48,7 @@ end
 puts '10 events created'
 
 10.times do
-  Article.create!(is_validated: true, title: Faker::Lorem.paragraph_by_chars(number: 10, supplemental: false), content: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false), author: User.all.sample)
+  Article.create!(is_validated: true, title: Faker::Lorem.paragraph_by_chars(number: 10, supplemental: false), resume: "Voici un super résumé d'un événement oulalala", content: Faker::Lorem.paragraph_by_chars(number: 400, supplemental: false), author: User.all.sample)
 end
 puts '10 articles created'
 

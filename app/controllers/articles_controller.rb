@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(title: params[:title], content: params[:content], author: current_user)
+    @article = Article.new(title: params[:title], content: params[:content], resume: params[:resume], author: current_user)
     @article.author_id = @current_user.id
 
     @article.tags = Tag.where(id: params[:tag_id])

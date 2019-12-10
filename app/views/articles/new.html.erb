@@ -20,6 +20,11 @@
     <trix-editor input="@article.content"></trix-editor>
     <br />
 
+    <h4 class="card-title">Résumé</h4> 
+    <%= text_field_tag 'resume', @resume, placeholder: "Résumé", class: "form-control"  %>
+    <br />
+    <br />
+
     <h4 class="card-title"> Tags  </h4>
     <p> (plusieurs au choix)</p>
     <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
