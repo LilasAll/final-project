@@ -27,6 +27,10 @@ puts "Cities faker generated"
 Place.create!(name: "Oxfam Le Magasin", latitude: 50.6334154, longitude: 3.0597793, secondhand: true)
 Place.create!(name: "Café citoyen", latitude: 50.632807, longitude: 3.063476, meeting: true, cultural:true)
 Place.create!(name: "L'auberge de Jeunesse Stephane Hessel", latitude: 50.6242888, longitude: 3.072359, cultural: true)
+Place.create!(name: "Le jardin des Maguettes", latitude: 50.6353682, longitude: 3.084535, garden: true)
+Place.create!(name: "L'auberge de Jeunesse Stephane Hessel", latitude: 50.6242888, longitude: 3.072359, cultural: true)
+
+
 puts "Mes lieux spécifiques créés"
 
 
