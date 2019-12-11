@@ -50,11 +50,11 @@ class AttendancesController < ApplicationController
       if @attendance.save # essaie de sauvegarder en base @comment
         # si ça marche, il redirige vers la page du gossip
 
-        flash[:notice] = 'Yeah ! Vous avez rejoin un événement !'
+        flash[:success] = 'Yeah ! Vous avez rejoins un événement !'
 
       else
         # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-        flash[:notice] = 'Oh, une erreur est survenue '
+        flash[:error] = 'Oh, une erreur est survenue '
       end
 
        # regroupe tous types d'erreur

@@ -16,10 +16,10 @@ class BugsController < ApplicationController
     )
 
     if @bug.errors.any?
-      flash[:danger] = 'Problème avec la création du bug.'
+      flash[:error] = 'Problème avec la création du bug.'
       render 'new'
     else
-      flash[:notice] = 'Merci de nous aider !'
+      flash[:success] = 'Merci de nous aider !'
       redirect_to root_path
 
  end

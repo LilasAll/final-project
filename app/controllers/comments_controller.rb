@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to event_path(params[:event]), flash: { success: ' Commentaire ajoute' }
     else
-      redirect_to event_path(params[:event]), flash: { danger: ' erreur lors de la création du commentaire' }
+      redirect_to event_path(params[:event]), flash: { error: 'Erreur lors de la création du commentaire' }
 
     end
   end

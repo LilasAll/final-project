@@ -9,8 +9,7 @@ class MessagesController < ApplicationController
   def index
     @messages = @conversation.messages
     @message = @conversation.messages.new
-
-@conversation.messages.mark_as_read! :all, for: current_user
+    @conversation.messages.mark_as_read! :all, for: current_user
 
   end
 
@@ -22,13 +21,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-     if @message.save
+    if @message.save
       @message.mark_as_read! for: current_user
-
-          redirect_to conversation_messages_path(@conversation)
-
-
-end
+      flash[:success] = 'Message envoyé!'
+      redirect_to conversation_messages_path(@conversation)
+    else
+      flash[:error] = 'Une erreur est survenue..'
+      redirect_to conversation_messages_path(@conversation)
+    end
   end
 
   private
