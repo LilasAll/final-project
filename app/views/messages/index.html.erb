@@ -1,18 +1,20 @@
+
+
 <center>
+
+
+
   <div style="width: 30em; margin-top: 100px;" class="main main-raised">
     <div  class="section section-basic">
       <div class=" container">
-        <style>
-          .icon-flipped {
-          transform: scaleX(-1);
-          -moz-transform: scaleX(-1);
-          -webkit-transform: scaleX(-1);
-          -ms-transform: scaleX(-1);
-          }
-          .glyphicon.glyphicon-log-out {
-            font-size: 20px;
-          }
-        </style>
+            <% if  @conversation.sender.pseudo != current_user.pseudo%>
+
+  <p style="font-size: 30px;" > Vous parlez à <strong> <%=  @conversation.sender.pseudo%> </strong><p>
+    <%else%>  
+      <p style="font-size: 30px;" > Vous parlez à <strong> <%=  @conversation.recipient.pseudo%></strong><p>
+
+ <%end%>
+
         <div class="panel panel-default">
           <% if @over_5 %>
             <%= link_to 'Show All', '?m=all', class: 'btn btn-link pull-right' %>
