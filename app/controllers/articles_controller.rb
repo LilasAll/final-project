@@ -32,24 +32,30 @@ class ArticlesController < ApplicationController
     @article.tags = Tag.where(id: params[:tag_id])
 
     if @article.save
+            flash[:success] = "Ton article a été créé et en attente d'aprobation par l'admin !"
+
       redirect_to '/'
     else
-      render 'new'
+redirect_to request.referer
   end
   end
 
   def destroy
     Article.find(params[:id]).destroy
-    redirect_to '/'
+redirect_to request.referer
 end
 
   def toggle_check
     @article = Article.find(params[:article_id])
     @is_validated = if @article.is_validated == false
                       @article.update(is_validated: true)
+                      flash[:success] = "Article accepté !"
+
                     else
                       @article.update(is_validated: false)
+                      flash[:danger] = "Article non accepté !"
+
                     end
-    redirect_to '/'
+redirect_to request.referer
   end
 end

@@ -91,7 +91,7 @@ class EventsController < ApplicationController
     end
     # après l'action de destruction, on renvoit à l'accueil
     if @event.destroy
-      flash[:success] = 'Evènement supprimé 👍'
+      flash[:success] = 'Evènement supprimé '
       redirect_to '/'
      end
   end
@@ -125,10 +125,14 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @is_validated = if @event.is_validated == false
                       @event.update(is_validated: true)
+                      flash[:success] = "Evénement accepté !"
+
                     else
                       @event.update(is_validated: false)
+                      flash[:danger] = "Evénement non-accepté !"
+
                     end
-    redirect_to '/'
+redirect_to request.referer
   end
 
   private

@@ -19,14 +19,17 @@ remove_red_eye
                          </li>
               <li>
                  <%= link_to "Acceder au calendrier", calendar_path%>            </li>
-            </ul>
+                       <li>
+                 <%= link_to "Acceder à la carte", maps_path%>            </li>
+
           </li>
+            </ul>
+
+          </li>
+    
         <li>
           <% if user_signed_in? %>
-            <%= link_to user_path(current_user.id), class: "" do %>
-              <span class="material-icon">
-                <i style="color: white;" class="material-icons">face</i>              </span>
-            <% end %>        </li>
+            
           <li>
             <a href="#!"><i class="material-icons">edit</i>
             </a>
@@ -56,9 +59,16 @@ remove_red_eye
                 <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %>            </li>
             </ul>
           </li>
+<li>
+<%= link_to user_path(current_user.id), class: "" do %>
+              <span class="material-icon">
+                <i style="color: white;" class="material-icons">face</i>              </span>
+            <% end %>        </li>
+</li>
 
 
           <li>
+
             <a 
 
 
