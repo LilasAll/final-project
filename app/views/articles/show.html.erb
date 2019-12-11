@@ -7,7 +7,9 @@
     <div class="card-body">
       <p class="card-text"><%= @article.content.html_safe %></p>
       <% @article.join_tag_articles.each do |join| %>
-        <span class="badge badge-primary"> <%= join.tag.name %></span>
+         <%= link_to tag_path(join.tag.id), class: "" do %> 
+          <span class="badge badge-primary"> <%= join.tag.name %></span>
+        <% end %>
       <% end %>
     </div>
     <div class = "">
