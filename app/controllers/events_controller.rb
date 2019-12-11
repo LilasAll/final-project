@@ -103,10 +103,10 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-
+    date = (params[:start_date])
     # ATTENTION, AVEC CETTE METHODE IL FAUT RECHARGER L'IMAGE ET LA DATE A CHAQUE FOIS
 
-    if @event.update(title: params[:title], description: params[:description], start_date: params[:start_date], location: params[:location], price: params[:price])
+    if @event.update(title: params[:title], description: params[:description], start_date: date, location: params[:location], price: params[:price],latitude: params[:latitude], longitude: params[:longitude])
       @event.image_event.purge
       @event.image_event.attach(params[:image_event])
       redirect_to @event
