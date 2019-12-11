@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
       @like = Like.where(article_id: params[:article_id])
     # If user isn't register, he's redirected to login page:
     else
-      flash[:alert] = "Connecte toi pour avoir accès à l'intégralité de l'article"
+      flash[:alert] = "Connecte-toi pour avoir accès à l'intégralité de l'article"
       redirect_to new_user_session_path
     end
   end
@@ -32,18 +32,18 @@ class ArticlesController < ApplicationController
     @article.tags = Tag.where(id: params[:tag_id])
 
     if @article.save
-            flash[:success] = "Ton article a été créé et en attente d'aprobation par l'admin !"
-
+      flash[:success] = "Ton article a été créé et en attente d'aprobation par l'admin !"
       redirect_to '/'
     else
-redirect_to request.referer
+      flash[:error] = "Une erreur est survenue, assurez-vous de bien avoir rempli tous les champs"
+      redirect_to request.referer
   end
   end
 
   def destroy
     Article.find(params[:id]).destroy
-redirect_to request.referer
-end
+    redirect_to request.referer
+  end
 
   def toggle_check
     @article = Article.find(params[:article_id])
@@ -53,9 +53,9 @@ end
 
                     else
                       @article.update(is_validated: false)
-                      flash[:danger] = "Article non accepté !"
+                      flash[:error] = "Article non accepté !"
 
                     end
-redirect_to request.referer
+  redirect_to request.referer
   end
 end

@@ -27,67 +27,61 @@ remove_red_eye
           <% if user_signed_in? %>
             
           <li>
-            <a href="#!"><i class="material-icons">edit</i>
-            </a>
+            <a href="#!"><i class="material-icons">edit</i></a>
             <ul style="z-index:5;"class="nav-dropdown">
-              <li  >
-                <%= link_to "Rediger un article", new_article_path, class: "" %>
-              </li>
-              <li>
-                <%= link_to "Créer un évènement", new_event_path, class: "" %>
-              </li>
+              <li> <%= link_to "Rédiger un article", new_article_path, class: "" %> </li>
+              <li> <%= link_to "Créer un évènement", new_event_path, class: "" %> </li>
             </ul>
-
-
           </li>
 
           <li>
-            <a href="#!"><i class="material-icons">settings</i>
-            </a>
+            <a href="#!"><i class="material-icons">settings</i> </a>
             <ul style="z-index:5;"class="nav-dropdown">
-              <li  >
-                <%= link_to "Mettre à jour mon profil", edit_user_registration_path, class: ""  %>            </li>
+              <li> <%= link_to "Mettre à jour mon profil", edit_user_registration_path, class: ""  %></li>
               <li>
                 <% if current_user.is_admin == true %>
                   <%= link_to "Dashboard Admin",  admin_path(current_user.id) %>
-                <%end%>            </li>
-              <li>
-                <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %>            </li>
+                <%end%>            
+              </li>
+              <li> <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %> </li>
             </ul>
           </li>
-<li>
-<%= link_to user_path(current_user.id), class: "" do %>
-              <span class="material-icon">
-                <i style="color: white;" class="material-icons">face</i>              </span>
-            <% end %>        </li>
-</li>
+        
+        <li>
+          <%= link_to user_path(current_user.id), class: "" do %>
+            <span class="material-icon">
+              <i style="color: white;" class="material-icons">face</i> </span>
+          <% end %>        
+        </li>
+
+      </li>
 
 
-          <li>
-
-            <a 
-
-
-<%= link_to conversations_path do %>
-                      <i class="material-icons">email</i><span>
-              <% if Message.unread_by(current_user).count > 0 %>
-                <span class="badge badge-warning m-0">New</span>
-              <%else%>
-              <%end%>
-            </span>
-          </li>
+      <li>
+        <%= link_to conversations_path do %>
+          <i class="material-icons">email</i>
+          <span>
+            <% if Message.unread_by(current_user).count > 0 %>
+              <span class="badge badge-warning m-0">New</span>
+            <%else%>
+            <%end%>
+          </span>
+      </li>
         <% end %>
+
+
       <%else%>
         <li>
           <a <%= link_to "Je me connecte", new_user_session_path, class: "" %></a>
-          </li>
-          <li>
-            <a <%= link_to "Je m'inscris", new_user_registration_path, class: "" %></a>
-            </li>
-          <%end%>
-        </a>
-      </li>
-    </ul>
-  </nav>
+        </li>
+        <li>
+          <a <%= link_to "Je m'inscris", new_user_registration_path, class: "" %></a>
+        </li>
+      <%end%>
+    
+    </a>
+  </li>
+</ul>
+</nav>
 </div>
 </section>
