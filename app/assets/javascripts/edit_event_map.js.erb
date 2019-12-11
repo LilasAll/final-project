@@ -17,7 +17,7 @@ function mapCityEdit()
 }
 
 
-theMarker = L.marker([gon.event.latitude,gon.event.longitude]);
+theMarker = L.circle([gon.event.latitude,gon.event.longitude]);
 theMarker.addTo(map);
 
 function onClickMap()
@@ -27,7 +27,7 @@ function onClickMap()
       map.removeLayer(theMarker);
       lat = e.latlng.lat;
       lon = e.latlng.lng;
-      theMarker = L.marker([lat,lon]);
+      theMarker = L.circle([lat,lon]);
       theMarker.addTo(map);
       document.getElementById("lat-form").value = lat;
       document.getElementById("lgn-form").value = lon;

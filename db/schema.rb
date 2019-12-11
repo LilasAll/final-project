@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 2019_12_09_201459) do
     t.string "location"
     t.boolean "is_validated", default: false
     t.integer "price", default: 0
+    t.decimal "latitude", precision: 15, scale: 13
+    t.decimal "longitude", precision: 15, scale: 13
     t.bigint "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
