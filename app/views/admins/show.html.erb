@@ -20,7 +20,7 @@
         </div>
       </div>
 
-            <div style="margin-top: 100px;" class="main main-raised">
+            <div style="margin-top: 100px;" class=" main main-raised">
         <div class="section section-basic">
           <div class=" container">
             <!-- Ici nous savons combien d'articles nous avons à valider avec un  if-->
@@ -57,23 +57,23 @@
       </div>
 
         <div class=" ">
-              <ul  style="margin-left: 40%;" class="nav nav-pills nav-pills-icons" role="tablist">
+              <ul  style="margin-left: 40%;" class=" selection-admin nav nav-pills nav-pills-icons" role="tablist">
                 <!--
                                 color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
                             -->
                 <li class="nav-item">
                   <a class="nav-link" href="#dashboard-1" role="tab" data-toggle="tab">
-                    <i class="material-icons">dashboard</i> Utilisateurs
+                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABN0lEQVRIS8WU/zFFMRBGz+uADqgAFaADKkAFRgWoABWgAlTw6EAHWtABc8zG3MlLbuI9l/3n/pjkO5vd/TJj4phNrE8v4AA4BfYioWfgEvA5Gj2AO+CooiLkYozQApj5QwicAY/xfgycx/v+2ElaAEuwCyh+nWVq5kJeBqVbOEwL8BE71oH3bPcG8Bb/qjr/DkglKjUzlegJsFfFaJ1g2GQF70PFqUrTs1KT1UuZljJceUyTqAYT5EQZTo7fv2K0llmXdvJaXA/2Ybui8hrmuymM8deWWpN16hUgpCf0yMnA6d97SgDFb2OFI6iDa7XOe3OYQ3KAGetOn2bkRdcTadI8yeawXDmgyzwVYtGUOcCmbQGj5qkALNccUGMnrckB6XJrObxWtoX9fw7oaeiP1ixbim7I5IBP9Lo9GWglB+QAAAAASUVORK5CYII="/> Utilisateurs
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="#schedule-1" role="tab" data-toggle="tab">
-                    <i class="material-icons">schedule</i> Evenements
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAn0lEQVRIS+2V0RFAMBBEnwqUgE6UQmWUohQ60AFzM4IJyRmZ8EF+c7ub20uyCZFXEpkfTWBaDuCq0/afFyiBBshvWtcDNdAZvN26FGQ3yQ1MOAqXgPE0UGOz3u5AHZqifMC/JhDdol9gna1ryD6LtG9DsL/AqYP7X+DjFl15hE6LRiC9wuCpGfZ5Yt9pCZw2IBOEvPIFTuDhj3At9IMFZzaFJBk/5tpnAAAAAElFTkSuQmCC"/> Evenements
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab">
-                    <i class="material-icons">list</i> Articles
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAn0lEQVRIS82V0Q2AIAxEj0nUTRxFJ9NRHEUn0dTYBBsRAi3KHzTcoy1wDsbDGeujKqAHMAFoC7NaAYwAFtLxM6BAUyjO20mrk4D9ipaW7abji1UHMFBWjQ8l43L9nL9l8DkgdB+SexDLwBzw/x7kvrnkHpgDQk0OgdXegRrAvETqAM3vemNf8f8iMpxZwRNIfHgynNySvO4rNZfoocwBB4owMhmDkH+/AAAAAElFTkSuQmCC"/> Articles
                   </a>
                 </li>
               </ul>
@@ -106,7 +106,11 @@
                     <td><span class="badge badge-info m-0">User</span>
                       <td><%= link_to "Upgrader (not working)", :controller => :users, :action => :toggle_check, user_id: user.id %></td>
                       <td>
-                        <%= link_to "X", user, method: :delete, data: { confirm: "Are you sure"} %>
+                        <%= link_to  user, method: :delete, data: { confirm: "Vous êtes sur ?"} do %>
+                        <i class="material-icons">
+delete
+</i
+<%end%>
                       </td>
                     <%end%>
                   </td>
@@ -148,8 +152,11 @@
                       <td><%= link_to "Accepter", :controller => :events, :action => :toggle_check, event_id: event.id %></td>
                     <%end%>
                     <td>
-                      <a <%= link_to "X", event, method: :delete, data: { confirm: "Are you sure"} %>
-</a>
+                        <%= link_to  event, method: :delete, data: { confirm: "Vous êtes sur ?"} do %>
+                        <i class="material-icons">
+delete
+</i
+<%end%>
                       </td>
                     <%end%>
                   </tbody>
@@ -188,8 +195,11 @@
                     <td><%= link_to "Accepter", :controller => :articles, :action => :toggle_check, article_id: article.id %></td>
                   <%end%>
                   <td>
-                    <a <%= link_to "X", article, method: :delete, data: { confirm: "Are you sure"} %>
-              </a>
+                        <%= link_to  article, method: :delete, data: { confirm: "Vous êtes sur ?"} do %>
+                        <i class="material-icons">
+delete
+</i
+<%end%>
                     </td>
                   <%end%>
                 </tbody>
