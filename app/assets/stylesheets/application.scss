@@ -26,7 +26,23 @@
  
 /*Leaflet CSS*/
 
- @import "leaflet";
+.event-link:link {
+  color: black;
+}
+
+.event-link:hover {
+  color: #a152b0;
+}
+
+.event-link:active {
+  color: #black;
+}
+
+.event-link:visited {
+  color: black;
+}
+
+@import "leaflet";
 
  #main_map{
 /*Taille de la map - INDISPENSABLE*/
