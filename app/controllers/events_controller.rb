@@ -20,11 +20,13 @@ class EventsController < ApplicationController
 
   def show
     # on ne montre les events qu'à ceux qui sont connectés :
-   gon.event = @event
-   @event = Event.find(params[:id])
+
 
     if user_signed_in?
-      
+      @event = Event.find(params[:id])
+      gon.event = @event
+      gon.event.latitude = @event.latitude
+      gon.event.longitude = @event.longitude
       gon.creator = @event.creator
       gon.user = current_user
 
@@ -63,7 +65,8 @@ class EventsController < ApplicationController
 
     # voir les détails dans la console :
     puts @event.errors.full_messages
-
+    puts "*" * 100
+    puts params
     # si les bons paramètres sont là, on enregistre l'event
     if @event.save
       flash[:success] = 'Evènement enregistré 👍'
