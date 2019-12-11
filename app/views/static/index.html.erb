@@ -44,6 +44,8 @@
 
 
 </div>
+
+
 <!-- First card : presentation -->
 <div style="margin-top: 100px;" class="main main-raised">
   <div  style="" class="section section-basic">
@@ -55,7 +57,6 @@
         <div class="card-body">
           <h4 class="card-title">Des événements</h4>
           <p class="card-text">Avec <strong> Synergie Urbaine</strong>, tu peux rejoindre des évènements près de chez toi et en organiser.</p>
-          <a class="btn btn-primary" <%= link_to "Découvrir les événements", events_path%></a>
           </div>
           <center>
             <img src="https://images.pexels.com/photos/3184177/pexels-photo-3184177.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="..." class="img-thumbnail" style="width: 300px">
@@ -65,7 +66,6 @@
             <p class="card-text">Tu peux également poster des articles et profiter de ceux des autres. Le contenu d'un article? Laisse parler ton imagination ! <br/>
               Le but est de partager nos bons plans, nos connaissances, nos savoirs... Dans les domaines de l'écologie et de la solidarité. <br/>
               Le site est consu selon un principe inclusif et participatif : chacun est libre de participer à la communauté. On a tous quelque chose à apprendre des autres ! </p>
-            <a class="btn btn-primary" <%= link_to "Lire des articles", articles_path%></a>
             </div>
             <center>
               <img src="https://cdn.pixabay.com/photo/2015/04/27/15/01/vegetables-742095_960_720.jpg" alt="..." class="img-thumbnail" style="width: 300px">
@@ -73,99 +73,54 @@
             <br/>
           </div>
           <!-- Second space : usefull words  -->
-          <h2 class="title text-center">Les mots-clés pour naviguer sur le site</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">Economie fonctionelle</h4>
-                </div>
-                <div class="card-body">
-                  L’économie de la fonctionnalité s’inscrit pleinement dans la démarche de transition vers une économie verte. Elle consiste à remplacer la notion de vente du bien par celle de la vente de l’usage du bien, ce qui entraîne le découplage de la valeur ajoutée et de la consommation d’énergie et de matières premières.<br/>
-                  Sur notre site: un échange de services et de connaissances pour prosperer ensembles. 
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header card-header-danger">
-                  <h4 class="card-title">Développement soutenable</h4>
-                </div>
-                <div class="card-body">
-                  Par «  développement soutenable ou durable », nous entendons « un développement qui répond aux besoins des générations du présent sans compromettre la capacité des générations futures à répondre aux leurs ».<br/>
-                  Une société soutenable est alors une société qui persiste et prospère, qui offre une grande qualité de vie pour tous ses habitants, de manière juste et équitable. Une société où les besoins de tous sont satisfaits, maintenant et demain, en respectant les limites des écosystèmes et ressources naturelles, dont toute vie dépend. 
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header card-header-danger">
-                  <h4 class="card-title">Résilience</h4>
-                </div>
-                <div class="card-body">
-                  La résilience désigne originellement la résistance d'un matériau aux chocs ; (le « fait de rebondir », du latin resilientia, de resiliens), définition ensuite étendue à la capacité d'un corps, d'un organisme, d'une espèce, d'un système, d'une structure à surmonter une altération de son environnement.
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header">
-                  <div class="card-text">
-                    <h4 class="card-title">Communauté</h4>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Solidaire & participative</h4>
-                  Ensembles pour construire le futur. On a toujours quelque chose à apprendre des choses alors c'est parti! 
-                </div>
-              </div>
-            </div>
-          </div>
+         
+       
           <!-- Third Space : last event in picture  -->
-          <h2 class="title text-center">Nos derniers événements en photos :</h2>
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="https://images.pexels.com/photos/1134062/pexels-photo-1134062.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>Atelier Jardinage</h5>
-                  <p>Au jardin de truc le 22/11/2019</p>
+   <div class="section text-center">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="title">Les mots-clés pour naviguer sur le site</h2>
+            <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn&apos;t scroll to get here. Add a button if you want the user to see more.</h5>
+          </div>
+        </div>
+        <div class="features">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-info">
+                  <i class="material-icons">chat</i>
                 </div>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="https://images.pexels.com/photos/787961/pexels-photo-787961.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>Soirée Déguisé au profit d'une Asso</h5>
-                  <p>Au bar machin le 22/11/2019</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="https://images.pexels.com/photos/1181622/pexels-photo-1181622.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>Meet Up sur la place des femmes au travail</h5>
-                  <p>Espace coworking le 22/11/2019</p>
-                </div>
+                <h4 class="info-title">Economie Fonctionelle</h4>
+                 L’économie de la fonctionnalité s’inscrit pleinement dans la démarche de transition vers une économie verte. Elle consiste à remplacer la notion de vente du bien par celle de la vente de l’usage du bien, ce qui entraîne le découplage de la valeur ajoutée et de la consommation d’énergie et de matières premières.<br/>
+                  Sur notre site: un échange de services et de connaissances pour prosperer ensembles. 
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-success">
+                  <i class="material-icons">verified_user</i>
+                </div>
+                <h4 class="info-title">Solidaire & participative</h4>
+                Par «  développement soutenable ou durable », nous entendons « un développement qui répond aux besoins des générations du présent sans compromettre la capacité des générations futures à répondre aux leurs ».<br/>
+                  Une société soutenable est alors une société qui persiste et prospère, qui offre une grande qualité de vie pour tous ses habitants, de manière juste et équitable. Une société où les besoins de tous sont satisfaits, maintenant et demain, en respectant les limites des écosystèmes et ressources naturelles, dont toute vie dépend. 
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-danger">
+                  <i class="material-icons">fingerprint</i>
+                </div>
+                <h4 class="info-title">Communauté</h4>
+                 Ensembles pour construire le futur. On a toujours quelque chose à apprendre des choses alors c'est parti! 
+              </div>
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
     </div>
+
+
   </body>
 </html>
---

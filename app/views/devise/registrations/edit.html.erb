@@ -1,8 +1,8 @@
-<div class="container">
+<div style="margin-top: 50px;" class="container">
   <div class="row">
     <div class="col-lg-8 col-md-8 ml-auto mr-auto">
       <div class="card ">
-        <div class="card-header card-header-info text-center">
+        <div  class="card-header card-header-primary text-center">
           <h4 class="card-title">Metter à jour mon profil</h4>
         </div>
         <div><center>
@@ -55,17 +55,15 @@
               </div>
               <br />
               <div class="actions">
-                <%= f.submit "Mettre à jour mon profil", class: "btn btn-info" %>
+                <%= f.submit "Mettre à jour mon profil", class: "btn btn-primary" %>
               </div>
             <% end %>
             <h3 style="margin-top: 100px;" >Ma photo de profil</h3>
             <%= form_tag user_avatars_path(@user), multipart: true do %>
               <%= file_field_tag :avatar %>
-              <%= submit_tag "Mettre à jour ma photo", class: "btn btn-info" %>
+              <%= submit_tag "Mettre à jour ma photo", class: "btn btn-primary" %>
             <% end %>
-            <h3>Supprimer mon compte</h3>
-            <p>Vous êtes insatisfait? <%= button_to "Suprrimer mon compte", registration_path(resource_name), data: { confirm: "Vous êtes sur? :( " }, method: :delete, class: "btn btn-danger btn-sm"  %></p>
-            <%= link_to "Retour", :back %>
+         
           </div>
         </center>
       </div>
