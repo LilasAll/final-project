@@ -1,61 +1,57 @@
-<div class="container">
-  <div class="row">
+<center> 
     <div class="card card-nav-tabs text-center">
+      
       <div class="card-header card-header-primary">
         <h3 class="title">Modification de mon évènement </h3>
       </div>
-      <div><center>
-          <br>
-          <%= form_tag url_for(action: 'update'), method: "patch",multipart: true do %>
-            <%= label_tag "Nom de l'évènement" %><br/>
-            <%= text_field_tag 'title', @event.title %>
-            <br />
-            <br />
-            <%= label_tag 'Description' %><br/>
-            <%= text_area_tag 'description', @event.description %>
-            <br />
-            <br />
-            <%= label_tag "Date de l'évènement" %><br />
-            <%= date_field_tag 'start_date', @event.start_date.strftime("%Y-%m-%d") %>
-            <br />
-            <br />
-            <%= label_tag 'Durée (en minutes)' %><br />
-            <%= text_field_tag :duration , @event.duration%>
-            <br />
-            <br />
-            <%= label_tag 'Lieu' %><br/>
-            <%= text_field_tag :location, @event.location %>
-            <br />
-            <br />
-            <%= label_tag "Falcutatif : prix " %><br />
-            <p> (en cas d'achat de matériel, location de salle, etc)</p>
-            <%= text_field_tag :price, @event.price %>
-
-            <div class="col-6 p-0 pr-1">
-              <%= text_field_tag :latitude , id:"lat-form", placeholder: "latitude", class: "form-control-light d-none  ", autocomplete: "latitude" %>
-              </div>
-                <div class="col-6 p-0 pl-1 ">
-                  <%= text_field_tag :longitude, id: "lgn-form", placeholder: "longitude", class: "form-control-light d-none ", autocomplete: "longitude" %>
-                </div>
-              </div>
-
-  <div id="edit-event-map" class="col-12 mb-3 border-map"></div>
-
-
-            <br />
-            <br />
+  
+      
+        <div class="container d-flex flex-row">
+          <div class="col-6"><br>
+            <%= form_tag url_for(action: 'update'), method: "patch",multipart: true do %>
+              <%= label_tag "Nom de l'évènement" %><br/>
+              <%= text_field_tag 'title', @event.title %>
+              <br />
+              <br />
+              <%= label_tag 'Description' %><br/>
+              <%= text_area_tag 'description', @event.description %>
+              <br />
+              <br />
+              <%= label_tag "Date de l'évènement" %><br />
+              <%= date_field_tag 'start_date', @event.start_date.strftime("%Y-%m-%d") %>
+              <br />
+              <br />
+              <%= label_tag 'Durée (en minutes)' %><br />
+              <%= text_field_tag :duration , @event.duration%>
+              <br />
+              <br />
+              <%= label_tag 'Lieu' %><br/>
+              <%= text_field_tag :location, @event.location %>
+              <br />
+              <br />
+              <%= label_tag "Falcutatif : prix " %><br />
+              <p> (en cas d'achat de matériel, location de salle, etc)</p>
+              <%= text_field_tag :price, @event.price %>
+          </div>
+<!------------------------- Pour le lieu de la carte!!------------------->
+        <div>  
+          <div class="">
+          <%= text_field_tag :latitude, @latitude , id:"lat-form", placeholder: "latitude", class: "form-control-light d-none  " %>
+          </div>
+          <div class="">
+              <%= text_field_tag :longitude, @longitude, id: "lgn-form", placeholder: "longitude", class: "form-control-light d-none " %>
+          </div>
+          <div id="edit-event-map" class="col-6 border-map"></div>
+<!------------------------------------------------------------------------->
             <%= file_field_tag :image_event %>
             <br>
-            <%= submit_tag 'Update Post' %>
-          <% end %>
+        </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-</center></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+        <%= submit_tag 'Update Post' %>
+        <% end %>
+
+</center>
+
+  <%= javascript_include_tag 'edit_event_map' %>
