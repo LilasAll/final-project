@@ -23,11 +23,32 @@
 
 /* AU DESSUS ON RELIE TOUS LES CSS */
 
+/* Formulaires */
+
+
+
+
 
 /*Leaflet CSS*/
 
 
- @import "leaflet";
+.event-link:link {
+  color: black;
+}
+
+.event-link:hover {
+  color: #a152b0;
+}
+
+.event-link:active {
+  color: #black;
+}
+
+.event-link:visited {
+  color: black;
+}
+
+@import "leaflet";
 
  #main_map{
 /*Taille de la map - INDISPENSABLE*/
@@ -41,11 +62,11 @@
 }
 
 #edit-event-map {
-  margin: 0 auto;
-  margin-top : 75px;
+  margin-top : 100px;
   margin-bottom : 75px;
-  height: 300px;
-  width: 600px;
+  margin-left : 55px;
+  height: 400px;
+  width: 800px;
 }
 
 #new-event-map {
