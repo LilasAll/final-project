@@ -7,29 +7,25 @@
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
-            <a href="#!"><i class="material-icons">
-remove_red_eye
-</i>
-            </a>
-            <ul style="z-index:5;"class="nav-dropdown">
-              <li  >
-                <%= link_to "Découvrir les événements", events_path%>            </li>
-              <li>
-                  <%= link_to "Voir tous les articles", articles_path%>
-                         </li>
-              <li>
-                 <%= link_to "Acceder au calendrier", calendar_path%>            </li>
-                       <li>
-                 <%= link_to "Acceder à la carte", maps_path%>            </li>
-
+          <a href="#!"><i class="material-icons">
+              remove_red_eye
+            </i>
+          </a>
+          <ul class="nav-dropdown">
+            <li  >
+              <%= link_to "Découvrir les événements", events_path%>            </li>
+            <li>
+              <%= link_to "Voir tous les articles", articles_path%>
+            </li>
+            <li>
+              <%= link_to "Acceder au calendrier", calendar_path%>            </li>
+            <li>
+              <%= link_to "Acceder à la carte", maps_path%>            </li>
           </li>
-            </ul>
-
-          </li>
-    
-        <li>
-          <% if user_signed_in? %>
-            
+        </ul>
+      </li>
+      <li>
+        <% if user_signed_in? %>
           <li>
             <a href="#!"><i class="material-icons">edit</i>
             </a>
@@ -41,10 +37,7 @@ remove_red_eye
                 <%= link_to "Créer un évènement", new_event_path, class: "" %>
               </li>
             </ul>
-
-
           </li>
-
           <li>
             <a href="#!"><i class="material-icons">settings</i>
             </a>
@@ -59,39 +52,36 @@ remove_red_eye
                 <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %>            </li>
             </ul>
           </li>
-<li>
-<%= link_to user_path(current_user.id), class: "" do %>
+          <li>
+            <%= link_to user_path(current_user.id), class: "" do %>
               <span class="material-icon">
                 <i style="color: white;" class="material-icons">face</i>              </span>
             <% end %>        </li>
-</li>
-
-
-          <li>
-
-            <a 
+        </li>
+        <li>
+          <a 
 
 
 <%= link_to conversations_path do %>
                       <i class="material-icons">email</i><span>
-              <% if Message.unread_by(current_user).count > 0 %>
-                <span class="badge badge-warning m-0">New</span>
-              <%else%>
-              <%end%>
-            </span>
-          </li>
-        <% end %>
-      <%else%>
+            <% if Message.unread_by(current_user).count > 0 %>
+              <span class="badge badge-warning m-0">New</span>
+            <%else%>
+            <%end%>
+          </span>
+        </li>
+      <% end %>
+    <%else%>
+      <li>
+        <a <%= link_to "Je me connecte", new_user_session_path, class: "" %></a>
+        </li>
         <li>
-          <a <%= link_to "Je me connecte", new_user_session_path, class: "" %></a>
+          <a <%= link_to "Je m'inscris", new_user_registration_path, class: "" %></a>
           </li>
-          <li>
-            <a <%= link_to "Je m'inscris", new_user_registration_path, class: "" %></a>
-            </li>
-          <%end%>
-        </a>
-      </li>
-    </ul>
-  </nav>
+        <%end%>
+      </a>
+    </li>
+  </ul>
+</nav>
 </div>
 </section>
