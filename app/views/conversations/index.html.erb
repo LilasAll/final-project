@@ -32,9 +32,15 @@
                         
   <span class="badge badge-warning m-0">New</span>
 <%end%>
+          <a <%= link_to  conversation, method: :delete, data: { confirm: "Are you sure"} do %>
+
+            <i class="material-icons">
+delete
+</i>
+<%end%>
+
 </h3>
 
-          <td><a <%= link_to "X", conversation, method: :delete, data: { confirm: "Are you sure"} %></td>
 
       
      <%end%>
