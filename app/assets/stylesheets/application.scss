@@ -23,6 +23,42 @@
 
 /* AU DESSUS ON RELIE TOUS LES CSS */
 
+/* Formulaires */
+
+
+//time_field_tag form
+span.time-spinner {
+  position: absolute;
+  top: -15px;
+  left: 17px;
+  font-size: small;
+  font-style: italic;
+   }
+input[type="time"] {
+
+  width: 100%;
+  height: calc(2rem + 8px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-width: 0px;
+  border: 1px solid #cdcdcd;
+  box-shadow: -1px 1px 0px 1px #ff0000;
+  border-radius: 5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input[type="time"]:focus {
+  outline: #ff815a00 solid 4px;
+  box-shadow: 0 0 0 3pt #ff815a;
+  border: 0px;
+}
+
+
+
 
 /*Leaflet CSS*/
 
@@ -41,11 +77,11 @@
 }
 
 #edit-event-map {
-  margin: 0 auto;
-  margin-top : 75px;
+  margin-top : 150px;
   margin-bottom : 75px;
-  height: 300px;
-  width: 600px;
+  margin-left : 55px;
+  height: 400px;
+  width: 800px;
 }
 
 #new-event-map {
