@@ -52,7 +52,9 @@ class EventsController < ApplicationController
       duration: params[:duration],
       description: params[:description],
       price: params[:price],
-      location: params[:location]
+      location: params[:location],
+      latitude: params[:latitude],  
+      longitude: params[:longitude]
     )
     @event.tags = Tag.where(id: params[:tag_id])
 
