@@ -13,34 +13,61 @@ let culturalLayer = L.tileLayer("https://{s}.tile.openstreetmap.se/hydda/full/{z
 let gardenLayer = L.tileLayer("https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png",{maxZoom :100});
 
 //-------------------------------- LES MARKERS (appel des données, association des données à des markers)
-let cities = gon.cities; 
+
+var iconMarkers = new L.FeatureGroup();
 
 // Magasins de seconde main
 console.log(gon.cities_cultural);
 let cities_secondhand_array = gon.cities_secondhand
+let secondhand_icon = L.icon({
+     iconUrl: '/assets/secondhand.png',
+     iconSize: [40, 40],
+     iconAnchor: [22, 38],
+     popupAnchor: [-3, -76],
+     shadowSize: [68, 95],
+     shadowAnchor: [22, 94]
+                       });
 
 cities_secondhand_array.forEach(function(place){
-   let marker = L.marker([place.latitude ,place.longitude], {title:"Magasin de seconde-main"}).bindPopup("N'achetez plus neuf, venez découvrir les belles pièces de seconde-main dans notre sélection de friperies");
+   let marker = L.marker([place.latitude ,place.longitude], {icon: secondhand_icon}, {title:"Magasin de seconde-main"}).bindPopup("N'achetez plus neuf, venez découvrir les belles pièces de seconde-main dans notre sélection de friperies");
    marker.addTo(mymap);
 });
 
 //Endroits culturels
 let cities_cultural_array = gon.cities_cultural
+let community_icon = L.icon({
+     iconUrl: '/assets/community.png',
+     iconSize: [40, 40],
+     iconAnchor: [22, 38],
+     popupAnchor: [-3, -76],
+     shadowSize: [68, 95],
+     shadowAnchor: [22, 94]
+    });
+
 
 cities_cultural_array.forEach(function(place){
-   let marker = L.marker([place.latitude ,place.longitude], {title:"Lieu de partage"}).bindPopup('Venez y prendre un café');
+   let marker = L.marker([place.latitude ,place.longitude], {icon: community_icon}, {title:"Lieu de partage"}).bindPopup('Venez y prendre un café');
    marker.addTo(mymap);
 });
 
 //Jardins partagés
 let cities_garden_array = gon.cities_garden
+let garden_icon = L.icon({
+     iconUrl: '/assets/garden.png',
+     iconSize: [40, 40],
+     iconAnchor: [22, 38],
+     popupAnchor: [-3, -76],
+     shadowSize: [68, 95],
+     shadowAnchor: [22, 94]
+    });
 
 cities_garden_array.forEach(function(place){
-   let marker = L.marker([place.latitude ,place.longitude], {title:"Jardin partagé de quartier"}).bindPopup('Pour jardiner avec ses voisins');
+   let marker = L.marker([place.latitude ,place.longitude], {icon: garden_icon}, {title:"Jardin partagé de quartier"}).bindPopup('Pour jardiner avec ses voisins');
    marker.addTo(mymap);
 });
 
-
+iconMarkers.addLayer(marker);
+iconMarkers.addTo(mymap);
 
 // Control layer
 L.control.layers({
