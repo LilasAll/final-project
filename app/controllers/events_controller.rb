@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  # pour les recerches / ici on recherche par titre /
+  # pour les recerches / ici on recherche par description /
   def search
     @events = Event.where('description LIKE ?', '%' + params[:q] + '%')
   end
@@ -21,6 +21,10 @@ class EventsController < ApplicationController
   def show
     # on ne montre les events qu'à ceux qui sont connectés :
     if user_signed_in?
+      gon.event = @event
+      gon.creator = @event.creator
+      gon.user = current_user
+      
       @event = Event.find(params[:id])
       @attending_list = @event.attendances # liste des participants
       puts '*' * 100
@@ -72,7 +76,11 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find_by(id: params[:id])
-
+    if Attendance.exists?(event: @event)
+      Attendance.where(event: @event).each do |attendance|
+        attendance.destroy
+      end
+    end
     # après l'action de destruction, on renvoit à l'accueil
     if @event.destroy
       flash[:success] = 'Evènement supprimé 👍'
@@ -82,6 +90,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params['id'])
+    gon.event = @event
   end
 
   def update
