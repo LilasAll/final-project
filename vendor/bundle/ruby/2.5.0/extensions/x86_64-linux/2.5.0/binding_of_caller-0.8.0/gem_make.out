@@ -1,0 +1,16 @@
+current directory: /home/maowaw/Documents/THP/projets_finaux/final-project/vendor/bundle/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+/usr/bin/ruby2.5 -I /usr/local/lib/site_ruby/2.5.0 -r ./siteconf20191211-8839-1c2f0bd.rb extconf.rb
+
+current directory: /home/maowaw/Documents/THP/projets_finaux/final-project/vendor/bundle/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target 'clean'.  Stop.
+
+current directory: /home/maowaw/Documents/THP/projets_finaux/final-project/vendor/bundle/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /home/maowaw/Documents/THP/projets_finaux/final-project/vendor/bundle/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.
