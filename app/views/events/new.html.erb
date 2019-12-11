@@ -52,6 +52,16 @@
         <%= text_field_tag :location, @location, placeholder: "Ex: Place du général de Gaulle à Lille", class: "form-control" %>
         <br />
         <br />
+
+<!------------------------- Pour le lieu de la carte!!------------------->
+        <div class="col-6 p-0 pr-1">
+          <%= text_field_tag :latitude, @latitude , id:"lat-form", placeholder: "latitude", class: "form-control-light d-none  " %>
+          </div>
+            <div class="col-6 p-0 pl-1 ">
+              <%= text_field_tag :longitude, @longitude, id: "lgn-form", placeholder: "longitude", class: "form-control-light d-none " %>
+            </div>
+          </div>
+<!------------------------------------------------------------------------->
         
         <h4 class="card-title">Falcutatif : prix</h4>
         <p> (en cas d'achat de matériel, location de salle, etc)</p>
@@ -76,6 +86,14 @@
         <br><br />
 
 
+   <div class="col-md-7 col-lg-7 col-xl-7 mx-auto">
+     <div class="col-xl-12 mx-auto font-1 f-medium text-center pb-3">
+       <h3 class="f-bold font-4 primary-color f-uppercase"> Définis le lieu où aura lieu l'évènement ! </h3>
+     </div>
+      <div id="new-event-map" class="col-12 mb-3 border-map"></div>
+    </div>
+
+
           <button type="submit" class= "btn btn-primary"> Ajouter mon event </button>
         <% end %>
       </div>
@@ -83,3 +101,6 @@
   </div>
 </div>
 </div>
+
+
+  <%= javascript_include_tag 'new_event_map' %>

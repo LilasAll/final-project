@@ -1,0 +1,35 @@
+
+
+var map;
+var theMarker = {};
+var lat;
+var lon;
+mapCityEdit();
+
+function mapCityEdit()
+{
+    map = L.map('edit-event-map').setView([gon.event.latitude,gon.event.longitude],14);
+    L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png',{maxZoom :100}).addTo(map);
+    document.getElementById("lat-form").value = gon.event.latitude;
+    document.getElementById("lgn-form").value = gon.event.longitude;
+    onClickMap();
+
+}
+
+
+theMarker = L.marker([gon.event.latitude,gon.event.longitude]);
+theMarker.addTo(map);
+
+function onClickMap()
+{
+  map.on('click',function(e)
+  {
+      map.removeLayer(theMarker);
+      lat = e.latlng.lat;
+      lon = e.latlng.lng;
+      theMarker = L.marker([lat,lon]);
+      theMarker.addTo(map);
+      document.getElementById("lat-form").value = lat;
+      document.getElementById("lgn-form").value = lon;
+  });
+}

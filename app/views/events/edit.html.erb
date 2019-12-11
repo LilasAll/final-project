@@ -30,6 +30,18 @@
             <%= label_tag "Falcutatif : prix " %><br />
             <p> (en cas d'achat de matériel, location de salle, etc)</p>
             <%= text_field_tag :price, @event.price %>
+
+            <div class="col-6 p-0 pr-1">
+              <%= text_field_tag :latitude , id:"lat-form", placeholder: "latitude", class: "form-control-light d-none  ", autocomplete: "latitude" %>
+              </div>
+                <div class="col-6 p-0 pl-1 ">
+                  <%= text_field_tag :longitude, id: "lgn-form", placeholder: "longitude", class: "form-control-light d-none ", autocomplete: "longitude" %>
+                </div>
+              </div>
+
+  <div id="edit-event-map" class="col-12 mb-3 border-map"></div>
+
+
             <br />
             <br />
             <%= file_field_tag :image_event %>

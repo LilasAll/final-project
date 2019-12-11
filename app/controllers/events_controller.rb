@@ -20,12 +20,15 @@ class EventsController < ApplicationController
 
   def show
     # on ne montre les events qu'à ceux qui sont connectés :
+   gon.event = @event
+   @event = Event.find(params[:id])
+
     if user_signed_in?
-      gon.event = @event
+      
       gon.creator = @event.creator
       gon.user = current_user
       
-      @event = Event.find(params[:id])
+      
       @attending_list = @event.attendances # liste des participants
       puts '*' * 100
       puts @attending_list.count
