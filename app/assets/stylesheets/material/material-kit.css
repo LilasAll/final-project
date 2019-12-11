@@ -2701,9 +2701,9 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #7e0013;
-  background-color:#7e0013;
-  border-color: #7e0013;
+  color: #FC04AC;
+  background-color:#FC04AC;
+  border-color: #FC04AC;
   box-shadow: none;
 }
 
@@ -2712,6 +2712,8 @@ fieldset:disabled a.btn {
   background-color: #7e0013;
   border-color: #7e0013;
 }
+
+
 
 .btn-primary:focus,
 .btn-primary.focus {
@@ -8928,8 +8930,8 @@ button:focus {
 .btn.btn-primary.focus,
 .btn.btn-primary:hover {
   color: #fff;
-  background-color: #157b77;
-  border-color: #701c7e;
+  background-color: #B52C1E;
+  border-color: #B52C1E;
 }
 
 .btn.btn-primary:active,
@@ -9003,23 +9005,23 @@ button:focus {
 
 .btn.btn-secondary {
   color: white;
-  background-color:#0f5653;
-  border-color: #ccc;
+  background-color:#155653;
+  border-color: #155653;
   box-shadow: 0 2px 2px 0 rgba(250, 250, 250, 0.14), 0 3px 1px -2px rgba(250, 250, 250, 0.2), 0 1px 5px 0 rgba(250, 250, 250, 0.12);
 }
 
 .btn.btn-secondary:hover {
   color: rgba(0, 0, 0, 0.87);
-  background-color: #f2f2f2;
-  border-color: #adadad;
+  background-color: #155653;
+  border-color: #155653;
 }
 
 .btn.btn-secondary:focus,
 .btn.btn-secondary.focus,
 .btn.btn-secondary:hover {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #f2f2f2;
-  border-color: #adadad;
+  color: white;
+  background-color: #155653;
+  border-color: #155653;
 }
 
 .btn.btn-secondary:active,
