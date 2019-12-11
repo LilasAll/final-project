@@ -35,6 +35,7 @@
         <%= text_area_tag :description, @description, placeholder: "Concept, activitée proposée... ", class: "form-control"  %>
         <br />
          <br />
+
         <h4 class="card-title">Date de l'évènement </h4>
         <%= date_field_tag 'start_date',@start_date %>
         <br />
@@ -45,6 +46,7 @@
 
         <h4 class="card-title">Durée (en minutes)</h4>
         <%= number_field_tag :duration, @duration, placeholder: "Ex: 120", min:1, class: "form-control" %>
+
         <br />
         <br />
 
@@ -56,9 +58,7 @@
         <h4 class="card-title">Falcutatif : prix</h4>
         <p> (en cas d'achat de matériel, location de salle, etc)</p>
         
-        <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
-        <%= range_field_tag :price, @price , :in => 0...100, class: "range-field w-25"  %>
-        <span class="font-weight-bold indigo-text mr-2 mt-1">100</span>
+        <%= number_field_tag :price, @price, min:0 ,  class: "form-control"  %>
 
 
 
@@ -83,3 +83,5 @@
   </div>
 </div>
 </div>
+
+
