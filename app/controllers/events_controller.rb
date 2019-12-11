@@ -69,7 +69,7 @@ class EventsController < ApplicationController
     puts params
     # si les bons paramètres sont là, on enregistre l'event
     if @event.save
-      flash[:success] = 'Evènement enregistré 👍'
+      flash[:success] = 'Evènement enregistré 👍 (Il doit maintenant être validé par un administrateur)'
       # on renvoit à l'index
       redirect_to events_path
 
