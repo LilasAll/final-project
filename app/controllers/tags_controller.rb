@@ -1,9 +1,9 @@
-# frozen_string_literal: true
-
 class TagsController < ApplicationController
-  def new; end
+  def index
+  	@tags = Tag.all
+  end
 
-  def create; end
-
-  def destroy; end
+  def show
+  	@tag = Tag.find(params[:id])
+  end
 end

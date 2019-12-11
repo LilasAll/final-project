@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'tags/index'
+  get 'tags/show'
   get 'map/index'
 
   root 'static#index'
@@ -51,5 +53,7 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
+  resources :tags, only: [:show, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

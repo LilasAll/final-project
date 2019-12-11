@@ -1,0 +1,39 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="card card-nav-tabs text-center">
+      <div class="card-header card-header-primary">
+        <h3 class="title"><%= @tag.name %></h3>
+      </div>
+
+
+ <div class="container d-flex flex-row">
+  <div class="col-6"><br><br />
+		<% if @tag.events.exists? %>
+			<h4> Les évènements </h4>
+		 	<p class="card-text"> 
+	  		<% @tag.events.each do |event| %>
+	    		<%= link_to event_path(event.id), class: "" do %> 
+						<li class= "list-group-item"> <%= event.title %> </li>
+					<% end %>
+				<%end%>
+		<%end%>
+		</p>
+		<br>
+	</div>
+
+  <div class="col-6"><br><br />
+	<% if @tag.articles.exists? %>
+		<h4> Les articles</h4>
+	 	<p class="card-description"> 
+	  	<% @tag.articles.each do |article| %>
+	    	<%= link_to article_path(article.id), class: "" do %> 
+					<li class= "list-group-item"> <%= article.title %> </li>
+				<% end %>
+			<%end%>
+		</p>
+	<%end%>	
+</div></div>
+</div>
+
+</div></div>
