@@ -17,15 +17,11 @@ remove_red_eye
               <li> <%= link_to "Accéder au calendrier", calendar_path%> </li>
               <li> <%= link_to "Accéder à la carte", maps_path%> </li>
               <li> <%= link_to "Voir les catégories", tags_path%> </li>
-
           </li>
             </ul>
-
           </li>
-    
         <li>
           <% if user_signed_in? %>
-            
           <li>
             <a href="#!"><i class="material-icons">edit</i></a>
             <ul style="z-index:5;"class="nav-dropdown">
@@ -33,7 +29,6 @@ remove_red_eye
               <li> <%= link_to "Créer un évènement", new_event_path, class: "" %> </li>
             </ul>
           </li>
-
           <li>
             <a href="#!"><i class="material-icons">settings</i> </a>
             <ul style="z-index:5;"class="nav-dropdown">
@@ -42,22 +37,18 @@ remove_red_eye
               <li>
                 <% if current_user.is_admin == true %>
                   <%= link_to "Dashboard Admin",  admin_path(current_user.id) %>
-                <%end%>            
+                <%end%>
               </li>
               <li> <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %> </li>
             </ul>
           </li>
-        
         <li>
           <%= link_to user_path(current_user.id), class: "" do %>
             <span class="material-icon">
               <i style="color: white;" class="material-icons">face</i> </span>
-          <% end %>        
+          <% end %>
         </li>
-
       </li>
-
-
       <li>
         <%= link_to conversations_path do %>
           <i class="material-icons">email</i>
@@ -69,8 +60,6 @@ remove_red_eye
           </span>
       </li>
         <% end %>
-
-
       <%else%>
         <li>
           <a <%= link_to "Je me connecte", new_user_session_path, class: "" %></a>
@@ -79,7 +68,6 @@ remove_red_eye
           <a <%= link_to "Je m'inscris", new_user_registration_path, class: "" %></a>
         </li>
       <%end%>
-    
     </a>
   </li>
 </ul>
