@@ -38,6 +38,7 @@ remove_red_eye
             <a href="#!"><i class="material-icons">settings</i> </a>
             <ul style="z-index:5;"class="nav-dropdown">
               <li> <%= link_to "Mettre à jour mon profil", edit_user_registration_path, class: ""  %></li>
+              <li> <%= link_to "Reporter un bug", new_bug_path%> </li>
               <li>
                 <% if current_user.is_admin == true %>
                   <%= link_to "Dashboard Admin",  admin_path(current_user.id) %>

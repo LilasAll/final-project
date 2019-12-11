@@ -27,7 +27,7 @@
             <input placeholder='ex: Solidaire' name="q" class="form-control mr-sm-2" type="text" aria-label="search">
             <button class="btn btn-primary", style='color:white'  type="submit" >Chercher</button> 
             <p style="margin: 30px" >Ou</p>
-                          <%= link_to "Creer", new_event_path %>
+                          <%= link_to "Créer", new_event_path %>
           </form>
     
       </div>
@@ -36,7 +36,8 @@
           <a class="btn btn-primary" <%= link_to "Voir tous les articles", articles_path%></a>
           </center>
           <center>
-          <a class="btn btn-secondary" <%= link_to "Acceder au calendrier", calendar_path%></a>
+          <a class="btn btn-secondary" <%= link_to "Acceder au calendrier", calendar_path%></a><br>
+          <a class="btn btn-secondary" <%= link_to "Accéder à la carte des lieux d'économie sociale et solidaire", maps_path%></a>
         </center>
     </div>
 
