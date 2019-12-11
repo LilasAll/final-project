@@ -7,6 +7,21 @@
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
+            <a href="#!"><i class="material-icons">
+remove_red_eye
+</i>
+            </a>
+            <ul style="z-index:5;"class="nav-dropdown">
+              <li  >
+                <%= link_to "Découvrir les événements", events_path%>            </li>
+              <li>
+                  <%= link_to "Voir tous les articles", articles_path%>
+                         </li>
+              <li>
+                 <%= link_to "Acceder au calendrier", calendar_path%>            </li>
+            </ul>
+          </li>
+        <li>
           <% if user_signed_in? %>
             <%= link_to user_path(current_user.id), class: "" do %>
               <span class="material-icon">
@@ -23,7 +38,10 @@
                 <%= link_to "Créer un évènement", new_event_path, class: "" %>
               </li>
             </ul>
+
+
           </li>
+
           <li>
             <a href="#!"><i class="material-icons">settings</i>
             </a>
@@ -38,6 +56,8 @@
                 <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %>            </li>
             </ul>
           </li>
+
+
           <li>
             <a 
 
