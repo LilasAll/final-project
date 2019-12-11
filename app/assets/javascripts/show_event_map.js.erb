@@ -1,15 +1,15 @@
 //Création de la map
-let initialZoom = 13;
-// [lat,long]
-let coordLille= [50.632971, 3.058585];
+let initialZoom = 14;
+// On récupère les coordonnées de l'event :
+let latitude = Number(gon.event.latitude) ;
+let longitude = Number(gon.event.longitude) ;
 
-var map = L.map('show-event-map').setView(coordLille, initialZoom);
+var map = L.map('show-event-map').setView([latitude,longitude], initialZoom);
 
 var myLayer = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png').addTo(map);
 
 
-let latitude = Number(gon.event.latitude) ;
-let longitude = Number(gon.event.longitude) ;
+
 
 var theMarker = L.circle([latitude,longitude], {
     color: 'red',
