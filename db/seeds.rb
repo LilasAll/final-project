@@ -35,7 +35,7 @@ puts "Mes lieux spécifiques créés"
 
 
 10.times do
-  User.create!(email: "ecolo#{rand(1..1000)}@yopmail.com", pseudo: "ecolo#{rand(1..100_000)}", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, is_admin: false, password: '123456')
+  User.create!(email: "ecolo#{rand(1..1000)}@yopmail.com", pseudo: "ecolo#{rand(1..100_000)}", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, is_admin: false, password: '123456', address: Faker::Address.city)
 end
 puts '10 users created'
 
