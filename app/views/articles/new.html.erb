@@ -7,6 +7,7 @@
         <h3 class="title">Ecrire un article</h3>
       </div>
       <div class="card-body">
+        <p>Merci de compléter tous les champs pour valider votre article</p>
   <%= form_tag url_for(action: 'create'), method: "post" do %>
     
     <h4 class="card-title">Titre</h4> 
@@ -21,7 +22,7 @@
     <br />
 
     <h4 class="card-title">Résumé</h4> 
-    <%= text_field_tag 'resume', @resume, placeholder: "En quelques mos, donne envie aux lecteurs de lire ton article...", class: "form-control"  %>
+    <%= text_field_tag 'resume', @resume, placeholder: "En quelques mots, donne envie aux lecteurs de lire ton article...", class: "form-control"  %>
     <br />
     <br />
 
