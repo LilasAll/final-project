@@ -1,26 +1,36 @@
-
-<center>
-  <h1 class="card-title index-title">Les événements</h1>
-  <hr style="width: 300px;">
+<hr style="width: 300px;">
   <div class="card-columns index-padding">
     <% @tags.each do |tag| %>
-        <div class="card p-3 card-blog">
-          <div class="card-header card-header-image">
-              <%= tag.name %>
-            </div>
-          </div>
-
-
-          <div class="card-body">
-            <p class="card-description"> <%= tag.events.each do |event| %> </p>
-            <p class="card-text"><small class="text-muted">
-                	<%= render 'card-event' %>
-            </p>
-    
-            <% end %>
-          </div>
+      <div class="card p-3 card-blog">
+        <div class="card-header">
+            <%= tag.name %>
         </div>
-      <%end%>
 
-  </div>
-</center>
+        <div class="card-body">
+         
+          	<% if tag.events.exists? %>
+          	<h4> Les évènements </h4>
+          	 <p class="card-description"> 
+	          	<% tag.events.each do |event| %>
+		          	<%= link_to event_path(event.id), class: "" do %> 
+		    					<li class= "list-group-item"> <%= event.title %> </li>
+	    				<% end %>
+	    			<%end%>
+	    			<%end%>
+	    			</p>
+	    			<br>
+
+	    			<% if tag.articles.exists? %>
+          	<h4> Les articles : </h4>
+          	 <p class="card-description"> 
+	          	<% tag.articles.each do |article| %>
+		          	<%= link_to article_path(article.id), class: "" do %> 
+		    					<li class= "list-group-item"> <%= article.title %> </li>
+	    				<% end %>
+	    			<%end%>
+	    		<%end%>
+          </p>
+        </div>
+      </div>
+     <%end%>
+   </div>

@@ -39,7 +39,11 @@
 
       <center>
         <% @event.join_tag_events.each do |join| %>
+
+        <%= link_to tag_path(join.tag.id), class: "" do %> 
           <span class="badge badge-primary"> <%= join.tag.name %></span>
+        <% end %>
+        
         <% end %></center>
       <!----------------------- Lien pour participer à l'event ---------------------------------->
       <!--------- (si on est pas déja sur la liste, pas admin et que la date n'est pas passée) -->
