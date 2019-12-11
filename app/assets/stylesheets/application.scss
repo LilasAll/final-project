@@ -22,16 +22,12 @@
  */
 
 /* AU DESSUS ON RELIE TOUS LES CSS */
-<<<<<<< HEAD
- 
 
 
 /*Leaflet CSS*/
 
-=======
 
 
->>>>>>> master
  @import "leaflet";
 
  #main_map{
@@ -46,8 +42,11 @@
 }
 
 #edit-event-map {
-  height: 480px;
-  width: 100%;
+  margin: 0 auto;
+  margin-top : 75px;
+  margin-bottom : 75px;
+  height: 300px;
+  width: 600px;
 }
 
 #new-event-map {
@@ -56,6 +55,7 @@
 }
 
 #show-event-map {
+  margin: 0 auto;
   height: 300px;
   width: 100%;
 }
