@@ -20,7 +20,7 @@ RSpec.describe EventsController, type: :controller do
   describe "GET show" do
     it "assigns @event" do
       event = FactoryBot.create( :event )
-      get :show, id: event.id
+      get :show
       expect(assigns(:event)).to eq(event)
     end
 
