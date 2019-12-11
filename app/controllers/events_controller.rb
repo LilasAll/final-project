@@ -27,7 +27,7 @@ class EventsController < ApplicationController
       
       gon.creator = @event.creator
       gon.user = current_user
-      
+
       
       @attending_list = @event.attendances # liste des participants
       puts '*' * 100

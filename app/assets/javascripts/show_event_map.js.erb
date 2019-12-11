@@ -1,17 +1,7 @@
-//Création of the map
-var map = L.map('show-event-map').setView([Math.abs(Number(gon.event.latitude)),Math.abs(Number(gon.event.longitude))],15);
-L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png',{maxZoom :100}).addTo(map);
+//Création de la map
+let initialZoom = 13;
+// [lat,long]
+let coordLille= [50.632971, 3.058585];
+var map = L.map('show-event-map').setView(coordLille, initialZoom);
 
-if ( gon.validation  || gon.event.owner_id === gon.user.id)
-{
-  var marker = L.marker([gon.event.latitude,gon.event.longitude]).addTo(map);
-  marker.bindPopup(gon.sport.sport_name);
-}
-else
-{
-  var randomNumber = Math.floor(Math.random() * 701) - 350;
-  randomNumber = randomNumber/100000;
-  let latitude = Number(gon.event.latitude) + randomNumber;
-  let longitude = Number(gon.event.longitude) + randomNumber;
-  L.circle([latitude ,longitude], {radius: 450}).addTo(map);
-}
+var myLayer = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png').addTo(map);
