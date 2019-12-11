@@ -19,7 +19,10 @@
               <br />
               <%= label_tag "Date de l'évènement" %><br />
               <%= date_field_tag 'start_date', @event.start_date.strftime("%Y-%m-%d") %>
-              <br />
+              <br /><br>
+              <%= time_field_tag :hour_start, @hour_start %>
+        <br/><br/>
+
               <br />
               <%= label_tag 'Durée (en minutes)' %><br />
               <%= text_field_tag :duration , @event.duration%>
@@ -31,7 +34,7 @@
               <br />
               <%= label_tag "Falcutatif : prix " %><br />
               <p> (en cas d'achat de matériel, location de salle, etc)</p>
-              <%= text_field_tag :price, @event.price %>
+              <%= text_field_tag :price, @event.price %><br />
           </div>
 <!------------------------- Pour le lieu de la carte!!------------------->
         <div>  
@@ -47,9 +50,10 @@
             <br>
         </div>
         </div>
+        <br />
       </div>
 
-        <%= submit_tag 'Update Post' %>
+        <%= submit_tag 'Update Post', class:"btn btn-outline-success" %>
         <% end %>
 
 </center>

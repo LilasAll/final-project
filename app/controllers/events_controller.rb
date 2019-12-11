@@ -98,12 +98,13 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params['id'])
+    @hour_start = params[:hour_start] 
     gon.event = @event
   end
 
   def update
     @event = Event.find(params[:id])
-    date = (params[:start_date])
+    date = (params[:start_date] + ' ' + params[:hour_start]).in_time_zone
     # ATTENTION, AVEC CETTE METHODE IL FAUT RECHARGER L'IMAGE ET LA DATE A CHAQUE FOIS
 
     if @event.update(title: params[:title], description: params[:description], start_date: date, location: params[:location], price: params[:price],latitude: params[:latitude], longitude: params[:longitude])
