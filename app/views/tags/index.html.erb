@@ -1,0 +1,26 @@
+
+<center>
+  <h1 class="card-title index-title">Les événements</h1>
+  <hr style="width: 300px;">
+  <div class="card-columns index-padding">
+    <% @tags.each do |tag| %>
+        <div class="card p-3 card-blog">
+          <div class="card-header card-header-image">
+              <%= tag.name %>
+            </div>
+          </div>
+
+
+          <div class="card-body">
+            <p class="card-description"> <%= tag.events.each do |event| %> </p>
+            <p class="card-text"><small class="text-muted">
+                	<%= render 'card-event' %>
+            </p>
+    
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+
+  </div>
+</center>

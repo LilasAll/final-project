@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'tags/index'
+  get 'tags/show'
   get 'map/index'
 
   root 'static#index'

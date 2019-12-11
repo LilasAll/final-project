@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 class TagsController < ApplicationController
-  def new; end
+  def index
+  end
 
-  def create; end
-
-  def destroy; end
+  def show
+  end
 end
