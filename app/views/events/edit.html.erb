@@ -7,37 +7,37 @@
   
       
         <div class="container d-flex flex-row">
-          <div class="col-6"><br>
+          <div class="col-6"><br><br />
             <%= form_tag url_for(action: 'update'), method: "patch",multipart: true do %>
-              <%= label_tag "Nom de l'évènement" %>
+              <%= label_tag "Nom de l'évènement" %><br />
               <%= text_field_tag 'title', @event.title, class: "form-control " %>
-              <br />
+              <br /><br />
 
-              <%= label_tag 'Description' %>
+              <%= label_tag 'Description' %><br />
               <%= text_area_tag 'description', @event.description, class: "form-control " %>
-              <br />
+              <br /><br />
 
-              <%= label_tag "Date de l'évènement" %>
+              <%= label_tag "Date de l'évènement" %><br />
               <%= date_field_tag 'start_date', @event.start_date.strftime("%Y-%m-%d"), class: "form-control " %>
-              <br/>
+              <br/><br />
 
               <%= time_field_tag :hour_start, @event.start_date.strftime("%H:%M"), class: "form-control "%>
-              <br/>
+              <br/><br />
 
               <%= label_tag 'Durée (en minutes)' %><br />
               <%= text_field_tag :duration , @event.duration, class: "form-control "%>
-              <br />
+              <br /><br />
 
               <%= label_tag 'Lieu' %><br/>
               <%= text_field_tag :location, @event.location, class: "form-control " %>
-              <br />
+              <br /><br />
 
               <%= label_tag "Falcutatif : prix " %><br />
               <p> (en cas d'achat de matériel, location de salle, etc)</p>
               <%= text_field_tag :price, @event.price, class: "form-control " %><br />
           </div>
 <!------------------------- Pour le lieu de la carte!!------------------->
-        <div>  
+        <div class="">  
           <div class="">
           <%= text_field_tag :latitude, @latitude , id:"lat-form", placeholder: "latitude", class: "form-control  d-none  " %>
           </div>
@@ -46,7 +46,7 @@
           </div>
           <div id="edit-event-map" class="col-6 border-map"></div>
 <!------------------------------------------------------------------------->
-            <%= file_field_tag :image_event %>
+          <%= file_field_tag :image_event %><
             <br>
         </div>
         </div>
