@@ -1,0 +1,78 @@
+<nav class="color01">
+  <!--        primary navbar  -->
+  <nav class="navbar navbar-expand-lg bg-primary color01">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="/">SynergieUrbaine</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation" data-target=".navbar collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <!--        Si l'user EST connecté affiche ça  -->
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <a <%= link_to "Reporter un bug", new_bug_path,class: "nav-link" %></a>
+              </li>
+              <div class="navbar-translate">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <%= link_to conversations_path, class: "nav-link" do %>
+                      <i class="material-icons">email</i><span>
+                        <% if Message.unread_by(current_user).count > 0 %>
+                          <span class="badge badge-warning m-0">New</span>
+                        <%else%>
+                        <%end%>
+                      </span>
+                    </li>
+                  <% end %>
+                  <%= link_to user_path(current_user.id), class: "nav-link" do %>
+                    <span class="material-icon">
+                      <i style="color: white;" class="material-icons">face</i>              </span>
+                  <% end %>
+                  <li class="dropdown nav-item">
+                    <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                      <i class="material-icons">settings</i>
+                      <b class="caret"></b>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <%= link_to "Mettre à jour mon profil", edit_user_registration_path, class: "dropdown-item"  %>
+                      <% if current_user.is_admin == true %>
+                        <%= link_to "Dashbord Admin",  admin_path(current_user.id), class: "dropdown-item" %>
+                      <%end%>
+                      <div class="dropdown-divider"></div>
+                      <%= link_to "Rediger un article", new_article_path, class: "dropdown-item" %>
+                      <div class="dropdown-divider"></div>
+                      <%= link_to "Créer un évènement", new_event_path, class: "dropdown-item" %>
+                      <div class="dropdown-divider"></div>
+                      <%= link_to "Déconnexion", destroy_user_session_path, method: "delete", class: "dropdown-item" %>
+                    </div>
+                  </ul>
+                </div>
+                <!--        Si l'user est PAS connecté affiche ça  -->
+              <%else%>
+                <li class="nav-item">
+                  <a <%= link_to "Je me connecte", new_user_session_path, class: "nav-link" %></a>
+                  </li>
+                  <li class="nav-item">
+                    <a <%= link_to "Je m'inscris", new_user_registration_path, class: "nav-link" %></a>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!--        end primary navbar -->
+        </nav>
