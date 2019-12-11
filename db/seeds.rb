@@ -42,7 +42,7 @@ puts '10 users created'
 User.create!(pseudo: 'Admin', email: 'admin@yopmail.com', description: "Le compte administrateur est géré par les créateurs du site. C'est via ce profil que nous pouvons participer à la modération du site web. Pour tout renseignement vous pouvez nous contacter directement via l'adresse mail: synergie.urbaine@laposte.net", password: '123456', first_name: 'SYNERGIE', last_name: 'URBAINE', is_admin: 'true')
 puts '1 Admin created'
 
-User.create!(pseudo: 'theoooo', email: 'theo@yopmail.com', description: "Le compte administrateur est géré par les créateurs du site. C'est via ce profil que nous pouvons participer à la modération du site web. Pour tout renseignement vous pouvez nous contacter directement via l'adresse mail: synergie.urbaine@laposte.net", password: '123456', first_name: 'théo', last_name: 'blin', is_admin: 'true')
+User.create!(pseudo: 'theoooo', email: 'blintheo23@gmail.com', description: "Le compte administrateur est géré par les créateurs du site. C'est via ce profil que nous pouvons participer à la modération du site web. Pour tout renseignement vous pouvez nous contacter directement via l'adresse mail: synergie.urbaine@laposte.net", password: '123456', first_name: 'théo', last_name: 'blin', is_admin: 'true')
 puts '1 theo created'
 
 10.times do
