@@ -21,21 +21,21 @@
                le <%= @event.start_date.strftime("%d/%m/%Y à %H:%M") %></li>
           <%end%>
           <li class="list-group-item text-center"> 
-             <%= @event.duration %> minutes </li>
+            Durée : <%= @event.duration %> minutes </li>
           <li class="list-group-item text-center"> 
-             à <%= @event.location %></li>
+            Lieu : <%= @event.location %></li>
           <% if @event.price != 0 %>
             <li class="list-group-item text-center">
-               <%= @event.price %> euros</li>
+              Tarif : <%= @event.price %> euros</li>
           <% else %>
             <li class="list-group-item text-center"> 
                Cet évènement est gratuit !</li>
           <%end%>
         </div>
-      <div id="show-event-map" class="col-6 border-map pb-1"><br/><br/></div>
+      <div id="show-event-map" class="col-6 border-map pb-1"></div>
     </div>
 
-
+<br><br>
 
       <center>
         <% @event.join_tag_events.each do |join| %>
@@ -58,20 +58,22 @@
       </li>
       <div class="card-footer d-flex justify-content-between">
         <li class= "list-group-item"><small class="text-muted">
-            créé par : </small><%= @event.creator.first_name %></li>
-        <li class="list-group-item"> <%= @event.creator.last_name %> <small>
+            créé par : </small><%= link_to @event.creator.pseudo, user_path(@event.creator.id), class: "event-link" %></li>
+        <li class="list-group-item"><small>
             le <%= @event.created_at%></small></li>
       </div>
     </div>
     <!-----------------------Voir les participants ----------------------->
+    <div class="container d-flex flex-row">
+        <div>
     <div class = "container">
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active">
+        <h5 class="card-title">
           Participants
-        </a>
+        </h5>
         <% if (@attending_list.count > 0) %>
           <% @event.attendances.each do |attendance| %>
-            <p style="color: black" class="list-group-item list-group-item-action"><%= link_to attendance.user.first_name, user_path(attendance.user.id) %></p>
+            <p class="list-group-item event-link"><%= link_to attendance.user.first_name, user_path(attendance.user.id), class: "event-link" %></p>
           <% end %>
         <% else %>
           <br>
@@ -82,6 +84,8 @@
       </div>
     </div>
   </div>
+</div>
+</div>
   <!--------------------------- Actions proposées au créateur --------------------->
   <center>
     <% if current_user == @event.creator %>
@@ -135,9 +139,9 @@
             <p class="lead"><%= comment.content %></p>
           </td>
           <td>
-            <p> Ecrit par <%= link_to comment.user.first_name, user_path(comment.user.id) %></p> 
+            <p> Ecrit par <%= link_to comment.user.first_name, user_path(comment.user.id), class: "event-link" %></p> 
           </td>
-          <td><a <%= link_to "X", comment, method: :delete, data: { confirm: "Are you sure"} %></td>
+          <td><a <%= link_to "X", comment, method: :delete, data: { confirm: "Are you sure"}, class: "event-link" %></td>
           <td> 
           <% if current_user.id == comment.user.id %>
           <%end%>
