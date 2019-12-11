@@ -61,5 +61,5 @@ end
                   @user.update(is_admin: false)
                     end
     redirect_to '/'
-end
+  end
 end
