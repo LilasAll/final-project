@@ -12,6 +12,9 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.boolean :is_validated, default: false
       t.integer :price, default: '0'
 
+      t.decimal "latitude", precision: 15, scale: 13
+      t.decimal "longitude", precision: 15, scale: 13
+
       t.belongs_to :creator
 
       # t.belongs_to :user, index: true

@@ -20,14 +20,16 @@ class EventsController < ApplicationController
 
   def show
     # on ne montre les events qu'à ceux qui sont connectés :
-   gon.event = @event
-   @event = Event.find(params[:id])
+
 
     if user_signed_in?
-      
+      @event = Event.find(params[:id])
+      gon.event = @event
+      gon.event.latitude = @event.latitude
+      gon.event.longitude = @event.longitude
       gon.creator = @event.creator
       gon.user = current_user
-      
+
       
       @attending_list = @event.attendances # liste des participants
       puts '*' * 100
@@ -52,7 +54,9 @@ class EventsController < ApplicationController
       duration: params[:duration],
       description: params[:description],
       price: params[:price],
-      location: params[:location]
+      location: params[:location],
+      latitude: params[:latitude],  
+      longitude: params[:longitude]
     )
     @event.tags = Tag.where(id: params[:tag_id])
 
@@ -61,10 +65,11 @@ class EventsController < ApplicationController
 
     # voir les détails dans la console :
     puts @event.errors.full_messages
-
+    puts "*" * 100
+    puts params
     # si les bons paramètres sont là, on enregistre l'event
     if @event.save
-      flash[:success] = 'Evènement enregistré 👍'
+      flash[:success] = 'Evènement enregistré 👍 (Il doit maintenant être validé par un administrateur)'
       # on renvoit à l'index
       redirect_to events_path
 
@@ -98,10 +103,10 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-
+    date = (params[:start_date])
     # ATTENTION, AVEC CETTE METHODE IL FAUT RECHARGER L'IMAGE ET LA DATE A CHAQUE FOIS
 
-    if @event.update(title: params[:title], description: params[:description], start_date: params[:start_date], location: params[:location], price: params[:price])
+    if @event.update(title: params[:title], description: params[:description], start_date: date, location: params[:location], price: params[:price],latitude: params[:latitude], longitude: params[:longitude])
       @event.image_event.purge
       @event.image_event.attach(params[:image_event])
       redirect_to @event
