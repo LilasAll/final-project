@@ -50,6 +50,8 @@ remove_red_eye
                   <%= link_to "Dashboard Admin",  admin_path(current_user.id) %>
                 <%end%>
               </li>
+              <li> <%= link_to "L'équipe","/contact" %> </li>
+
               <li> <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %> </li>
             </ul>
           </li>

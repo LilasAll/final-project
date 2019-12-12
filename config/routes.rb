@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'tags/index'
-  get 'tags/show'
-  get 'map/index'
+
+
+  resources :maps
+  resources :tags
 
   root 'static#index'
 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   get 'search', to: 'events#search'
   get 'search_user', to: 'users#search_user'
       get 'calendar', to: 'calendar#index'
+  get 'contact', to: 'static#contact'
 
 
   resources :events do
