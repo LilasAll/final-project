@@ -12,7 +12,7 @@
               <% if event.image_event.attached? %>
                 <%= image_tag event.image_event, :alt => "cat-pic" %>
               <% else %>
-                <%= image_tag "https://c2.staticflickr.com/2/1577/24041782554_f3803760ae.jpg", class: "some css class here" %>
+                <%= image_tag "https://c2.staticflickr.com/2/1577/24041782554_f3803760ae.jpg", :alt => "cat-pic", class: "some css class here" %>
               <% end %>
             <% end %>
             <div class="card-title">
