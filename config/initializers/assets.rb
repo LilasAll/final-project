@@ -15,8 +15,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.paths << Rails.root.join('lib', 'assets', 'stylesheets')
-Rails.application.config.assets.paths << Rails.root.join('lib', 'assets', 'javascripts')
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets')
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'javascripts')
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets')
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'javascripts')
 
@@ -27,3 +27,5 @@ Rails.application.config.assets.precompile += %w( main_map.js )
 Rails.application.config.assets.precompile += %w( new_event_map.js)
 Rails.application.config.assets.precompile += %w( edit_event_map.js )
 Rails.application.config.assets.precompile += %w( show_event_map.js )
+
+
