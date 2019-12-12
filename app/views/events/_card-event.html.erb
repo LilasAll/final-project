@@ -10,40 +10,41 @@
             <%= image_tag "https://c2.staticflickr.com/2/1577/24041782554_f3803760ae.jpg", class: "some css class here" %>
           <% end %>
         <% end %>
-      </div> <br/>
-
+      </div>
+       <br/>
       <div class="container d-flex flex-row">
         <div class ="col-6">
           <h5 class="card-title"><%= @event.title %></h5>
           <p class="card-text"> <%= @event.description %> </p>
           <%if @event.start_date != nil %>
-            <li class="list-group-item text-center"> 
-               le <%= @event.start_date.strftime("%d/%m/%Y à %H:%M") %></li>
+            <li class="list-group-item text-center">
+              le <%= @event.start_date.strftime("%d/%m/%Y à %H:%M") %></li>
           <%end%>
-          <li class="list-group-item text-center"> 
+          <li class="list-group-item text-center">
             Durée : <%= @event.duration %> minutes </li>
-          <li class="list-group-item text-center"> 
+          <li class="list-group-item text-center">
             Lieu : <%= @event.location %></li>
           <% if @event.price != 0 %>
+          <!--- Nil ou zero car prix facultatif-->
+          <% if @event.price != nil %>
+
             <li class="list-group-item text-center">
               Tarif : <%= @event.price %> euros</li>
           <% else %>
-            <li class="list-group-item text-center"> 
-               Cet évènement est gratuit !</li>
+            <li class="list-group-item text-center">
+              Cet évènement est gratuit !</li>
+          <%end%>
           <%end%>
         </div>
-      <div id="show-event-map" class="col-6 border-map pb-1"></div>
-    </div>
-
-<br><br>
-
+        <div id="show-event-map" class="col-6 border-map pb-1"></div>
+      </div>
+      <br>
+      <br>
       <center>
         <% @event.join_tag_events.each do |join| %>
-
-        <%= link_to tag_path(join.tag.id), class: "" do %> 
-          <span class="badge badge-primary"> <%= join.tag.name %></span>
-        <% end %>
-        
+          <%= link_to tag_path(join.tag.id), class: "" do %>
+            <span class="badge badge-primary"> <%= join.tag.name %></span>
+          <% end %>
         <% end %></center>
       <!----------------------- Lien pour participer à l'event ---------------------------------->
       <!--------- (si on est pas déja sur la liste, pas admin et que la date n'est pas passée) -->
@@ -56,7 +57,7 @@
           <% elsif @event.attendances.find_by(user_id: current_user.id) != nil %>
             <p> Vous participez à cet évènement ! </p>
           <% else %>
-            <%= link_to "Participer", new_event_attendance_path(@event), class: "btn btn-outline-success" %>
+            <%= link_to "Participer", new_event_attendance_path(@event), class: " participate-button btn btn-secondary" %>
           <% end %>
         </div>
       </li>
@@ -69,33 +70,33 @@
     </div>
     <!-----------------------Voir les participants ----------------------->
     <div class="container d-flex flex-row">
-        <div>
-    <div class = "container">
-      <div class="list-group">
-        <h5 class="card-title">
-          Participants
-        </h5>
-        <% if (@attending_list.count > 0) %>
-          <% @event.attendances.each do |attendance| %>
-            <p class="list-group-item event-link"><%= link_to attendance.user.first_name, user_path(attendance.user.id), class: "event-link" %></p>
-          <% end %>
-        <% else %>
-          <br>
-          <center>
-            <p> Pas encore de participants pour cet event ! </p>
-          </center>
-        <% end %>
+      <div>
+        <div class = "container">
+          <div class="list-group">
+            <h5 class="card-title">
+              Participants
+            </h5>
+            <% if (@attending_list.count > 0) %>
+              <% @event.attendances.each do |attendance| %>
+                <p class="list-group-item event-link"><%= link_to attendance.user.first_name, user_path(attendance.user.id), class: "event-link" %></p>
+              <% end %>
+            <% else %>
+              <br>
+              <center>
+                <p> Pas encore de participants pour cet event ! </p>
+              </center>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
   <!--------------------------- Actions proposées au créateur --------------------->
   <center>
     <% if current_user == @event.creator %>
-      <a class="btn btn-success my-2 my-sm-0" <%= link_to "Mettre à jour l'évènement", edit_event_path(@event.id) %> </a> <br/>
+      <a class="btn btn-secondary my-2 my-sm-0" <%= link_to "Mettre à jour l'évènement", edit_event_path(@event.id) %> </a> <br/>
 
-      <a class="btn btn-danger" <%= link_to "Supprimer l'évènement", event_path(@event), method: 'delete' %></a> <br/>
+      <a class="btn btn-primary" <%= link_to "Supprimer l'évènement", event_path(@event), method: 'delete' %></a> <br/>
       
     <% end %>
   </center>
@@ -188,8 +189,8 @@
             <%= "#{event.description.first(100)} [...]" %>
           </p>
           <p class="card-text"><small class="text-muted">
-            <i class="fas fa-eye"></i><%= event.attendances.count %>
-            <i class="far fa-user"></i> <%= event.creator.email %> <br/></small>
+                          <i class="material-icons">people</i> <%= event.attendances.count %>
+                <i class="material-icons">face</i> <%= event.creator.pseudo %><br/></small>
     <i class="fas fa-calendar-alt"></i> <%= event.start_date.strftime( "\n le %d/%m/%Y à %H:%M") %>
   </p>
 </div>
@@ -203,4 +204,4 @@
 </div>
 </div>
 </div>
-  <%= javascript_include_tag 'show_event_map' %>
+<%= javascript_include_tag 'show_event_map' %>

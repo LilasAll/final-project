@@ -15,7 +15,7 @@
 
  <%end%>
 
-        <div class="panel panel-default">
+        <div id="scroll" class="scroll panel panel-default">
           <% if @over_5 %>
             <%= link_to 'Show All', '?m=all', class: 'btn btn-link pull-right' %>
           <% end %>
@@ -61,3 +61,14 @@
   </div>
 </div>
 </center>
+
+<script >
+  
+
+$("#scroll").scrollTop($("#scroll")[0].scrollHeight);
+
+</script>
+
+    </head> 
+    <body> 
+        

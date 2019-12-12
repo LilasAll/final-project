@@ -1,5 +1,19 @@
+
 <center> 
-    <div class="card card-nav-tabs text-center">
+  <% if @event.errors.any? %>
+  <div  class="alert alert-danger alert-dismissible fade show " role="alert" style="z-index: 5;">
+    <p><strong>Nous n'avons pas pu modifié l'évenement pour la ou les raison(s) suivante(s) :</strong></p>
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+    <div style=" margin-top:10%;" class="card card-nav-tabs text-center">
       
       <div class="card-header card-header-primary">
         <h3 class="title">Modification de mon évènement </h3>
