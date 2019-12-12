@@ -52,6 +52,10 @@ document.addEventListener("turbolinks:load", function() {
   }); // end DOM ready
 })(jQuery); // end jQuery
 
+setTimeout(function() {
+    $('#flash_messages_time').fadeOut(2000);
+}, 1000); // <-- time in milliseconds
+
 
 
 

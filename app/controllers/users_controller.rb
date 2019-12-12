@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def index
     @conversations = Conversation.all
+  
   end
 
   def search_user

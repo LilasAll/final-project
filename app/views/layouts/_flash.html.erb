@@ -1,5 +1,5 @@
 <% flash.each do |type, msg| %>
-  <div style="  
+  <div id="flash_messages_time" style=" z-index: 5;position: absolute; 
 " class="alert text-center <%= bootstrap_class_for_flash(type) %> alert-dismissable fade show" role="alert">
     <%= msg %>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">

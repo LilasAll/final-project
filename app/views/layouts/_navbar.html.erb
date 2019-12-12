@@ -1,7 +1,18 @@
 <section style="" class="navigation">
   <div class="nav-container">
     <div class="brand">
-      <a href="/">Synergie Urbaine</a>
+
+       <%= link_to 'Synergie Urbaine', root_path %> <span>
+         <% if user_signed_in? == true %>
+            <% if current_user.is_admin? == true %>
+              <span class="badge badge-warning m-0">Admin Mode  </span>
+            <%else%>
+            <%end%>
+            <%end%>
+
+          </span> 
+
+
     </div>
     <nav style="" >
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
@@ -57,8 +68,10 @@ remove_red_eye
               <span class="badge badge-warning m-0">New</span>
             <%else%>
             <%end%>
+
           </span>
       </li>
+
         <% end %>
       <%else%>
         <li>
