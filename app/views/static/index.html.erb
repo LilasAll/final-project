@@ -36,8 +36,14 @@
           <a class="btn btn-primary" <%= link_to "Voir tous les articles", articles_path%></a>
           </center>
           <center>
-          <a class="btn btn-secondary" <%= link_to "Acceder au calendrier", calendar_path%></a><br>
-          <a class="btn btn-secondary" <%= link_to "Accéder à la carte des lieux d'économie sociale et solidaire", maps_path%></a>
+           <%= link_to  maps_path do %>
+           <i style="margin: 20px; font-size: 50px; color: #1A424B" class="col-md-1 material-icons icon-index">map</i>
+<%end%>
+        <%= link_to  calendar_path do %>
+        <i style="margin: 20px;font-size: 50px; " class="col-md-1 material-icons icon-index">
+calendar_today
+</i>
+<%end%>
         </center>
     </div>
 
@@ -45,6 +51,7 @@
 
 
 </div>
+
 
 
 <!-- First card : presentation -->

@@ -65,7 +65,7 @@
           </div>
 <!------------------------------------------------------------------------->
         
-        <h4 class="card-title">Falcutatif : prix</h4>
+        <h4 class="  card-title">Falcutatif : prix</h4>
         <p> (en cas d'achat de matériel, location de salle, etc)</p>
         
         <%= number_field_tag :price, @price, min:0 ,  class: "form-control"  %>
@@ -73,7 +73,7 @@
 
 
         <br />
-      <h4 class="card-title"> Tags  </h4>
+      <h4 class=" card-title"> Tags  </h4>
       <p> (plusieurs au choix)</p>
       <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
 
