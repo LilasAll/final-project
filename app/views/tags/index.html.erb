@@ -2,7 +2,7 @@
   <div class="card-columns index-padding">
     <% @tags.each do |tag| %>
       <div class="card p-3 card-blog">
-        <div class="card-header">
+        <div class="card-header-tag">
             <%= tag.name %>
         </div>
 
@@ -21,7 +21,7 @@
 	    			<br>
 
 	    			<% if tag.articles.exists? %>
-          	<h4> Les articles : </h4>
+          	<h4> Les articles </h4>
           	 <p class="card-description"> 
 	          	<% tag.articles.each do |article| %>
 		          	<%= link_to article_path(article.id), class: "" do %> 
