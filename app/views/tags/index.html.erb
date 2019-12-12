@@ -12,7 +12,7 @@
             <div class="card-body">
               <% if tag.events.exists? %>
               	<h4> Les évènements </h4>
-              	 <p class="card-description"> 
+              	 <p class="card-text"> 
     	          	<% tag.events.each do |event| %>
     		          	<%= link_to event_path(event.id), class: "" do %> 
     		    					<li class= "list-group-item"> <%= event.title %> </li>
