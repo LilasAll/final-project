@@ -1,7 +1,7 @@
 
 <div class="article-card mx-auto">
   <div class="card card-nav-tabs article-show">
-    <div class="card-header card-header-warning">
+    <div class="card-header card-header-primary">
       <%= @article.title %>
     </div>
     <div class="card-body">
@@ -19,12 +19,16 @@
     <p><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
     <% if pre_like %>
-      <%= button_to 'Unlike', article_like_path(@article, pre_like), method: :delete %>
+    <%= form_for :like, url: article_like_path(@article, pre_like), method: :delete do |f| %>
+        <button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Je n'aime plus</i> </button>
+          <%end%>
     <% else %>
       <%= form_for :like, url: article_likes_path(@article) do |f| %>
-        <button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Like</i> </button>
+        <button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i>J'aime</i> </button>
     <%end%>
+
   <% end %>
 </div>
 </div>
 </div>
+
