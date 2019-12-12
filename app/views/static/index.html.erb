@@ -20,7 +20,7 @@
       <div class="section section-basic">
         <div class="container">
           <h1 class="text-center" >Cherchez des évenements près de chez vous </h1>
-          <h2 class="text-center" >ou créez-en !</h2>
+          <h2 class="text-center" >ou créez-en</h2>
           <br/>
           <br/>
           <form style="margin-left:35%;" class='form-inline' action="/search">
@@ -57,26 +57,36 @@ calendar_today
 <!-- First card : presentation -->
 <div style="margin-top: 100px;" class="main main-raised">
   <div  style="" class="section section-basic">
+      <div class="container d-flex flex-row">
+        <div> <%= image_tag "synergie.png", style:"width: 400px"%> </div>
+      <div class='hexagon'>
+      " La synergie est un type de phénomène par lequel plusieurs facteurs agissant en commun ensemble créent un effet global, un effet <strong>synergique</strong>, distinct de tout ce qui aurait pu se produire s'ils avaient opéré isolément, que ce soit chacun de son côté ou tous réunis mais œuvrant indépendamment. Il y a donc l'idée d'une <strong>coopération créative</strong>. ""
+      </div></div>
+      <br><br>
+
+
     <div class="container">
+
       <div style="" class="card card-nav-tabs text-center">
         <div  class="card-header card-header-primary">
-          <h3 class="card-title">Une synergie au service de la ville </h3>
+          <h3 class="card-title">Une synergie au coeur de la ville </h3>
         </div>
         <div class="card-body">
           <h4 class="card-title">Des événements</h4>
-          <p class="card-text">Avec <strong> Synergie Urbaine</strong>, tu peux rejoindre des évènements près de chez toi et en organiser.</p>
+          <p class="card-text">Avec <strong> Synergie Urbaine</strong>, tu peux rejoindre des évènements près de chez toi et en organiser. Que tu représentes une association, ou que prenne l'initiative tout.e seul.e, en famille, ou en tribu, cette plateforme est là pour donner de la visibilité et de la traçabilité aux évènements en lien au développement soutenable et à l'économie sociale et solidaire. <br>
+          De l'atelier dans ton salon, aux conférences auxquelles tu aimerais participer ou que tu aimerais organiser, en passant par des rencontres de différents corps de savoirs pour mettre en place un potager, un lieu d'accueil, ou un sitting, les possibilités sont infinies, et il ne tient qu'à vous d'oser, oser participer, rencontrer, proposer.</p>
           </div>
           <center>
-            <img src="https://images.pexels.com/photos/3184177/pexels-photo-3184177.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="..." class="img-thumbnail" style="width: 300px">
+            <%= image_tag "event1.jpg", style:"width: 230px", class:"img-thumbnail" %>
+            <%= image_tag "event3.jpg", style:"width: 230px", class:"img-thumbnail" %>
           </center>
           <div class="card-body">
             <h4 class="card-title">Du partage de connaissances</h4>
-            <p class="card-text">Tu peux également poster des articles et profiter de ceux des autres. Le contenu d'un article? Laisse parler ton imagination ! <br/>
-              Le but est de partager nos bons plans, nos connaissances, nos savoirs... Dans les domaines de l'écologie et de la solidarité. <br/>
+            <p class="card-text">Tu peux également poster des articles et profiter de ceux des autres. Le contenu d'un article? Laisse parler ton imagination ! Le but est de partager nos bons plans, nos connaissances, nos savoirs... Dans les domaines de l'écologie et de la solidarité. <br/>
               Le site est consu selon un principe inclusif et participatif : chacun est libre de participer à la communauté. On a tous quelque chose à apprendre des autres ! </p>
             </div>
             <center>
-              <img src="https://cdn.pixabay.com/photo/2015/04/27/15/01/vegetables-742095_960_720.jpg" alt="..." class="img-thumbnail" style="width: 300px">
+              <img src="https://cdn.pixabay.com/photo/2015/04/27/15/01/vegetables-742095_960_720.jpg" alt="..." class="img-thumbnail" style="width: 350px">
             </center>
             <br/>
           </div>
@@ -86,9 +96,9 @@ calendar_today
           <!-- Third Space : last event in picture  -->
    <div class="section text-center">
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
+          <div class="">
             <h2 class="title">Les concepts clefs de Synergie Urbaine</h2>
-            <h5 class="description">Avec cette plateforme, nous espérons tendre vers un monde plus respectueux, et plus solidaire, autant envers les humains, qu'envers l'environnement qui les entoure. <br>
+            <h5 class="description">Grâce à cette plateforme participative, nous espérons tendre vers un monde plus respectueux, et plus solidaire, autant envers les humains, qu'envers l'environnement qui les entoure. <br>
             Pour s'assurer que le monde tourne bien rond, pour nous et pour les générations à venir, il est important de réfléchir à notre impact et à nos usages. Plus que réfléchir, il est urgent d'agir. Pour cela, des gestes simples, potentialisés par un partage de connaissances entre toutes disciplines et compétences sont à mettre en place dès aujourd'hui. <br>
             Synérgie Urbaine veut permettre à tout individu, collectif ou association de faire entendre sa voix, de partager son savoir ou de l'enrichir grâce aux autres, pour mettre en place des actions concrètes.</h5>
           </div>
