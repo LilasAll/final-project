@@ -4198,7 +4198,7 @@ tbody.collapse.show {
 }
 
 .navbar {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -4208,6 +4208,7 @@ tbody.collapse.show {
 
 .navbar>.container,
 .navbar>.container-fluid {
+  position: fixed;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
