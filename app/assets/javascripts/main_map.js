@@ -1,3 +1,5 @@
+
+
 //----------------- INITIALISATION DE LA MAP ---------------------\\
 
 let initialZoom = 12;
