@@ -9,7 +9,10 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @users = User.all
-    @articles_likes = Like.articles(current_user.id)
+
+    if current_user !=nil
+      @articles_likes = Like.articles(current_user.id)
+    end  
   end
 
   def show
