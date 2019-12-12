@@ -1,36 +1,39 @@
-<hr style="width: 300px;">
-  <div class="card-columns index-padding">
-    <% @tags.each do |tag| %>
-      <div class="card p-3 card-blog">
-        <div class="card-header-tag">
-            <%= tag.name %>
-        </div>
+<center>
+  <h1 class="card-title index-title">Les catégories</h1>
 
-        <div class="card-body">
-         
-          	<% if tag.events.exists? %>
-          	<h4> Les évènements </h4>
-          	 <p class="card-description"> 
-	          	<% tag.events.each do |event| %>
-		          	<%= link_to event_path(event.id), class: "" do %> 
-		    					<li class= "list-group-item"> <%= event.title %> </li>
-	    				<% end %>
-	    			<%end%>
-	    			<%end%>
-	    			</p>
-	    			<br>
+    <hr style="width: 300px;">
+      <div class="card-columns index-padding">
+        <% @tags.each do |tag| %>
+          <div class="card p-3 card-blog">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= tag.name %></h3>
+            </div>
 
-	    			<% if tag.articles.exists? %>
-          	<h4> Les articles </h4>
-          	 <p class="card-description"> 
-	          	<% tag.articles.each do |article| %>
-		          	<%= link_to article_path(article.id), class: "" do %> 
-		    					<li class= "list-group-item"> <%= article.title %> </li>
-	    				<% end %>
-	    			<%end%>
-	    		<%end%>
-          </p>
-        </div>
-      </div>
+            <div class="card-body">
+              <% if tag.events.exists? %>
+              	<h4> Les évènements </h4>
+              	 <p class="card-description"> 
+    	          	<% tag.events.each do |event| %>
+    		          	<%= link_to event_path(event.id), class: "" do %> 
+    		    					<li class= "list-group-item"> <%= event.title %> </li>
+    	    				   <% end %>
+    	    			  <%end%>
+    	    			<%end%>
+    	    			</p>
+    	    			<br>
+
+    	    			<% if tag.articles.exists? %>
+              	<h4> Les articles </h4>
+              	 <p class="card-description"> 
+    	          	<% tag.articles.each do |article| %>
+    		          	<%= link_to article_path(article.id), class: "" do %> 
+    		    					<li class= "list-group-item"> <%= article.title %> </li>
+    	    				<% end %>
+    	    			<%end%>
+    	    		<%end%>
+              </p>
+            </div>
+          </div>
      <%end%>
    </div>
+</center>

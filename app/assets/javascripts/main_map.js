@@ -77,6 +77,28 @@ L.control.layers({
 
 }).addTo(mymap);
 
-// La légende
-var legend = L.control({position: 'bottomleft'});
 
+// Légende
+
+grades = ["Car", "ball"],
+labels = ["http://datentaeter.de/wp-content/uploads/2016/06/flag_de.png","http://datentaeter.de/wp-content/uploads/2016/06/flag_de.png"];
+grades[i] + (" <img src="+ labels[i] +" height='50' width='50'>") +'<br>';
+
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (mymap) {
+
+var div = L.DomUtil.create('div', 'info legend'),
+grades = ["Car", "ball"],
+labels = ["http://datentaeter.de/wp-content/uploads/2016/06/flag_de.png","http://datentaeter.de/wp-content/uploads/2016/06/flag_de.png"];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            grades[i] + (" <img src="+ labels[i] +" height='50' width='50'>") +'<br>';
+    }
+
+    return div;
+};
+
+legend.addTo(mymap);

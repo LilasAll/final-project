@@ -11221,8 +11221,20 @@ label {
   width: 100%;
   height: calc(100vh - 70px);
   margin-top: 70px;
-}
 
+}
+.leaflet-popup-content-wrapper {
+  text-align: left;
+}
+.leaflet-popup-content {
+  margin: 19px 8px;
+  line-height: 1.4;
+  width:250px;
+  }
+  .leaflet-container a.leaflet-popup-close-button:hover {
+  color: #ffc100;
+  }
+  
 .tim-typo {
   padding-left: 25%;
   margin-bottom: 40px;
