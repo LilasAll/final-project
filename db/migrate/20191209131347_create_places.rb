@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+
 class CreatePlaces < ActiveRecord::Migration[5.2]
-  
   def change
     create_table :places do |t|
       t.string :name
-      t.decimal :latitude, :precision => 15, :scale => 13
-      t.decimal :longitude, :precision => 15, :scale => 13
+      t.decimal :latitude, precision: 15, scale: 13
+      t.decimal :longitude, precision: 15, scale: 13
 
-
-# Trier les lieux pour les afficher sur la map :
+      # Trier les lieux pour les afficher sur la map :
       t.boolean :associations, default: false
 
       t.boolean :meeting, default: false
@@ -28,12 +28,9 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
 
     require 'csv'
 
-    
-CSV.foreach("db/cities_fr.csv", headers: true) do |row|
-  city = Place.create(name: row["city"], latitude: row["lat"].to_f,longitude: row["lng"].to_f)
-    puts "#{city.name} created"
+    CSV.foreach('db/cities_fr.csv', headers: true) do |row|
+      city = Place.create(name: row['city'], latitude: row['lat'].to_f, longitude: row['lng'].to_f)
+      puts "#{city.name} created"
+    end
   end
-  end
-
-
 end

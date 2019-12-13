@@ -17,9 +17,11 @@
 
     <h4 class="card-title">Contenu de l'article</h4>
     <br />
+  </center> 
     <input id="@article.content" type="hidden" name="content">
-    <trix-editor input="@article.content"></trix-editor>
+    <trix-editor input="@article.content" style="text-align: left;"></trix-editor>
     <br />
+    <center>
 
     <h4 class="card-title">Résumé</h4> 
     <%= text_field_tag 'resume', @resume, placeholder: "En quelques mots, donne envie aux lecteurs de lire ton article...", class: "form-control"  %>

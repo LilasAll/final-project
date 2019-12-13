@@ -37,7 +37,7 @@
          <br />
 
         <h4 class="card-title">Date et heure de l'évènement </h4>
-        <%= date_field_tag 'start_date',@start_date , class: "form-control"%>
+        <%= date_field_tag 'start_date',@start_date ,id:" datepicker", class: " form-control"%>
         <br />
          <br />
 
@@ -106,4 +106,5 @@
 
 
   <%= javascript_include_tag 'new_event_map' %>
+
 

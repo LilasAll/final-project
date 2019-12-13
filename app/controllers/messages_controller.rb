@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
-
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end
@@ -10,13 +9,10 @@ class MessagesController < ApplicationController
     @messages = @conversation.messages
     @message = @conversation.messages.new
     @conversation.messages.mark_as_read! :all, for: current_user
-
   end
 
   def new
     @message = @conversation.messages.new
-
-
   end
 
   def create

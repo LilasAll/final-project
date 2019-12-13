@@ -32,7 +32,6 @@
 en:
   hello: "Hello world"
 
-  fr:
   date:
    
    day_names:
@@ -43,4 +42,7 @@ en:
     - Jeudi
     - Vendredi
     - Samedi
-    
+
+
+
+
