@@ -15,11 +15,9 @@ class Event < ApplicationRecord
 
   # -----------------Validations----------------------------------------
   validates :start_date, presence: true
-<<<<<<< HEAD
   validates :duration, presence: true, numericality: { greater_than_or_equal_to: 1 }
-=======
+
   #validates :duration, presence: true, :numericality => { :greater_than_or_equal_to => 1 }
->>>>>>> 609d6a0d2503b93dc8f4e750cef2df21cfc4ce99
 
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < Date.today
@@ -34,13 +32,9 @@ class Event < ApplicationRecord
   # end
 
   validate :start_date_cannot_be_in_the_past
-<<<<<<< HEAD
   # validate :duration_is_positif_and_5_multiple
   validates :title, presence: true, length: { in: 5..140, message: 'Le titre doit contenir entre 5 et 140 caractères.' }
-=======
-  #validate :duration_is_positif_and_5_multiple
-  validates :title, presence: true, length: { in: 4..140, message: 'Le titre doit contenir entre 5 et 140 caractères.' }
->>>>>>> 609d6a0d2503b93dc8f4e750cef2df21cfc4ce99
+
   validates :description, presence: true, length: { in: 10..1000, message: 'La description doit contenir entre 10 et 1000 caractères.' }
   validates :location, presence: true
 end
