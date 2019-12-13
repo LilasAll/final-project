@@ -4,6 +4,7 @@
           <div class=" container">
           	<h1>Tous les utilisateurs</h1>
 
+  <div class="card-columns index-padding">
           	<% User.all.each do |user|%>
 
           	<h4><%= link_to  user_path(user.id) do %></h4>
