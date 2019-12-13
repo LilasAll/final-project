@@ -32,7 +32,7 @@ class Event < ApplicationRecord
 
 
   validates :start_date, presence: true
-  validates :start_date_cannot_be_in_the_past
+  validate :start_date_cannot_be_in_the_past
   validates :title, presence: true, length: { in: 5..140, message: 'Le titre doit contenir entre 5 et 140 caractères.' }
   validates :description, presence: true, length: { in: 10..1000, message: 'La description doit contenir entre 10 et 1000 caractères.' }
   validates :location, presence: true
