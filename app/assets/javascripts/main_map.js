@@ -22,7 +22,7 @@ var iconMarkers = new L.FeatureGroup();
 console.log(gon.cities_cultural);
 let cities_secondhand_array = gon.cities_secondhand
 let secondhand_icon = L.icon({
-     iconUrl: '../images/secondhand.png',
+     iconUrl: '../assets/secondhand.png',
      iconSize: [30, 30],
      iconAnchor: [22, 38],
      popupAnchor: [-3, -76],
