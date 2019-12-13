@@ -4,19 +4,28 @@
           
           <div class=" container">
           	<h1>Tous les utilisateurs</h1>
+            <h4> Cliquez sur un nom pour voir son profil</h4>
 
   <div class="card-columns index-padding">
           	<% User.all.each do |user|%>
 
           	<h4><%= link_to  user_path(user.id) do %></h4>
           	
-            <span class="badge badge-primary m-0"><%=user.pseudo%></span>
+            <span class="btn btn-outline-primary m-0"  style=' border-radius: 35px;'><%=user.pseudo%></span>
             <%end%>
                   <%end%>
           </div>
         </div>
+
+  <%= link_to user_path(current_user.id) do %>
+   <button  class=" btn btn-secondary"   > Mon profil <br>
+<i class="fa fa-user" aria-hidden="true"></i>
+    </button> 
+   <%end%>
+
+
             <%= link_to root_path, style: "margin: 20px" do %>
-      <button type="button" class="btn btn-outline-warning " title="Retour maison"> Retour maison <br>
+      <button type="button" class="btn btn-warning " title="Retour maison"> Retour maison <br>
         <i class="fa fa-home" aria-hidden="true"></i>
       </button>
     <%end%>
