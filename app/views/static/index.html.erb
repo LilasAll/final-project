@@ -20,30 +20,50 @@
       <div class="section section-basic">
         <div class="container">
           <h1 class="text-center" >Cherchez des évenements près de chez vous </h1>
-          <h2 class="text-center" >ou créez-en !</h2>
+          <h3 class="text-center" >ou créez le votre !</h3>
           <br/>
           <br/>
-          <form style="margin-left:35%;" class='form-inline' action="/search">
+          <form style="margin-left:10%;" class='form-inline' action="/search">
             <input placeholder='ex: Solidaire' name="q" class="form-control mr-sm-2" type="text" aria-label="search">
             <button class="btn btn-primary", style='color:white'  type="submit" >Chercher</button> 
-            <p style="margin: 30px" >ou</p>
-                          <%= link_to "Créer", new_event_path %>
+            <p style="margin: 40px" >ou</p>
+            <button class="btn btn-outline-secondary", style='color:white'  type="submit" >
+              <%= link_to "Créer mon évènement", new_event_path %>
+            </button>
           </form>
+          <br>
     
       </div>
-          <center  >
-          <a  class="btn btn-primary" <%= link_to "Voir tous les événements", events_path, class:"btn btn-primary testtest"%></a>
-          <a class="btn btn-primary" <%= link_to "Voir tous les articles", articles_path%></a>
-          </center>
-          <center>
-           <%= link_to  maps_path do %>
-           <i style="margin: 20px; font-size: 50px; color: #1A424B" class="col-md-1 material-icons icon-index">map</i>
-<%end%>
-        <%= link_to  calendar_path do %>
-        <i style="margin: 20px;font-size: 50px; " class="col-md-1 material-icons icon-index">
-calendar_today
-</i>
-<%end%>
+      
+      <h1 class="text-center">Explorez les initiatives de la communauté</h1>
+       <h3 class="text-center">(articles, évènements, carte et calendrier)</h2>
+      <center><br>
+        <%= link_to articles_path, style: "margin: 20px" do %>
+          <button type="button" class="btn btn-warning btn-circle btn-xl" title="Voir tous les articles">
+            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+          </button>
+        <%end%>
+
+
+        <%= link_to events_path , style: "margin: 20px" do %>
+          <button class="btn btn-success btn-circle btn-xl" title="Découvrir les évènements">  
+            <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+          </button>
+        <%end%>
+              
+
+        <%= link_to  maps_path , style: "margin: 20px" do %>
+          <button class="btn btn-primary btn-circle btn-xl" title="Explorer la carte du développement soutenable local">
+          <i class="fa fa-map" aria-hidden="true"></i>
+        </button>
+        <%end%>
+
+        <%= link_to  calendar_path , style: "margin: 20px" do %>
+          <button class="btn btn-secondary btn-circle btn-xl" title="Accéder au calendrier">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </button>   
+        <%end%>
+
         </center>
     </div>
 
@@ -111,7 +131,7 @@ calendar_today
                   <i class="material-icons">chat</i>
                 </div>
                 <h4 class="info-title">Economie Fonctionelle</h4>
-                 L’économie de la fonctionnalité s’inscrit pleinement dans une perspective de <strong>développement soutenable</strong>. Elle consiste à remplacer la notion de vente du bien par celle de l’usage du bien lui-même, ce qui entraîne le découplage de la valeur ajoutée et la minimisation de la consommation d’énergie et de matières premières. Notre plateforme encourage fortement des initiatives d'économie fonctionnelle, et travaille notamment sur une section permettant le prêt d'objet dont l'usage est occasionnel, ou le stockage est encombrant (perceuse, échelle, voiture, etc). 
+                 L’économie de la fonctionnalité s’inscrit pleinement dans une perspective de <strong>développement soutenable</strong>. Elle consiste à remplacer la notion de vente du bien par celle de l’usage du bien lui-même, ce qui entraîne le découplage de la valeur ajoutée et la minimisation de la consommation d’énergie et de matières premières. Une section permettant le prêt d'objet dont l'usage est occasionnel, ou le stockage est encombrant (perceuse, échelle, voiture, etc) est notamment à venir. 
               </div>
             </div>
             <div class="col-md-4">
@@ -121,7 +141,7 @@ calendar_today
                 </div>
                 <h4 class="info-title">Solidaire & participative</h4>
                 Par «  développement soutenable », nous entendons « un développement qui répond aux besoins des générations du présent sans compromettre la capacité des générations futures à répondre aux leurs ».<br/>
-                  Une société soutenable est alors une société qui persiste et prospère, qui offre une grande qualité de vie pour tous ses habitants, de manière juste et équitable. Une société où les besoins de tous sont satisfaits, maintenant et demain, en respectant les limites des écosystèmes et ressources naturelles, dont toute vie dépend. 
+                Une société soutenable est alors une société qui persiste et prospère, qui offre une grande qualité de vie pour tous ses habitants, de manière juste et équitable, maintenant et demain, en respectant les limites des écosystèmes et ressources naturelles, dont toute vie dépend. 
               </div>
             </div>
             <div class="col-md-4">
