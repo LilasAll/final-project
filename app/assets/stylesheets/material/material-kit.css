@@ -16,6 +16,18 @@
 /* CSS ADD BY OUSELF */
 
 
+body {
+   z-index: 1;
+}
+ 
+.navigation{
+   position: fixed;
+
+   width:100%;
+   z-index: 5;
+}
+
+
 .scroll { 
                 margin:4px, 4px; 
                 padding:4px; 
@@ -8926,6 +8938,7 @@ button:focus {
 }
 
 .btn.btn-primary {
+
   color: #fff;
   background-color: #B52C1E;
   border-color: #B52C1E;
@@ -8944,6 +8957,7 @@ button:focus {
   color: #fff;
   background-color: #B52C1E;
   border-color: #B52C1E;
+
 }
 
 .btn.btn-primary:active,
@@ -8976,6 +8990,7 @@ button:focus {
 .open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon {
   color: inherit;
   background-color: #B52C1E;
+   border-radius: 20px;
 }
 
 .open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
@@ -9006,6 +9021,7 @@ button:focus {
   background-color: transparent;
   color: #9c27b0;
   box-shadow: none;
+
 }
 
 .btn.btn-primary.btn-link:hover,
@@ -9016,6 +9032,8 @@ button:focus {
 }
 
 .btn.btn-secondary {
+  border-radius: 20px; 
+
   color: white;
   background-color:#155653;
   border-color: #155653;
