@@ -53,7 +53,8 @@
                       </a>
                     </div>
                     <center>
-                      <%= link_to("Mot de passe oublié", new_user_password_path, id:"forget-password", class:"forget-password") %>
+                                            <%= render "devise/shared/links" %>
+
                     </center>
                   </div>
                 </form>

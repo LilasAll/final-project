@@ -1,7 +1,7 @@
 <center>
 <div class="psw-reset">
 <div class="card card-nav-tabs">
-  <div class="card-header card-header-info">
+  <div class="card-header card-header-primary ">
     <h2>Mot de passe oublié</h2>
   </div>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -12,7 +12,7 @@
 	    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"  %>
 	  </div>
 
-	  <div class="actions">
+	  <div style="margin: 30px;" class="actions">
 	    <%= f.submit "Envoyer les instructions de réinitialisation", class:"btn btn-primary" %>
 	  </div>
 	<% end %>

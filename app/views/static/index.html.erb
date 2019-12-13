@@ -24,14 +24,17 @@
           <h3 class="text-center" >ou créez le votre !</h3>
           <br/>
           <br/><center>
-          <form style="margin-left:10%;" class='form-inline' action="/search">
+          <form style="" class='col-4 form-inline' action="/search">
             <input placeholder='ex : Solidaire' name="q" class="form-control mr-sm-4" type="text" aria-label="search">
             <button class="btn btn-primary", style='color:white; border-radius: 15px;'  type="submit" >Chercher</button> 
-            <p style="margin: 30px" >ou</p>
-            <button class="btn btn-outline-secondary", style='color:white ;border-radius: 20px;'  type="submit" >
+            <p style="" ></p>
+          </form>
+
+<button class="btn btn-outline-primary col-4", style='border-radius: 20px;'  type="submit" >
               <%= link_to "Créer mon évènement", new_event_path %>
             </button>
-          </form></center>
+
+        </center>
           <br>
     
       </div>

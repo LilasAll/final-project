@@ -8926,6 +8926,7 @@ button:focus {
 }
 
 .btn.btn-primary {
+
   color: #fff;
   background-color: #B52C1E;
   border-color: #B52C1E;
@@ -8944,6 +8945,7 @@ button:focus {
   color: #fff;
   background-color: #B52C1E;
   border-color: #B52C1E;
+
 }
 
 .btn.btn-primary:active,
@@ -8976,6 +8978,7 @@ button:focus {
 .open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon {
   color: inherit;
   background-color: #B52C1E;
+   border-radius: 20px;
 }
 
 .open>.btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
@@ -9006,6 +9009,7 @@ button:focus {
   background-color: transparent;
   color: #9c27b0;
   box-shadow: none;
+
 }
 
 .btn.btn-primary.btn-link:hover,
@@ -9016,6 +9020,8 @@ button:focus {
 }
 
 .btn.btn-secondary {
+  border-radius: 20px; 
+
   color: white;
   background-color:#155653;
   border-color: #155653;
