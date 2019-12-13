@@ -21,7 +21,6 @@ class EventsController < ApplicationController
   def show
     # on ne montre les events qu'à ceux qui sont connectés :
 
-
     if user_signed_in?
       @event = Event.find(params[:id])
       gon.event = @event
@@ -30,7 +29,6 @@ class EventsController < ApplicationController
       gon.creator = @event.creator
       gon.user = current_user
 
-      
       @attending_list = @event.attendances # liste des participants
       puts '*' * 100
       puts @attending_list.count
@@ -55,7 +53,7 @@ class EventsController < ApplicationController
       description: params[:description],
       price: params[:price],
       location: params[:location],
-      latitude: params[:latitude],  
+      latitude: params[:latitude],
       longitude: params[:longitude]
     )
     @event.tags = Tag.where(id: params[:tag_id])
@@ -65,7 +63,7 @@ class EventsController < ApplicationController
 
     # voir les détails dans la console :
     puts @event.errors.full_messages
-    puts "*" * 100
+    puts '*' * 100
     puts params
     # si les bons paramètres sont là, on enregistre l'event
     if @event.save
@@ -85,9 +83,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find_by(id: params[:id])
     if Attendance.exists?(event: @event)
-      Attendance.where(event: @event).each do |attendance|
-        attendance.destroy
-      end
+      Attendance.where(event: @event).each(&:destroy)
     end
     # après l'action de destruction, on renvoit à l'accueil
     if @event.destroy
@@ -98,7 +94,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params['id'])
-    @hour_start = params[:hour_start] 
+    @hour_start = params[:hour_start]
     gon.event = @event
   end
 
@@ -107,7 +103,7 @@ class EventsController < ApplicationController
     date = (params[:start_date] + ' ' + params[:hour_start]).in_time_zone
     # ATTENTION, AVEC CETTE METHODE IL FAUT RECHARGER L'IMAGE ET LA DATE A CHAQUE FOIS
 
-    if @event.update(title: params[:title], description: params[:description], start_date: date, location: params[:location], price: params[:price],latitude: params[:latitude], longitude: params[:longitude])
+    if @event.update(title: params[:title], description: params[:description], start_date: date, location: params[:location], price: params[:price], latitude: params[:latitude], longitude: params[:longitude])
       @event.image_event.purge
       @event.image_event.attach(params[:image_event])
       redirect_to @event
@@ -125,14 +121,14 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @is_validated = if @event.is_validated == false
                       @event.update(is_validated: true)
-                      flash[:success] = "Evénement accepté !"
+                      flash[:success] = 'Evénement accepté !'
 
                     else
                       @event.update(is_validated: false)
-                      flash[:danger] = "Evénement non-accepté !"
+                      flash[:danger] = 'Evénement non-accepté !'
 
                     end
-redirect_to request.referer
+    redirect_to request.referer
   end
 
   private

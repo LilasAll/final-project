@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UnreadMigration < Unread::MIGRATION_BASE_CLASS
   def self.up
     create_table ReadMark, force: true, options: create_options do |t|
@@ -6,7 +8,7 @@ class UnreadMigration < Unread::MIGRATION_BASE_CLASS
       t.datetime :timestamp
     end
 
-    add_index ReadMark, [:reader_id, :reader_type, :readable_type, :readable_id], name: 'read_marks_reader_readable_index', unique: true
+    add_index ReadMark, %i[reader_id reader_type readable_type readable_id], name: 'read_marks_reader_readable_index', unique: true
   end
 
   def self.down

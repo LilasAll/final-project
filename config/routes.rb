@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
-
   resources :maps
   resources :tags
 
@@ -12,9 +10,8 @@ Rails.application.routes.draw do
 
   get 'search', to: 'events#search'
   get 'search_user', to: 'users#search_user'
-      get 'calendar', to: 'calendar#index'
+  get 'calendar', to: 'calendar#index'
   get 'contact', to: 'static#contact'
-
 
   resources :events do
     resources :avatars, only: [:create]
@@ -49,13 +46,13 @@ Rails.application.routes.draw do
 
   resources :admins
   resources :comments, except: %i[new index show]
-  
+
   resources :maps
 
   resources :conversations do
     resources :messages
   end
 
-  resources :tags, only: [:show, :index]
+  resources :tags, only: %i[show index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

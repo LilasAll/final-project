@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-
   def new
     @article = Article.new
   end
@@ -10,9 +9,7 @@ class ArticlesController < ApplicationController
     @articles = Article.all
     @users = User.all
 
-    if current_user !=nil
-      @articles_likes = Like.articles(current_user.id)
-    end  
+    @articles_likes = Like.articles(current_user.id) unless current_user.nil?
   end
 
   def show
@@ -37,7 +34,7 @@ class ArticlesController < ApplicationController
       flash[:success] = "Ton article a été créé et en attente d'aprobation par l'admin !"
       redirect_to '/'
     else
-      flash[:error] = "Une erreur est survenue, assurez-vous de bien avoir rempli tous les champs"
+      flash[:error] = 'Une erreur est survenue, assurez-vous de bien avoir rempli tous les champs'
       redirect_to request.referer
   end
   end
@@ -51,13 +48,13 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:article_id])
     @is_validated = if @article.is_validated == false
                       @article.update(is_validated: true)
-                      flash[:success] = "Article accepté !"
+                      flash[:success] = 'Article accepté !'
 
                     else
                       @article.update(is_validated: false)
-                      flash[:error] = "Article non accepté !"
+                      flash[:error] = 'Article non accepté !'
 
                     end
-  redirect_to request.referer
+    redirect_to request.referer
   end
 end

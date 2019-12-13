@@ -12,27 +12,25 @@ JoinTagEvent.destroy_all
 Place.destroy_all
 puts 'Last database destroy'
 
-Place.create!(name: "Paris", latitude: 48.85661, longitude: 2.351499)
-Place.create!(name: "Lyon", latitude: 45.757814, longitude: 4.832011)
-Place.create!(name: "Marseille", latitude: 43.296174, longitude: 5.369953)
-Place.create!(name: "Toulouse", latitude: 43.604462, longitude: 1.444247)
-Place.create!(name: "Bordeaux", latitude: 44.841225, longitude: -0.580036)
-Place.create!(name: "Lille", latitude: 50.630509, longitude: 3.070641)
-Place.create!(name: "Nice", latitude: 43.700936, longitude: 7.268391)
-Place.create!(name: "Nantes", latitude: 47.218637, longitude: -1.554136)
-Place.create!(name: "Strasbourg", latitude: 48.584614, longitude: 7.750713)
-Place.create!(name: "Rennes", latitude: 48.111339, longitude: -1.68002)
-puts "Cities faker generated"
+Place.create!(name: 'Paris', latitude: 48.85661, longitude: 2.351499)
+Place.create!(name: 'Lyon', latitude: 45.757814, longitude: 4.832011)
+Place.create!(name: 'Marseille', latitude: 43.296174, longitude: 5.369953)
+Place.create!(name: 'Toulouse', latitude: 43.604462, longitude: 1.444247)
+Place.create!(name: 'Bordeaux', latitude: 44.841225, longitude: -0.580036)
+Place.create!(name: 'Lille', latitude: 50.630509, longitude: 3.070641)
+Place.create!(name: 'Nice', latitude: 43.700936, longitude: 7.268391)
+Place.create!(name: 'Nantes', latitude: 47.218637, longitude: -1.554136)
+Place.create!(name: 'Strasbourg', latitude: 48.584614, longitude: 7.750713)
+Place.create!(name: 'Rennes', latitude: 48.111339, longitude: -1.68002)
+puts 'Cities faker generated'
 
-Place.create!(name: "Oxfam Le Magasin", latitude: 50.6334154, longitude: 3.0597793, secondhand: true)
-Place.create!(name: "Café citoyen", latitude: 50.632807, longitude: 3.063476, meeting: true, cultural:true)
+Place.create!(name: 'Oxfam Le Magasin', latitude: 50.6334154, longitude: 3.0597793, secondhand: true)
+Place.create!(name: 'Café citoyen', latitude: 50.632807, longitude: 3.063476, meeting: true, cultural: true)
 Place.create!(name: "L'auberge de Jeunesse Stephane Hessel", latitude: 50.6242888, longitude: 3.072359, cultural: true)
-Place.create!(name: "Le jardin des Maguettes", latitude: 50.6353682, longitude: 3.084535, garden: true)
+Place.create!(name: 'Le jardin des Maguettes', latitude: 50.6353682, longitude: 3.084535, garden: true)
 Place.create!(name: "L'auberge de Jeunesse Stephane Hessel", latitude: 50.6242888, longitude: 3.072359, cultural: true)
 
-
-puts "Mes lieux spécifiques créés"
-
+puts 'Mes lieux spécifiques créés'
 
 10.times do
   User.create!(email: "ecolo#{rand(1..1000)}@yopmail.com", pseudo: "ecolo#{rand(1..100_000)}", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, is_admin: false, password: '123456', address: Faker::Address.city)

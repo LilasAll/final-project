@@ -11,7 +11,7 @@ class LikesController < ApplicationController
       flash[:success] = "Vous avez bien liké l'article"
       @article.likes.create(user_id: current_user.id)
     end
-      redirect_to request.referer
+    redirect_to request.referer
   end
 
   def destroy

@@ -19,7 +19,6 @@ RSpec.describe Comment, type: :model do
     describe '#content' do
       it { expect(@comment).to validate_presence_of(:content) }
     end
-
   end
 
   context 'associations' do

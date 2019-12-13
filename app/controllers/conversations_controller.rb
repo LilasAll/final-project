@@ -6,8 +6,6 @@ class ConversationsController < ApplicationController
   def index
     @users = User.all
     @conversations = Conversation.all
-
-
 end
 
   def new
@@ -25,7 +23,7 @@ end
   end
 
   def destroy
-        @conversation = Conversation.find(params[:id])
+    @conversation = Conversation.find(params[:id])
 
     @conversation.destroy
     redirect_to conversations_path, flash: { success: ' La conversation a ete detruite' }
