@@ -14,11 +14,6 @@ class Event < ApplicationRecord
   has_many :tags, through: :join_tag_events
 
   # -----------------Validations----------------------------------------
-  validates :start_date, presence: true
-  validates :duration, presence: true, numericality: { greater_than_or_equal_to: 1 }
-
-  #validates :duration, presence: true, :numericality => { :greater_than_or_equal_to => 1 }
-
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < Date.today
       errors.add(:start_date, "L'évènement ne peut pas avoir lieu dans le passé...")
@@ -31,10 +26,14 @@ class Event < ApplicationRecord
   #  end
   # end
 
-  validate :start_date_cannot_be_in_the_past
-  # validate :duration_is_positif_and_5_multiple
-  validates :title, presence: true, length: { in: 5..140, message: 'Le titre doit contenir entre 5 et 140 caractères.' }
 
+  #validates :duration, presence: true, :numericality => { :greater_than_or_equal_to => 1 }
+  #validates :duration_is_positif_and_5_multiple
+
+
+  validates :start_date, presence: true
+  validates :start_date_cannot_be_in_the_past
+  validates :title, presence: true, length: { in: 5..140, message: 'Le titre doit contenir entre 5 et 140 caractères.' }
   validates :description, presence: true, length: { in: 10..1000, message: 'La description doit contenir entre 10 et 1000 caractères.' }
   validates :location, presence: true
 end
