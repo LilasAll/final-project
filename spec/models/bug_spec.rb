@@ -23,12 +23,10 @@ RSpec.describe Bug, type: :model do
     describe '#user_name' do
       it { expect(@bug).to validate_presence_of(:user_name) }
     end
-
   end
 
   context 'associations' do
     describe 'some association' do
-      #
     end
   end
 

@@ -23,7 +23,6 @@ RSpec.describe Conversation, type: :model do
     describe '#recipient_id' do
       it { expect(@conversation).to validate_presence_of(:recipient_id) }
     end
-
   end
 
   context 'associations' do
@@ -42,7 +41,6 @@ RSpec.describe Conversation, type: :model do
   context 'public instance methods' do
     describe '#content' do
       it 'should return a string' do
-        #
       end
     end
   end

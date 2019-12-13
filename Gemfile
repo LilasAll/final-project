@@ -56,7 +56,7 @@ gem 'gon' # pour transférer des infos d'un langage à un autre
 
 gem 'unread'
 
-gem "simple_calendar", "~> 2.0"
+gem 'simple_calendar', '~> 2.0'
 # GEM INSTALLED#==============================================
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

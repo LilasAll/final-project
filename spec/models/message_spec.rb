@@ -19,7 +19,6 @@ RSpec.describe Message, type: :model do
     describe '#body' do
       it { expect(@message).to validate_presence_of(:body) }
     end
-
   end
 
   context 'associations' do
