@@ -54,12 +54,20 @@
             <%= f.submit "Envoyer", class: "form-control btn btn-primary" %>
           </div>
         <% end %>
+        <div>
+        <%= link_to root_path, style: "margin: 20px" do %>
+          <button type="button" class="btn btn-outline-warning btn-circle btn-xl" title="Retour maison">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </button>
+          <%end%>
 
-        <%= link_to  calendar_path do %>
-        <i style="margin: 20px;font-size: 50px; " class="col-md-1 material-icons icon-index">
-calendar_today
-</i>
-<%end%>
+          <%= link_to conversations_path, style: "margin: 20px" do %>
+          <button type="button" class="btn btn-outline-danger btn-circle btn-xl" title="checkin the pm's">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          </button>
+
+
+        <%end%>
       </div>
     </div>
   </div>

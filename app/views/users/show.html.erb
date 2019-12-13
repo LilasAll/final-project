@@ -1,5 +1,7 @@
   <body class="profile-page sidebar-collapse">
   <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://images.pexels.com/photos/2233992/pexels-photo-2233992.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');"></div>
+
+
   <div class="main main-raised">
     <div class="profile-content">
       <div class="container">
@@ -103,9 +105,34 @@
           <%end%>
         <%end%>
         <br/>
+
+
         </div>
-      </div>
-    </div>
+      </div><br><br>
+<center>
+ 
+    <% if @user.id == current_user.id %>
+      <%= link_to edit_user_registration_path do %>
+        <button  class="btn-see-all-users btn btn-outline-success"   > Mettre à jour mon profil</button> 
+      <%end%>
+    <%end%><br>
+
+    <%= link_to root_path, style: "margin: 20px" do %>
+      <button type="button" class="btn btn-outline-warning " title="Retour maison"> Retour maison <br>
+        <i class="fa fa-home" aria-hidden="true"></i>
+      </button>
+    <%end%>
+
+  <%= link_to users_path do %>
+   <button  class=" btn btn-outline-primary"   > Voir tous les utilisateurs <br>
+<i class="fa fa-users" aria-hidden="true"></i>
+    </button> 
+   <%end%>
+ </center>
+<br><br>
+
+    </div></a></h5></div></div></div><
   </div>
+
 </div>
 </body>
