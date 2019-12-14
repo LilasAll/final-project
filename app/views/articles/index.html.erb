@@ -18,16 +18,16 @@
                     <span><%= article.author.pseudo %></span>
                   </div>
                   <div class="stats ml-auto">
-                    <i class="material-icons">favorite</i> 
+                    <i class="material-icons">favorite</i>
                     <p><%= article.likes.count %> <%= (article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-                     &#xB7;
+                    &#xB7;
                   </div>
                 </div>
               </div>
               <% article.join_tag_articles.each do |join| %>
-                 <%= link_to tag_path(join.tag.id), class: "" do %> 
-                    <span class="badge badge-primary"> <%= join.tag.name %></span>
-                  <% end %>
+                <%= link_to tag_path(join.tag.id), class: "" do %>
+                  <span class="badge badge-primary"> <%= join.tag.name %></span>
+                <% end %>
               <% end %>
             </div>
           <%end%>

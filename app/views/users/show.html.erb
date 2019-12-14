@@ -1,7 +1,5 @@
   <body class="profile-page sidebar-collapse">
   <div class="page-header header-filter" data-parallax="true" style="background-image: url('https://images.pexels.com/photos/2233992/pexels-photo-2233992.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');"></div>
-
-
   <div class="main main-raised">
     <div class="profile-content">
       <div class="container">
@@ -33,8 +31,7 @@
               <div class="item text-center">
                 <h3>
                   <%= link_to   conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post" do %>
-
-                  <button class="btn btn-primary" > Contacter <%=user.pseudo%></button>
+                    <button class="btn btn-primary" > Contacter <%=user.pseudo%></button>
                   <%end%>
                 </h3>
               </div>
@@ -70,69 +67,70 @@
           <%end%>
         
         <br/>
-        <h3 class="title">Évènements organisés :</h3>
-        <div class="card-columns">
-        <% Event.where(creator_id:params[:id]).each do |event| %>
-          <% if event.is_validated == true%>
-            <center>
-            <div class="card p-3 card-blog">
-              <div class="card-header card-header-image">
-                <%= link_to event_path(event.id) do %>
-                  <% if event.image_event.attached? %>
-                    <%= image_tag event.image_event, :alt => "cat-pic" %>
-                  <% else %>
-                    <%= image_tag "https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D", class: "some css class here" %>
-                  <% end %>
-                <% end %>
-                <div class="card-title">
-                  <%= event.title %>
+                    <h3 class="title">Évènements organisés :</h3>
+                    <div class="card-columns">
+                      <% Event.where(creator_id:params[:id]).each do |event| %>
+                        <% if event.is_validated == true%>
+                          <center>
+                            <div class="card p-3 card-blog">
+                              <div class="card-header card-header-image">
+                                <%= link_to event_path(event.id) do %>
+                                  <% if event.image_event.attached? %>
+                                    <%= image_tag event.image_event, :alt => "cat-pic" %>
+                                  <% else %>
+                                    <%= image_tag "https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D", class: "some css class here" %>
+                                  <% end %>
+                                <% end %>
+                                <div class="card-title">
+                                  <%= event.title %>
+                                </div>
+                              </div>
+                              <div class="card-body">
+                                <p class="card-description"> <%= "#{event.description.first(100)} [...]" %> </p>
+                                <p class="card-text"><small class="text-muted">
+                                    <i class="material-icons">people</i> <%= event.attendances.count %>
+                                    <i class="material-icons">face</i> <%= event.creator.pseudo %><br/>
+                                  </small>
+                                  <i class="material-icons">day</i><%= event.start_date.strftime( "le %d/%m/%Y à %H:%M") %>
+                                </p>
+                                <% event.join_tag_events.each do |join| %>
+                                  <span class="badge badge-primary"><%= join.tag.name %></span>
+                                <% end %>
+                              </div>
+                            </div>
+                          </center>
+                        <%end%>
+                      <%end%>
+                      <br/>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <center>
+                    <% if @user.id == current_user.id %>
+                      <%= link_to edit_user_registration_path do %>
+                        <button  class="btn-see-all-users btn btn-outline-success"   > Mettre à jour mon profil</button>
+                      <%end%>
+                    <%end%><br>
+                    <%= link_to root_path, style: "margin: 20px" do %>
+                      <button type="button" class="btn btn-outline-warning " title="Retour maison"> Retour maison <br>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                      </button>
+                    <%end%>
+                    <%= link_to users_path do %>
+                      <button  class=" btn btn-outline-primary"   > Voir tous les utilisateurs <br>
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                      </button>
+                    <%end%>
+                  </center>
+                  <br>
+                  <br>
                 </div>
-              </div>
-              <div class="card-body">
-                <p class="card-description"> <%= "#{event.description.first(100)} [...]" %> </p>
-                <p class="card-text"><small class="text-muted">
-                    <i class="material-icons">people</i> <%= event.attendances.count %>
-                    <i class="material-icons">face</i> <%= event.creator.pseudo %><br/>
-                  </small>
-                  <i class="material-icons">day</i><%= event.start_date.strftime( "le %d/%m/%Y à %H:%M") %>
-                </p>
-                <% event.join_tag_events.each do |join| %>
-                  <span class="badge badge-primary"><%= join.tag.name %></span>
-                <% end %>
-              </div>
-            </div>
-          </center>
-          <%end%>
-        <%end%>
-        <br/>
-
-
+              </a></h5>
+          </div>
         </div>
-      </div><br><br>
-<center>
- 
-    <% if @user.id == current_user.id %>
-      <%= link_to edit_user_registration_path do %>
-        <button  class="btn-see-all-users btn btn-outline-success"   > Mettre à jour mon profil</button> 
-      <%end%>
-    <%end%><br>
-
-    <%= link_to root_path, style: "margin: 20px" do %>
-      <button type="button" class="btn btn-outline-warning " title="Retour maison"> Retour maison <br>
-        <i class="fa fa-home" aria-hidden="true"></i>
-      </button>
-    <%end%>
-
-  <%= link_to users_path do %>
-   <button  class=" btn btn-outline-primary"   > Voir tous les utilisateurs <br>
-<i class="fa fa-users" aria-hidden="true"></i>
-    </button> 
-   <%end%>
- </center>
-<br><br>
-
-    </div></a></h5></div></div></div><
+      </div>
+      <
   </div>
-
-</div>
-</body>
+      </div>
+    </body>

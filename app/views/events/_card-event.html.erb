@@ -1,4 +1,4 @@
-  <div class="container">
+<div class="container">
   <div class= "card">
     <div class="card-body">
       <!----------------------- Affichage de l'event ------------------------------>
@@ -11,36 +11,34 @@
           <% end %>
         <% end %>
       </div>
-       <br/>
+      <br/>
       <div class="container d-flex flex-row">
         <div class ="col-6">
           <h5 class="card-title"><%= @event.title %></h5>
           <p class="card-text"> <%= @event.description %> </p>
           <ul class="list-group list-group-flush">
-          <%if @event.start_date != nil %>
-            <li class="list-group-item text-center">
-              le <%= @event.start_date.strftime("%d/%m/%Y à %H:%M") %></li>
-          <%end%>
-          <li class="list-group-item text-center">
-            <%if @event.duration != nil %>
-            Durée : <%= @event.duration %> minutes </li>
+            <%if @event.start_date != nil %>
+              <li class="list-group-item text-center">
+                le <%= @event.start_date.strftime("%d/%m/%Y à %H:%M") %></li>
             <%end%>
-          <li class="list-group-item text-center">
-            <strong>à</strong> <%= @event.location %></li>
-          <% if @event.price != 0 %>
-          <!--- Nil ou zero car prix facultatif-->
-          <% if @event.price != nil %>
-
             <li class="list-group-item text-center">
-              Tarif : <%= @event.price %> euros</li>
-          <% else %>
+              <%if @event.duration != nil %>
+                Durée : <%= @event.duration %> minutes </li>
+            <%end%>
             <li class="list-group-item text-center">
-              Cet évènement est gratuit !</li>
-          <%end%>
-          <%end%>
-        </ul>
+              <strong>à</strong> <%= @event.location %></li>
+            <% if @event.price != 0 %>
+              <!--- Nil ou zero car prix facultatif-->
+              <% if @event.price != nil %>
+                <li class="list-group-item text-center">
+                  Tarif : <%= @event.price %> euros</li>
+              <% else %>
+                <li class="list-group-item text-center">
+                  Cet évènement est gratuit !</li>
+              <%end%>
+            <%end%>
+          </ul>
         </div>
-
         <div id="show-event-map" class="col-6 border-map pb-1"></div>
       </div>
       <br>
@@ -100,20 +98,13 @@
   <center>
     <% if current_user == @event.creator %>
       <a class="btn btn-secondary my-2 my-sm-0" <%= link_to "Modifier l'évènement", edit_event_path(@event.id) %> </a> <br/>
-
       <a class="btn btn-outline-danger my-2 " style="border-radius:15px" <%= link_to "Supprimer l'évènement", event_path(@event), method: 'delete' %></a> <br/>
-      
     <% end %>
   </center>
-
-
-
 </p>
-
 <div class="container">
   <div class= "card">
     <div class="card-body"> 
-
 <%= form_for :comment, url: comments_path do |f| %>
   <div class="control-group">
     <div class="form-group floating-label-form-group controls">
@@ -131,7 +122,6 @@
     </center>
     </div>
   <%end%>
-
   <!-- Cards Gossips -->
       <table class="table">
       <thead> 
@@ -139,7 +129,6 @@
           <th class= "" >  Commentaires</th>
           <th class= "" >  </th>
           <th class= "" >  </th>
-         
         </tr>
       </thead>
         <tbody>

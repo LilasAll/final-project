@@ -20,102 +20,80 @@
       <div class="section section-basic">
         <div class="container">
           <h1 class="text-center" >Cherchez des évenements près de chez vous </h1>
-
           <h3 class="text-center" >ou créez le votre !</h3>
           <br/>
           <br/>
-    
           <div><center>
-          <form style="margin-left: 20%;" class='form-inline' action="/search">
-            <input placeholder='ex: Solidaire' name="q" class="form-control mr-sm-2" type="text" aria-label="search" style="width: 400px;">
-            <button class="btn btn-primary", style='color:white;border-radius: 15px'  type="submit" >Chercher</button><br/> 
-            <p style="margin: 30px" ></form>
-              <p>ou</p>
-            <%= link_to  new_event_path do %>
-            <button class="btn btn-outline-primary ", style='border-radius: 20px;'  type="submit" >
-            Créer mon évènement
-          </button>
-          <%end%></center>
-        </div>
-
-
-       
-       
-
-          <br>
-    
-      </div>
-      
-      <h1 class="text-center">Explorez les initiatives de la communauté</h1>
-       <h4 class="text-center">(articles, évènements, carte et calendrier)</h2>
-      <center><br>
-        <%= link_to articles_path, style: "margin: 20px" do %>
-          <button type="button" class="btn btn-warning btn-circle btn-xl" title="Voir tous les articles">
-            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-          </button>
-        <%end%>
-
-
-        <%= link_to events_path , style: "margin: 20px" do %>
-          <button class="btn btn-primary btn-circle btn-xl" title="Découvrir les évènements">  
-            <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
-          </button>
-        <%end%>
-              
-
-        <%= link_to  maps_path , style: "margin: 20px" do %>
-          <button class="btn btn-success btn-circle btn-xl" title="Explorer la carte du développement soutenable local">
-          <i class="fa fa-map" aria-hidden="true"></i>
-        </button>
-        <%end%>
-
-        <%= link_to  calendar_path , style: "margin: 20px" do %>
-          <button class="btn btn-secondary btn-circle btn-xl" title="Accéder au calendrier">
-            <i class="fa fa-calendar" aria-hidden="true"></i>
-          </button>   
-        <%end%>
-
-        </center>
-    </div>
-
-  </div>
-
-
-</div>
-
-
-
-<!-- First card : presentation -->
-<div style="margin-top: 100px;" class="main main-raised">
-  <h1 class="card-title index-title"> <center>Qu'est-ce que c'est quoi, la synergie urbaine?</center></h1>
-  <div  style="" class="section section-basic">
-      <div class="container d-flex flex-row">
-        <div> <%= image_tag "synergie.png", style:"width: 400px"%> </div>
-      <div class='hexagon'><br> 
-      " La synergie est un type de phénomène par lequel plusieurs facteurs agissant en commun ensemble créent un effet global, un effet <strong>synergique</strong>, distinct de tout ce qui aurait pu se produire s'ils avaient opéré isolément, que ce soit chacun de son côté ou tous réunis mais œuvrant indépendamment. Il y a donc l'idée d'une <strong>coopération créative</strong>. "
-      </div></div>
-      <br><br>
-
-
-    <div class="container">
-
-      <div style="" class="card card-nav-tabs text-center">
-        <div  class="card-header card-header-primary">
-          <h3 class="card-title">Une synergie au coeur de la ville </h3>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">Des événements</h4>
-          <p class="card-text">Avec <strong> Synergie Urbaine</strong>, tu peux rejoindre des évènements près de chez toi et en organiser. Que tu représentes une association, ou que prenne l'initiative tout.e seul.e, en famille, ou en tribu, cette plateforme est là pour donner de la visibilité et de la traçabilité aux évènements en lien au développement soutenable et à l'économie sociale et solidaire. <br>
-          De l'atelier dans ton salon, aux conférences auxquelles tu aimerais participer ou que tu aimerais organiser, en passant par des rencontres de différents corps de savoirs pour mettre en place un potager, un lieu d'accueil, ou un sitting, les possibilités sont infinies, et il ne tient qu'à vous d'oser, oser participer, rencontrer, proposer.</p>
+              <form style="margin-left: 20%;" class='form-inline' action="/search">
+                <input placeholder='ex: Solidaire' name="q" class="form-control mr-sm-2" type="text" aria-label="search" style="width: 400px;">
+                <button class="btn btn-primary", style='color:white;border-radius: 15px'  type="submit" >Chercher</button><br/>
+                <p style="margin: 30px" ></form>
+                <p>ou</p>
+                <%= link_to  new_event_path do %>
+                  <button class="btn btn-outline-primary ", style='border-radius: 20px;'  type="submit" >
+                    Créer mon évènement
+                  </button>
+                <%end%></center>
+            </div>
+            <br>
           </div>
-          <center>
-            <%= image_tag "event1.jpg", style:"width: 230px", class:"img-thumbnail" %>
-            <%= image_tag "event3.jpg", style:"width: 230px", class:"img-thumbnail" %>
+          <h1 class="text-center">Explorez les initiatives de la communauté</h1>
+          <h4 class="text-center">(articles, évènements, carte et calendrier)</h2>
+          <center><br>
+            <%= link_to articles_path, style: "margin: 20px" do %>
+              <button type="button" class="btn btn-warning btn-circle btn-xl" title="Voir tous les articles">
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+              </button>
+            <%end%>
+            <%= link_to events_path , style: "margin: 20px" do %>
+              <button class="btn btn-primary btn-circle btn-xl" title="Découvrir les évènements">
+                <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+              </button>
+            <%end%>
+            <%= link_to  maps_path , style: "margin: 20px" do %>
+              <button class="btn btn-success btn-circle btn-xl" title="Explorer la carte du développement soutenable local">
+                <i class="fa fa-map" aria-hidden="true"></i>
+              </button>
+            <%end%>
+            <%= link_to  calendar_path , style: "margin: 20px" do %>
+              <button class="btn btn-secondary btn-circle btn-xl" title="Accéder au calendrier">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>
+            <%end%>
           </center>
-          <div class="card-body">
-            <h4 class="card-title">Du partage de connaissances</h4>
-            <p class="card-text">Tu peux également poster des articles et t'instruire de ceux des autres. Le contenu d'un article? Laisse parler ton imagination ! Le but est de partager nos bons plans, nos connaissances, nos savoirs, nos idées... Dans les domaines de l'écologie et de la solidarité. <br/>
-            Le site est consu selon un principe inclusif et participatif : chacun est libre de participer à la communauté. On a tous quelque chose à apprendre des autres ! </p>
+        </div>
+      </div>
+    </div>
+    <!-- First card : presentation -->
+    <div style="margin-top: 100px;" class="main main-raised">
+      <h1 class="card-title index-title"> <center>Qu'est-ce que c'est quoi, la synergie urbaine?</center></h1>
+      <div  style="" class="section section-basic">
+        <div class="container d-flex flex-row">
+          <div> <%= image_tag "synergie.png", style:"width: 400px"%> </div>
+          <div class='hexagon'><br>
+            " La synergie est un type de phénomène par lequel plusieurs facteurs agissant en commun ensemble créent un effet global, un effet <strong>synergique</strong>, distinct de tout ce qui aurait pu se produire s'ils avaient opéré isolément, que ce soit chacun de son côté ou tous réunis mais œuvrant indépendamment. Il y a donc l'idée d'une <strong>coopération créative</strong>. "
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+          <div style="" class="card card-nav-tabs text-center">
+            <div  class="card-header card-header-primary">
+              <h3 class="card-title">Une synergie au coeur de la ville </h3>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Des événements</h4>
+              <p class="card-text">Avec <strong> Synergie Urbaine</strong>, tu peux rejoindre des évènements près de chez toi et en organiser. Que tu représentes une association, ou que prenne l'initiative tout.e seul.e, en famille, ou en tribu, cette plateforme est là pour donner de la visibilité et de la traçabilité aux évènements en lien au développement soutenable et à l'économie sociale et solidaire. <br>
+                De l'atelier dans ton salon, aux conférences auxquelles tu aimerais participer ou que tu aimerais organiser, en passant par des rencontres de différents corps de savoirs pour mettre en place un potager, un lieu d'accueil, ou un sitting, les possibilités sont infinies, et il ne tient qu'à vous d'oser, oser participer, rencontrer, proposer.</p>
+            </div>
+            <center>
+              <%= image_tag "event1.jpg", style:"width: 230px", class:"img-thumbnail" %>
+              <%= image_tag "event3.jpg", style:"width: 230px", class:"img-thumbnail" %>
+            </center>
+            <div class="card-body">
+              <h4 class="card-title">Du partage de connaissances</h4>
+              <p class="card-text">Tu peux également poster des articles et t'instruire de ceux des autres. Le contenu d'un article? Laisse parler ton imagination ! Le but est de partager nos bons plans, nos connaissances, nos savoirs, nos idées... Dans les domaines de l'écologie et de la solidarité. <br/>
+                Le site est consu selon un principe inclusif et participatif : chacun est libre de participer à la communauté. On a tous quelque chose à apprendre des autres ! </p>
             </div>
             <center>
               <img src="https://cdn.pixabay.com/photo/2015/04/27/15/01/vegetables-742095_960_720.jpg" alt="..." class="img-thumbnail" style="width: 350px">
@@ -123,60 +101,53 @@
             <br/>
           </div>
           <!-- Second space : usefull words  -->
-         
-       
           <!-- Third Space : last event in picture  -->
-   <div class="section text-center">
-        <div class="row">
-          <div class="">
-            <h2 class="title">Les concepts clefs de Synergie Urbaine</h2>
-
-            <h5><div class= "d-flex justify-content-center" style="margin:60px">Grâce à cette plateforme participative, nous espérons tendre vers un monde plus respectueux, et plus solidaire, autant envers les humains, qu'envers l'environnement qui les entoure. <br></div>
-
-            Pour s'assurer que le monde tourne bien rond, pour nous et pour les générations à venir, il est important de réfléchir à notre impact et à nos usages. Plus que réfléchir, il est urgent d'agir. Pour cela, des gestes simples, potentialisés par un partage de connaissances entre toutes disciplines et compétences sont à mettre en place dès aujourd'hui. <br>
-            Synergie Urbaine veut permettre à tout individu, collectif ou association de faire entendre sa voix, de partager son savoir ou de l'enrichir grâce aux autres, pour mettre en place des actions concrètes.</h5>
-          </div>
-        </div>
-        <div class="features">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="info">
-                <div class="icon icon-info">
-                  <i class="fa fa-balance-scale" aria-hidden="true"></i>
-                </div>
-                <h4 class="info-title">Economie Fonctionelle</h4>
-                 L’économie de la fonctionnalité s’inscrit pleinement dans une perspective de <strong>développement soutenable</strong>. Elle consiste à remplacer la notion de vente du bien par celle de l’usage du bien lui-même, ce qui entraîne le découplage de la valeur ajoutée et la minimisation de la consommation d’énergie et de matières premières. Une section permettant le prêt d'objet dont l'usage est occasionnel, ou le stockage est encombrant (perceuse, échelle, voiture, etc) est notamment à venir. 
+          <div class="section text-center">
+            <div class="row">
+              <div class="">
+                <h2 class="title">Les concepts clefs de Synergie Urbaine</h2>
+                <h5>
+                  <div class= "d-flex justify-content-center" style="margin:60px">Grâce à cette plateforme participative, nous espérons tendre vers un monde plus respectueux, et plus solidaire, autant envers les humains, qu'envers l'environnement qui les entoure. <br>
+                  </div>
+                  Pour s'assurer que le monde tourne bien rond, pour nous et pour les générations à venir, il est important de réfléchir à notre impact et à nos usages. Plus que réfléchir, il est urgent d'agir. Pour cela, des gestes simples, potentialisés par un partage de connaissances entre toutes disciplines et compétences sont à mettre en place dès aujourd'hui. <br>
+                  Synergie Urbaine veut permettre à tout individu, collectif ou association de faire entendre sa voix, de partager son savoir ou de l'enrichir grâce aux autres, pour mettre en place des actions concrètes.</h5>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="info">
-                <div class="icon icon-success">
-<i class="fa fa-handshake-o" aria-hidden="true" style="margin-right: 20px"></i><i class="fa fa-hand-spock-o" aria-hidden="true"></i>
+            <div class="features">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="info">
+                    <div class="icon icon-info">
+                      <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="info-title">Economie Fonctionelle</h4>
+                    L’économie de la fonctionnalité s’inscrit pleinement dans une perspective de <strong>développement soutenable</strong>. Elle consiste à remplacer la notion de vente du bien par celle de l’usage du bien lui-même, ce qui entraîne le découplage de la valeur ajoutée et la minimisation de la consommation d’énergie et de matières premières. Une section permettant le prêt d'objet dont l'usage est occasionnel, ou le stockage est encombrant (perceuse, échelle, voiture, etc) est notamment à venir. 
+                  </div>
                 </div>
-                <h4 class="info-title">Solidaire & participative</h4>
-                  Par «  développement soutenable ou durable », nous entendons « un développement qui répond aux besoins des générations du présent sans compromettre la capacité des générations futures à répondre aux leurs ».<br/>
-                  Une société soutenable est alors une société qui persiste et prospère, qui offre une grande qualité de vie pour tous ses habitants, de manière juste et équitable. Une société où les besoins de tous sont satisfaits, maintenant et demain, en respectant les limites des écosystèmes et ressources naturelles, dont toute vie dépend. 
-  
+                <div class="col-md-4">
+                  <div class="info">
+                    <div class="icon icon-success">
+                      <i class="fa fa-handshake-o" aria-hidden="true" style="margin-right: 20px"></i><i class="fa fa-hand-spock-o" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="info-title">Solidaire & participative</h4>
+                    Par «  développement soutenable ou durable », nous entendons « un développement qui répond aux besoins des générations du présent sans compromettre la capacité des générations futures à répondre aux leurs ».<br/>
+                    Une société soutenable est alors une société qui persiste et prospère, qui offre une grande qualité de vie pour tous ses habitants, de manière juste et équitable. Une société où les besoins de tous sont satisfaits, maintenant et demain, en respectant les limites des écosystèmes et ressources naturelles, dont toute vie dépend. 
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="info">
+                    <div class="icon icon-danger">
+                      <i class="fa fa-users" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="info-title">Communauté locale & active</h4>
+                    Ensemble pour construire le futur. La mise en place d'un concept tel qu'une économie solidaire et circulaire passe en premier lieu par les mains de la communauté elle-même. Elle seule permettra une réelle conscientisation des valeurs de respect d'autrui et de l'environnement. Avec la mise en place d'une économie fonctionnelle et synergique, l'impact de notre passage sur la planète saurait être amoindri, et nos interactions enrichies.  
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="info">
-                <div class="icon icon-danger">
-     <i class="fa fa-users" aria-hidden="true"></i>
-                </div>
-                <h4 class="info-title">Communauté locale & active</h4>
-                 Ensemble pour construire le futur. La mise en place d'un concept tel qu'une économie solidaire et circulaire passe en premier lieu par les mains de la communauté elle-même. Elle seule permettra une réelle conscientisation des valeurs de respect d'autrui et de l'environnement. Avec la mise en place d'une économie fonctionnelle et synergique, l'impact de notre passage sur la planète saurait être amoindri, et nos interactions enrichies.  
-
-              </div>
-            </div>
-          </div>
-        </div>
           </div>
         </div>
       </div>
     </div>
-
-   
-
   </body>
 </html>

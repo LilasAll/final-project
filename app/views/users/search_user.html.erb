@@ -1,41 +1,28 @@
 <center>
   <h1>Resultat(s) de ta recherche</h1>
-  <form style="margin-top: 4%" class="" action="/search_user">
-    <input name='q' class="form-control-mr-sm-2" type="text" placeholder="search" aria-label="Search">
-    <button class="btn btn-outline-sucess my-2 my-sm-0" type="submit" >Search</button>
+  <form style="width: 50em; margin: 100px; " class=' ' action="/search_user">
+    <input placeholder='Chercher un utilisateur...' name="q" class="form-control mr-sm-2" type="text" aria-label="search_user">
+    <button class="btn btn-primary", style='color:white'  type="submit" >Chercher</button>
   </form>
-     <div style="margin-top: 100px;" class="main main-raised">
-        <div class="section section-basic">
-          <div class=" container">
-       
-
-  <div id="new" class="">
-    <div class="panel-body">
-       <% @users.each do |user| %>
-        <% if user.id != current_user.id %>
-         <div class="item"><h3>
-      <%= link_to user.pseudo,
-       conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post"%>
-     </h3></div>
-      <% end %>
-     <% end %>
+  <div style="margin-top: 100px;" class="main main-raised">
+    <div class="section section-basic">
+      <div class=" container">
+        <div id="new" class="">
+          <div class="panel-body">
+            <% @users.each do |user| %>
+              <% if user.id != current_user.id %>
+                <div class="item">
+                  <h3>
+                    <%= link_to user.pseudo,
+                     conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post"%>
+                  </h3>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class>
     </div>
   </div>
-
-
-
-
-          </div>
-        </div>
-        <div class>
-        </div>
-      </div>
-
-       <div style="margin-top: 100px;" class="main main-raised">
-        <div class="section section-basic">
-          <div class=" container">
-            
-            
-          </div>
-        </div>
-      </div>

@@ -1,44 +1,42 @@
 <section  class="  navigation">
   <div class="nav-container">
     <div class="brand">
-
-       <%= link_to 'Synergie Urbaine', root_path %> <span>
-         <% if user_signed_in? == true %>
-            <% if current_user.is_admin? == true %>
-              <span class="badge badge-warning m-0">Admin Mode  </span>
-            <%else%>
-            <%end%>
-            <%end%>
-
-          </span> 
-
-
+      <%= link_to 'Synergie Urbaine', root_path %> <span>
+        <% if user_signed_in? == true %>
+          <% if current_user.is_admin? == true %>
+            <span class="badge badge-warning m-0">Admin Mode  </span>
+          <%else%>
+          <%end%>
+        <%end%>
+      </span>
     </div>
     <nav >
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
-         <li>
+        <li>
+          <!-- Pour revenir à l'index -->
           <%= link_to root_path, class: "" do %>
             <span class="material-icon">
               <i style="color: white;" class="material-icons">home</i> </span>
           <% end %>
         </li>
-
         <li>
-            <a href="#!"><i class="material-icons">remove_red_eye</i>
-            </a>
-            <ul style="z-index:5;"class="nav-dropdown">
-              <li> <%= link_to "Découvrir les événements", events_path%> </li>
-              <li> <%= link_to "Voir tous les articles", articles_path%> </li>
-              <li> <%= link_to "Accéder au calendrier", calendar_path%> </li>
-              <li> <%= link_to "Accéder à la carte", maps_path%> </li>
-              <li> <%= link_to "Voir les catégories", tags_path%> </li>
+          <!-- Actions proposées quand login et log out / Tout voir -->
+          <a href="#!"><i class="material-icons">remove_red_eye</i>
+          </a>
+          <ul style="z-index:5;"class="nav-dropdown">
+            <li> <%= link_to "Découvrir les événements", events_path%> </li>
+            <li> <%= link_to "Voir tous les articles", articles_path%> </li>
+            <li> <%= link_to "Accéder au calendrier", calendar_path%> </li>
+            <li> <%= link_to "Accéder à la carte", maps_path%> </li>
+            <li> <%= link_to "Voir les catégories", tags_path%> </li>
           </li>
-            </ul>
-          </li>
-        <li>
-          <% if user_signed_in? %>
+        </ul>
+      </li>
+      <li>
+        <% if user_signed_in? %>
           <li>
+            <!-- Ecrire event ou article -->
             <a href="#!"><i class="material-icons">edit</i></a>
             <ul style="z-index:5;"class="nav-dropdown">
               <li> <%= link_to "Rédiger un article", new_article_path, class: "" %> </li>
@@ -46,6 +44,7 @@
             </ul>
           </li>
           <li>
+            <!-- dashboard si admin et action pur l'user connecté -->
             <a href="#!"><i class="material-icons">settings</i> </a>
             <ul style="z-index:5;"class="nav-dropdown">
               <li> <%= link_to "Mettre à jour mon profil", edit_user_registration_path, class: ""  %></li>
@@ -56,44 +55,39 @@
                 <%end%>
               </li>
               <li> <%= link_to "L'équipe","/contact" %> </li>
-
               <li> <%= link_to "Déconnexion", destroy_user_session_path, method: "delete" %> </li>
             </ul>
           </li>
-        <li>
-          <%= link_to user_path(current_user.id), class: "" do %>
-            <span class="material-icon">
-              <i style="color: white;" class="material-icons">face</i> </span>
-          <% end %>
+          <li>
+            <%= link_to user_path(current_user.id), class: "" do %>
+              <span class="material-icon">
+                <i style="color: white;" class="material-icons">face</i> </span>
+            <% end %>
+          </li>
         </li>
-      </li>
-      <li>
-        <%= link_to conversations_path do %>
-          <i class="material-icons">email</i>
-          <span>
-
-
-            <% if Message.unread_by(current_user).count == 0 %>
-            <%else%>
-            <span class="badge badge-warning m-0">(<%= Message.unread_by(current_user).count%>) nouveaux</span>
-
-            <%end%>
-
-          </span>
-      </li>
-
+        <li>
+          <!-- Conversations path et notifs -->
+          <%= link_to conversations_path do %>
+            <i class="material-icons">email</i>
+            <span>
+              <% if Message.unread_by(current_user).count == 0 %>
+              <%else%>
+                <span class="badge badge-warning m-0">(<%= Message.unread_by(current_user).count%>) nouveaux</span>
+              <%end%>
+            </span>
+          </li>
         <% end %>
       <%else%>
         <li>
           <a <%= link_to "Je me connecte", new_user_session_path, class: "" %></a>
-        </li>
-        <li>
-          <a <%= link_to "Je m'inscris", new_user_registration_path, class: "" %></a>
-        </li>
-      <%end%>
-    </a>
-  </li>
-</ul>
-</nav>
+          </li>
+          <li>
+            <a <%= link_to "Je m'inscris", new_user_registration_path, class: "" %></a>
+            </li>
+          <%end%>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
 </section>

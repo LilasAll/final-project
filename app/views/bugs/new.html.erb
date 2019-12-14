@@ -1,13 +1,12 @@
 <center>
-<br/>
-<div>
-<%= form_tag url_for(action: 'create'), class: "form", method: "post",multipart: true do %>
-    
-  <h4 class="card-title">Décris ton bug </h4><p> Soyez le plus précis possible  (en 150 caractères)</p>
-  <%= text_area_tag :content, @content, placeholder: "Accapacité d'accéder à une page, de créer un événement...", class: "form-control"  %>
-  <br />
-   <button type="submit" class= "btn btn-primary"> Signaler ! </button>
-
-  <%end%>
-</div>
+  <br/>
+  <div>
+    <%= form_tag url_for(action: 'create'), class: "form", method: "post",multipart: true do %>
+      <h4 class="card-title">Décris ton bug </h4>
+      <p> Soyez le plus précis possible  (en 150 caractères)</p>
+      <%= text_area_tag :content, @content, placeholder: "Accapacité d'accéder à une page, de créer un événement...", class: "form-control"  %>
+      <br />
+      <button type="submit" class= "btn btn-primary"> Signaler ! </button>
+    <%end%>
+  </div>
 </center> 

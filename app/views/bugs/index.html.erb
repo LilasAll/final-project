@@ -1,43 +1,38 @@
-
-    <% if current_user.is_admin == true%>
-
-           
-          <div style="margin-top: 100px;" class="main main-raised">
-          <div class="section section-basic">
-            <div class="container">
-              <h2 style="text-align: center; margin: 50px;" >Bugs </h2>
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Bug</th>
-                    <th>Sender</th>
-                    <th>DELETE</th>
-                    
-                  </tr>
-                </thead>
-               <% @bugs.each do |bug| %>
-                  <tbody>
-                    <td><%= bug.id %></td>
-                    <% if bug.content != nil%>
-                    <td> <p><%=bug.content.first(100)%></p></td>
-                    <%else%>
-                    <td>No content</td>
-                    <%end%>
-                    <td> <p><%= bug.user_name%></p></td>
-                    <td><a <%= link_to "X", bug, method: :delete %>
-</a></td>
-                    
-                    
-</a>
-                      </td>
-                    <%end%>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class>
-            </div>
-          </div>
-
+<% if current_user.is_admin == true%>
+  <div style="margin-top: 100px;" class="main main-raised">
+    <div class="section section-basic">
+      <div class="container">
+        <h2 style="text-align: center; margin: 50px;" >Bugs </h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Bug</th>
+              <th>Sender</th>
+              <th>DELETE</th>
+            </tr>
+          </thead>
+          <% @bugs.each do |bug| %>
+            <tbody>
+              <td><%= bug.id %></td>
+              <% if bug.content != nil%>
+                <td> 
+                  <p><%=bug.content.first(100)%></p>
+                </td>
+              <%else%>
+                <td>No content</td>
+              <%end%>
+              <td> 
+                <p><%= bug.user_name%></p>
+              </td>
+              <td><a <%= link_to "X", bug, method: :delete %>
+              </a></td>
+              </a>
+            </td>
           <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%end%>
