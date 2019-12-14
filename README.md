@@ -8,7 +8,7 @@ En tant qu'administrateur vous pouvez : valider les articles et événements, ba
 
 Lien heroku :
 
-[https://synergieurbaine.herokuapp.com](https://synergieurbaine.herokuapp.com)
+[https://synergie-urbaine.herokuapp.com](https://synergieurbaine.herokuapp.com)
 
 
 Identifients administrateurs : 
