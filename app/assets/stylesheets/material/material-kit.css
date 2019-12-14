@@ -21,7 +21,9 @@ body {
 }
  
 .navigation{
-   position: fixed;
+   position
+
+
 
    width:100%;
    z-index: 5;

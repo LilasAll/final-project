@@ -13,27 +13,37 @@
       <% end %>
     </div>
     <div class = "">
-      <div class="card-text d-flex justify-content-end">Ecrit le : <%= @article.created_at.strftime("%d/%m/%Y") %></div>
-      <div class="card-text d-flex justify-content-end"><%= link_to "Par : #{@article.author.pseudo}", user_path(@article.author) %></div>
+      <div class="card-text d-flex justify-content-end">écrit le  <%= @article.created_at.strftime("%d/%m/%Y") %></div>
+      <div class="card-text d-flex justify-content-end">par <%= link_to " #{@article.author.pseudo}", user_path(@article.author) %></div>
     </div>
-    <p><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+    <p><i class="material-icons">favorite</i><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+    <center>
     <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
     <% if pre_like %>
     <%= form_for :like, url: article_like_path(@article, pre_like), method: :delete do |f| %>
-        <button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Je n'aime plus</i> </button>
+        <button class="btn br3 bg-primary ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Je n'aime plus</i> </button>
           <%end%>
     <% else %>
       <%= form_for :like, url: article_likes_path(@article) do |f| %>
-        <button class="btn br3 bg-orange9 ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i>J'aime</i> </button>
+        <button class="btn br3 btn-primary ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i>J'aime</i> </button>
     <%end%>
-
   <% end %>
+</center>
 </div>
-</div>
-        <%= link_to articles_path, style: "margin: 20px" do %>
+</div> <br> <div class="d-flex justify-content-between">
+        <%= link_to articles_path,style: "margin: 20px" do %>
           <button type="button" class="btn btn-warning btn-circle btn-xl" title="Voir tous les articles">
             <i class="fa fa-newspaper-o" aria-hidden="true"></i>
           </button>
         <%end%>
+
+        <%= link_to root_path, style: "margin: 20px" do %>
+          <button type="button" class="btn btn-secondary btn-circle btn-xl" title="Retour sur à l'accueil">
+            <span class="material-icon">
+              <i style="color: white;" class="material-icons">home</i> </span>
+          </button>
+        <%end%>
+      </div>
 </div>
 

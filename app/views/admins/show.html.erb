@@ -70,8 +70,7 @@
                   <th>ID</th>
                   <th>Pseudo</th>
                   <th>Grade</th>
-                  <th>Option</th>
-                  <th>Supprimer</th>
+                 
                 </tr>
               </thead>
               <% User.all.each do |user|%>
@@ -80,14 +79,11 @@
                   <td> <%= link_to  user.pseudo , user_path(user.id) %> </td>
                   <%if user.is_admin != false%>
                     <td><span class="badge badge-warning m-0">Admin</span></td>
-                    <td>  <%= link_to "Retrograder (not working)", :controller => :users, :action => :toggle_check, user_id: user.id %>
-                    </td>
+                  
                   <%else%>
                     <td><span class="badge badge-info m-0">User</span>
-                      <td><%= link_to "Upgrader (not working)", :controller => :users, :action => :toggle_check, user_id: user.id %></td>
-                      <td>
-                        <%= link_to "X", user, method: :delete, data: { confirm: "Are you sure"} %>
-                      </td>
+                  
+                     
                     <%end%>
                   </td>
                 <%end%>

@@ -1,4 +1,4 @@
-<section style="" class="  navigation">
+<section  class="  navigation">
   <div class="nav-container">
     <div class="brand">
 
@@ -14,7 +14,7 @@
 
 
     </div>
-    <nav style="" >
+    <nav >
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
          <li>
@@ -25,9 +25,7 @@
         </li>
 
         <li>
-            <a href="#!"><i class="material-icons">
-remove_red_eye
-</i>
+            <a href="#!"><i class="material-icons">remove_red_eye</i>
             </a>
             <ul style="z-index:5;"class="nav-dropdown">
               <li> <%= link_to "Découvrir les événements", events_path%> </li>
@@ -73,9 +71,12 @@ remove_red_eye
         <%= link_to conversations_path do %>
           <i class="material-icons">email</i>
           <span>
-            <% if Message.unread_by(current_user).count > 0 %>
-              <span class="badge badge-warning m-0">New</span>
+
+
+            <% if Message.unread_by(current_user).count == 0 %>
             <%else%>
+            <span class="badge badge-warning m-0">(<%= Message.unread_by(current_user).count%>) nouveaux</span>
+
             <%end%>
 
           </span>

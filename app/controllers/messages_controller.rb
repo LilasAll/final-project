@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   def index
     @messages = @conversation.messages
     @message = @conversation.messages.new
-    @conversation.messages.mark_as_read! :all, for: current_user
+    @messages.mark_as_read! :all, for: current_user
   end
 
   def new
