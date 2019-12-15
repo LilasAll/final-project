@@ -21,6 +21,7 @@ Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'image
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets')
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'javascripts')
 
+
 # Precompile the maps
 
 Rails.application.config.assets.precompile += %w[maps.scss]
