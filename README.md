@@ -18,6 +18,14 @@ Email : admin@yopmail.com
 Mot de passe : 123456
 ```
 
+
+## Parcour utilistaeur 
+
+Inscrivez vous et profitez pleinement du site! 
+Synergie urbaine vous permet de créer des articles et des évènements. Vous pouvez aussi participer aux évènements créés autour de vous et lire des articles écrits par d'autres utilisateurs.
+La plateforme permet également d'échanger des messages avec les autres utilisateurs.
+
+
 ## Visualisation en local
 
 Pour visualiser le projet en local : 
