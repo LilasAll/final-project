@@ -1,13 +1,11 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
   describe 'GET index' do
-    it 'assigns @event' do
-      event = FactoryBot.create(:event)
+    it 'assigns @article' do
+      article = FactoryBot.create(:article)
       get :index
-      expect(assigns(:events)).to eq([event])
+      expect(assigns(:articles)).to eq([article])
     end
 
     it 'renders the index template' do
@@ -17,10 +15,10 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe 'GET show' do
-    it 'assigns @event' do
-      event = FactoryBot.create(:event)
+    it 'assigns @article' do
+      article = FactoryBot.create(:article)
       get :show
-      expect(assigns(:events)).to eq(event)
+      expect(assigns(:articles)).to eq(article)
     end
 
     it 'renders the show template' do
@@ -39,15 +37,15 @@ RSpec.describe EventsController, type: :controller do
 
   describe 'POST create' do
     context 'with valid attributes' do
-      it 'create a new event' do
+      it 'create a new article' do
         expect do
-          post :create, event: FactoryBot.attributes_for(:event)
+          post :create, article: FactoryBot.attributes_for(:article)
         end.to change(Event, :count).by(1)
       end
 
-      it 'redirect to the event index' do
-        post :create, event: FactoryBot.attributes_for(:event)
-        response.should redirect_to Event.index
+      it 'redirect to the article index' do
+        post :create, article: FactoryBot.attributes_for(:article)
+        response.should redirect_to Article.index
       end
     end
   end
