@@ -26,10 +26,7 @@ RSpec.describe Conversation, type: :model do
   end
 
   context 'associations' do
-    describe 'some association' do
-      it { expect(@comment).to belong_to(:sender) }
-      it { expect(@comment).to belong_to(:recipient) }
-    end
+    # teste association
   end
 
   context 'callbacks' do
