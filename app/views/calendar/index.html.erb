@@ -1,12 +1,10 @@
 <%= month_calendar events: @events,attribute: :start_date do |date, events| %>
   <%= date.strftime( "%d/%m/%Y ") %>
-
   <% events.each do |event| %>
     <div>
-     <%= link_to event_path(event.id) do %>
-
-  <span class="badge badge-warning m-0"> <%= event.title %></span>
-    </div>
+      <%= link_to event_path(event.id) do %>
+        <span class="badge badge-warning m-0"> <%= event.title %></span>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 <%end%>

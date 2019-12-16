@@ -56,6 +56,11 @@ class EventsController < ApplicationController
       latitude: params[:latitude],
       longitude: params[:longitude]
     )
+    if @event.price == nil
+      @event.price = 0
+    else
+    end
+    
     @event.tags = Tag.where(id: params[:tag_id])
 
     # @event.creator_id = current_user.id

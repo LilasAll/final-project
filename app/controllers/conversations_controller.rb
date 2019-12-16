@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class ConversationsController < ApplicationController
-  before_action :authenticate_user!
+  before_action do
+    :authenticate_user!
+  end
 
   def index
     @users = User.all

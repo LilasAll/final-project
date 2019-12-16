@@ -1,40 +1,34 @@
 <center>
-<br/>
-<div class="container">
-  <div class="row">
-    <div class="card card-nav-tabs text-center">
-      <div class="card-header card-header-primary">
-        <h3 class="card-title">Ecrire un article</h3>
-      </div>
-      <div class="card-body">
-        <p>Merci de compléter tous les champs pour valider votre article</p>
-  <%= form_tag url_for(action: 'create'), method: "post" do %>
-    
-    <h4 class="card-title">Titre</h4> 
-    <%= text_field_tag 'title', @title, placeholder: "Titre", class: "form-control"  %>
-    <br />
-    <br />
-
-    <h4 class="card-title">Contenu de l'article</h4>
-    <br />
-  </center> 
-    <input id="@article.content" type="hidden" name="content">
-    <trix-editor input="@article.content" style="text-align: left;"></trix-editor>
-    <br />
-    <center>
-
-    <h4 class="card-title">Résumé</h4> 
-    <%= text_field_tag 'resume', @resume, placeholder: "En quelques mots, donne envie aux lecteurs de lire ton article...", class: "form-control"  %>
-    <br />
-    <br />
-
-    <h4 class="card-title"> Tags  </h4>
-    <p> (plusieurs au choix)</p>
-    <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
-    <br/>
-    <br/>
-    
-    <button type="submit" class= "btn btn-primary" style="width: 20%;"> Créer </button>
-    </div>
-  <%end%>
-</center>
+  <br/>
+  <div class="container">
+    <div class="row">
+      <div class="card card-nav-tabs text-center">
+        <div class="card-header card-header-primary">
+          <h3 class="card-title">Ecrire un article</h3>
+        </div>
+        <div class="card-body">
+          <p>Merci de compléter tous les champs pour valider votre article</p>
+          <%= form_tag url_for(action: 'create'), method: "post" do %>
+            <h4 class="card-title">Titre</h4>
+            <%= text_field_tag 'title', @title, placeholder: "Titre", class: "form-control"  %>
+            <br />
+            <br />
+            <h4 class="card-title">Contenu de l'article</h4>
+            <br />
+            <input id="@article.content" type="hidden" name="content">
+            <trix-editor input="@article.content" style="text-align: left;"></trix-editor>
+            <br />
+            <center>
+              <h4 class="card-title">Résumé</h4>
+              <%= text_field_tag 'resume', @resume, placeholder: "En quelques mots, donne envie aux lecteurs de lire ton article...", class: "form-control"  %>
+              <br />
+              <br />
+              <h4 class="card-title"> Tags  </h4>
+              <p> (plusieurs au choix)</p>
+              <%= select_tag "tag_id", options_from_collection_for_select(Tag.order(:name), "id", "name"), multiple: true, class: 'chosen-select ml-5' %>
+              <br/>
+              <br/>
+              <button type="submit" class= "btn btn-primary" style="width: 20%;"> Créer </button>
+            </div>
+          <%end%>
+        </center>

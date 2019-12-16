@@ -1,15 +1,20 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
     <%= link_to  calendar.url_for_previous_view do %>
-    <i class="material-icons">
-arrow_back_ios
+
+
+    <i  style="font-size: 50px; color: black;" class="material-icons">
+arrow_back_ios 
 </i>
 <%end%>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+
+<span>SUIVANT - PRECEDENT</span>
+
     <%= link_to calendar.url_for_next_view do %>
-        <i class="material-icons">
+        <i style="font-size: 50px; color: black;" class="material-icons">
 arrow_forward_ios
 </i>
+
 <%end%>
   </div>
 

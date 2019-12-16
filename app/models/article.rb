@@ -9,7 +9,7 @@ class Article < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   ## Validations :
-  #validates :resume, presence: true
+  # validates :resume, presence: true
   validates :title, presence: true
   validates :content, presence: true
 end

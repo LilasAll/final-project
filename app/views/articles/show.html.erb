@@ -1,4 +1,3 @@
-
 <div class="article-card mx-auto">
   <div class="card card-nav-tabs article-show">
     <div class="card-header card-header-primary">
@@ -7,7 +6,7 @@
     <div class="card-body">
       <p class="card-text"><%= @article.content.html_safe %></p>
       <% @article.join_tag_articles.each do |join| %>
-         <%= link_to tag_path(join.tag.id), class: "" do %> 
+        <%= link_to tag_path(join.tag.id), class: "" do %>
           <span class="badge badge-primary"> <%= join.tag.name %></span>
         <% end %>
       <% end %>
@@ -17,13 +16,12 @@
       <div class="card-text d-flex justify-content-end">par <%= link_to " #{@article.author.pseudo}", user_path(@article.author) %></div>
     </div>
     <p><i class="material-icons">favorite</i><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-
     <center>
-    <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
-    <% if pre_like %>
-    <%= form_for :like, url: article_like_path(@article, pre_like), method: :delete do |f| %>
-        <button class="btn br3 bg-primary ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Je n'aime plus</i> </button>
-          <%end%>
+      <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+        <%= form_for :like, url: article_like_path(@article, pre_like), method: :delete do |f| %>
+          <button class="btn br3 bg-primary ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i> Je n'aime plus</i> </button>
+      <%end%>
     <% else %>
       <%= form_for :like, url: article_likes_path(@article) do |f| %>
         <button class="btn br3 btn-primary ph4 pv3 lh0 bt bl bw2 b--black-20 white tc"> <i class="material-icons">favorite</i>J'aime</i> </button>
@@ -31,19 +29,20 @@
   <% end %>
 </center>
 </div>
-</div> <br> <div class="d-flex justify-content-between">
-        <%= link_to articles_path,style: "margin: 20px" do %>
-          <button type="button" class="btn btn-warning btn-circle btn-xl" title="Voir tous les articles">
-            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-          </button>
-        <%end%>
-
-        <%= link_to root_path, style: "margin: 20px" do %>
-          <button type="button" class="btn btn-secondary btn-circle btn-xl" title="Retour sur à l'accueil">
-            <span class="material-icon">
-              <i style="color: white;" class="material-icons">home</i> </span>
-          </button>
-        <%end%>
-      </div>
 </div>
-
+ <br>
+ 
+<div class="d-flex justify-content-between">
+  <%= link_to articles_path,style: "margin: 20px" do %>
+    <button type="button" class="btn btn-warning btn-circle btn-xl" title="Voir tous les articles">
+      <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+    </button>
+  <%end%>
+  <%= link_to root_path, style: "margin: 20px" do %>
+    <button type="button" class="btn btn-secondary btn-circle btn-xl" title="Retour sur à l'accueil">
+      <span class="material-icon">
+        <i style="color: white;" class="material-icons">home</i> </span>
+    </button>
+  <%end%>
+</div>
+</div>

@@ -26,10 +26,8 @@ class Event < ApplicationRecord
   #  end
   # end
 
-
-  #validates :duration, presence: true, :numericality => { :greater_than_or_equal_to => 1 }
-  #validates :duration_is_positif_and_5_multiple
-
+  # validates :duration, presence: true, :numericality => { :greater_than_or_equal_to => 1 }
+  # validates :duration_is_positif_and_5_multiple
 
   validates :start_date, presence: true
   validate :start_date_cannot_be_in_the_past
