@@ -10,14 +10,6 @@
 // import icon from 'app/assets/images/community.png';
 
 
-let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
-
-
 //----------------- INITIALISATION DE LA MAP ---------------------\\
 
 let initialZoom = 12;
@@ -49,7 +41,9 @@ let secondhand_icon = L.icon({
                        });
 
 cities_secondhand_array.forEach(function(place){
-   let marker = L.marker([place.latitude ,place.longitude], {icon: secondhand_icon , title:"Magasin de seconde-main"}).bindPopup("N'achetez plus neuf, venez découvrir les belles pièces de seconde-main dans notre sélection de friperies");
+   // let marker = L.marker([place.latitude ,place.longitude], {icon: secondhand_icon , title:"Magasin de seconde-main"}).bindPopup("N'achetez plus neuf, venez découvrir les belles pièces de seconde-main dans notre sélection de friperies");
+   let marker = L.marker([place.latitude ,place.longitude], {title:"Magasin de seconde-main"}).bindPopup("N'achetez plus neuf, venez découvrir les belles pièces de seconde-main dans notre sélection de friperies");
+   
    marker.addTo(mymap);
 });
 
@@ -66,7 +60,9 @@ let community_icon = L.icon({
 
 
 cities_cultural_array.forEach(function(place){
-   let marker = L.marker([place.latitude ,place.longitude], {icon: community_icon , title:"Lieu de partage"}).bindPopup('Venez y prendre un café');
+   // let marker = L.marker([place.latitude ,place.longitude], {icon: community_icon , title:"Lieu de partage"}).bindPopup('Venez y prendre un café');
+   let marker = L.marker([place.latitude ,place.longitude], {title:"Lieu de partage"}).bindPopup('Venez y prendre un café');
+
    marker.addTo(mymap);
 });
 
@@ -82,7 +78,9 @@ let garden_icon = L.icon({
     });
 
 cities_garden_array.forEach(function(place){
-   let marker = L.marker([place.latitude ,place.longitude],{title:"Jardin partagé de quartier", icon: garden_icon}).bindPopup('Pour jardiner avec ses voisins');
+   // let marker = L.marker([place.latitude ,place.longitude],{title:"Jardin partagé de quartier", icon: garden_icon}).bindPopup('Pour jardiner avec ses voisins');
+   let marker = L.marker([place.latitude ,place.longitude],{title:"Jardin partagé de quartier"}).bindPopup('Pour jardiner avec ses voisins');
+   
    marker.addTo(mymap);
 });
 
