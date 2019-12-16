@@ -55,7 +55,7 @@ cities_cultural_array.forEach(function(place){
 //Jardins partagés
 let cities_garden_array = gon.cities_garden
 let garden_icon = L.icon({
-     iconUrl: '/assets/garden.png',
+     iconUrl: '/assets/event1.jpg',
      iconSize: [40, 40],
      iconAnchor: [22, 38],
      popupAnchor: [-3, -76],
