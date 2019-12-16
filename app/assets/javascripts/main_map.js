@@ -1,3 +1,21 @@
+// import React, { Component } from 'react';
+// import L from 'leaflet';
+// import {
+//     Map, TileLayer, Marker, Popup
+// } from 'react-leaflet'
+// import 'leaflet/dist/leaflet.css';
+// import './style.css';
+
+
+// import icon from 'app/assets/images/community.png';
+
+
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 
 //----------------- INITIALISATION DE LA MAP ---------------------\\
@@ -22,7 +40,7 @@ var iconMarkers = new L.FeatureGroup();
 console.log(gon.cities_cultural);
 let cities_secondhand_array = gon.cities_secondhand
 let secondhand_icon = L.icon({
-     iconUrl: '../assets/event2.jpg',
+     iconUrl: '../assets/secondhand.png',
      iconSize: [30, 30],
      iconAnchor: [22, 38],
      popupAnchor: [-3, -76],
@@ -55,7 +73,7 @@ cities_cultural_array.forEach(function(place){
 //Jardins partagés
 let cities_garden_array = gon.cities_garden
 let garden_icon = L.icon({
-     iconUrl: '/assets/event1.jpg',
+     iconUrl: '/assets/garden.png',
      iconSize: [40, 40],
      iconAnchor: [22, 38],
      popupAnchor: [-3, -76],
@@ -70,6 +88,12 @@ cities_garden_array.forEach(function(place){
 
 iconMarkers.addLayer(marker);
 iconMarkers.addTo(mymap);
+
+// Control layer
+L.control.layers({
+'Main' : mainLayer
+
+}).addTo(mymap);
 
 
 // Légende
