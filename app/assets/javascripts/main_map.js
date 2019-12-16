@@ -22,7 +22,7 @@ var iconMarkers = new L.FeatureGroup();
 console.log(gon.cities_cultural);
 let cities_secondhand_array = gon.cities_secondhand
 let secondhand_icon = L.icon({
-     iconUrl: '../assets/secondhand.png',
+     iconUrl: '../assets/event2.jpg',
      iconSize: [30, 30],
      iconAnchor: [22, 38],
      popupAnchor: [-3, -76],
@@ -70,12 +70,6 @@ cities_garden_array.forEach(function(place){
 
 iconMarkers.addLayer(marker);
 iconMarkers.addTo(mymap);
-
-// Control layer
-L.control.layers({
-'Main' : mainLayer
-
-}).addTo(mymap);
 
 
 // Légende
