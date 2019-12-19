@@ -24,12 +24,13 @@
 //= require trix
 
 
-document.addEventListener("turbolinks:load", function() { 
+document.addEventListener("turbolinks:load", function() {
   $('.slider').slider()
 });
 
 (function($) { // Begin jQuery
   $(function() { // DOM ready
+
     // If a link has a dropdown, add sub menu toggle.
     $('nav ul li a:not(:only-child)').click(function(e) {
       $(this).siblings('.nav-dropdown').toggle();
@@ -49,11 +50,11 @@ document.addEventListener("turbolinks:load", function() {
     $('#nav-toggle').on('click', function() {
       this.classList.toggle('active');
     });
+    ScrollReveal().reveal('.card-reveal').fadeOut(3000);
+
   }); // end DOM ready
 })(jQuery); // end jQuery
 
 setTimeout(function() {
     $('#flash_messages_time').fadeOut(2000);
 }, 1000); // <-- time in milliseconds
-
-

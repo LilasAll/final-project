@@ -1,3 +1,32 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container-chat-recipient {
+  width: 400px;
+  margin: 50px;
+  margin-left: 100px;
+
+  background: #00bfb6;
+  padding: 20px;
+  text-align: right;
+  font-weight: 900;
+  color: #fff;
+  font-family: arial;
+  position:relative;
+}
+
+.container-chat-sender {
+  width: 400px;
+  margin: 50px;
+  margin-right: 100px;
+
+  background: #cc4c02;
+  padding: 20px;
+  text-align: left;
+  font-weight: 900;
+  color: #fff;
+  font-family: arial;
+  position:relative;
+}
+
+.name-messages{
+
+  font-size: 12px;
+}

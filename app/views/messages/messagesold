@@ -1,12 +1,12 @@
 <center>
-  <div style="width: 40em; margin-top: 100px;" class="main main-raised">
+  <div style="width: 30em; margin-top: 100px;" class="main main-raised">
     <div  class="section section-basic">
       <div class=" container">
         <% if  @conversation.sender.pseudo != current_user.pseudo%>
-          <p style="font-size: 30px; margin:50px; " > Vous parlez à <strong> <%=  @conversation.sender.pseudo%> </strong>
+          <p style="font-size: 30px;" > Vous parlez à <strong> <%=  @conversation.sender.pseudo%> </strong>
             <p>
             <%else%>
-              <p style="font-size: 30px; margin:50px;" > Vous parlez à <strong> <%=  @conversation.recipient.pseudo%></strong>
+              <p style="font-size: 30px;" > Vous parlez à <strong> <%=  @conversation.recipient.pseudo%></strong>
                 <p>
                 <%end%>
                 <div id="scroll" class="scroll panel panel-default">
@@ -18,38 +18,20 @@
                   'data-placement' => 'right', :title => 'Back To Inbox' } %>
                   <% @messages.each do |message| %>
                     <% if message.body %>
-                    <% if message.user_id == @conversation.sender_id %>
-                    <div  class="container-chat-sender">
-                      <% user = User.find(message.user_id) %>
-                      <div class="item">
-                        <div class="panel-heading">
-                          <div class=" name-messages header"><i><%= user.pseudo %> <%= message.message_time %></i></div>
-                          <div class="list">
-                            <div class="item">
-                              <i class="right triangle icon"></i>
-                              <%= message.body %>
+                      <div class="container-chat">
+                        <% user = User.find(message.user_id) %>
+                        <div class="item">
+                          <div class="panel-heading">
+                            <div class="header"><strong><%= user.pseudo %> </strong><%= message.message_time %></div>
+                            <div class="list">
+                              <div class="item">
+                                <i class="right triangle icon"></i>
+                                <%= message.body %>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <%else%>
-                    <div class="container-chat-recipient">
-                      <% user = User.find(message.user_id) %>
-                      <div class="item">
-                        <div class="panel-heading">
-                          <div class="header name-messages "><strong><%= user.pseudo %><i> </strong><%= message.message_time %></i>  </div>
-                          <div class="list">
-                            <div class="item">
-                              <i class="right triangle icon"></i>
-                              <%= message.body %>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <%end%>
-
                     <% end %>
                   <% end %>
                 </div>

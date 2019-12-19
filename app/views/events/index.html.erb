@@ -4,7 +4,7 @@
   <div class="card-columns index-padding">
     <% @events.each do |event| %>
       <% if event.is_validated == true%>
-        <div class="card p-3 card-blog">
+        <div id="card-reveal" class="card-reveal card p-3 card-blog">
           <div class="card-header card-header-image">
             <%= link_to event_path(event.id) do %>
               <% if event.image_event.attached? %>
@@ -26,7 +26,7 @@
               <i class="material-icons">day</i><%= event.start_date.strftime( "le %d/%m/%Y à %H:%M") %>
             </p>
             <% event.join_tag_events.each do |join| %>
-              <%= link_to tag_path(join.tag.id), class: "" do %> 
+              <%= link_to tag_path(join.tag.id), class: "" do %>
                 <span class="badge badge-primary"> <%= join.tag.name %></span>
               <% end %>
             <% end %>
