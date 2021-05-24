@@ -120,7 +120,7 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    em-http-request (1.1.5)
+    em-http-request (1.1.7)
       addressable (>= 2.3.4)
       cookiejar (!= 0.3.1)
       em-socksify (>= 0.3)
@@ -215,7 +215,7 @@ GEM
     pg (1.1.4)
     private_pub (1.0.3)
       faye
-    public_suffix (4.0.1)
+    public_suffix (4.0.6)
     puma (3.12.2)
     rack (2.0.7)
     rack-test (1.1.0)
